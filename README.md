@@ -198,10 +198,6 @@ Ce projet a été développé par l'équipe suivante :
 
 ---
 
-**Note** : Assurez-vous de remplacer les liens manquants ou incomplets vers les profils LinkedIn par les liens corrects.
-
----
-
 # Liens utiles 🔗
 
 - [Documentation du projet](Lien_vers_votre_documentation)
