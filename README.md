@@ -210,6 +210,4 @@ Ce projet a été développé par l'équipe suivante :
 
 ---
 
-Vous pouvez copier-coller ce contenu dans votre README sur GitHub. Les icônes ajoutent une touche visuelle pour améliorer la lisibilité et rendre le document plus attrayant.
-
-**Remarque** : Si vous rencontrez des problèmes avec l'affichage des emojis ou des badges sur GitHub, assurez-vous que le formatage est correct et que les images sont accessibles. Les badges sont générés via [Shields.io](https://shields.io/) dans les exemples ci-dessus.
+Les badges sont générés via [Shields.io](https://shields.io/) 
