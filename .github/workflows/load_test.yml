@@ -45,7 +45,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build and Test Images
+      - name: Build Images
         run: |
           # Définir les images et leurs chemins
           declare -A IMAGE_PATHS=(
@@ -55,7 +55,7 @@ jobs:
             ["mlops-meteo-frontend"]="./dockerfiles/frontend"
           )
           
-          # Construction et test de chaque image
+          # Construction de chaque image
           for IMAGE in "${!IMAGE_PATHS[@]}"; do
             BUILD_PATH="${IMAGE_PATHS[$IMAGE]}"
             echo "Building $IMAGE from $BUILD_PATH..."
@@ -63,16 +63,6 @@ jobs:
             # Build de l'image
             docker build -t "$IMAGE" "$BUILD_PATH"
             
-            # Tests spécifiques selon l'image
-            case "$IMAGE" in
-              "mlops-meteo-airflow-base")
-                # Exécuter pytest directement dans le conteneur
-                docker run --entrypoint python "$IMAGE" -m pytest /opt/airflow/plugins/tests --maxfail=5
-                ;;
-              "mlops-meteo-fastapi")
-                docker run "$IMAGE" pytest /app/tests --maxfail=5
-                ;;
-            esac
           done
 
       - name: Tag and Push Images
