@@ -11,6 +11,7 @@ Ce projet déploie un modèle **Random Forest** 🌲 dans une application de pr�
 - [Installation et utilisation](#installation-et-utilisation-)
   - [Version de production](#version-de-production-)
   - [Version de développement](#version-de-développement-)
+  - [Accès aux services](#accès-aux-services-)
 - [CI/CD](#cicd-)
 - [Monitoring](#monitoring-)
 - [Licence](#licence-)
@@ -128,6 +129,23 @@ Le projet est entièrement containerisé, ce qui facilite le déploiement et la 
    make -f Makefile.dev start
    ```
 
+### Accès aux services 🌐
+
+Après avoir démarré les services, vous pouvez accéder aux différentes interfaces via les ports suivants :
+
+- **Airflow** 🏗️ : [http://localhost:8080](http://localhost:8080)
+  - **Port** : `8080`
+  - Interface Web pour superviser les DAGs et les tâches.
+- **MLflow** 🚀 : [http://localhost:5000](http://localhost:5000)
+  - **Port** : `5000`
+  - Interface pour visualiser les expériences de machine learning et les paramètres des modèles.
+- **FastAPI** ⚡ (API d'inférence) : [http://localhost:8000/docs](http://localhost:8000/docs)
+  - **Port** : `8000`
+  - Documentation interactive de l'API via Swagger UI.
+- **Streamlit** 🎨 : [http://localhost:8501](http://localhost:8501)
+  - **Port** : `8501`
+  - Interface utilisateur pour effectuer des prédictions et accéder au panneau administrateur.
+
 ---
 
 ## CI/CD ⚙️
@@ -146,7 +164,7 @@ Le projet utilise **GitHub Actions** ⚙️ pour l'intégration continue et le d
 
 - **Accéder à Grafana** :
 
-  Rendez-vous sur `http://localhost:3000` et connectez-vous avec les identifiants par défaut (configurés dans le docker-compose).
+  Rendez-vous sur [http://localhost:3000](http://localhost:3000) (port `3000`) et connectez-vous avec les identifiants par défaut (configurés dans le docker-compose).
 
 - **Dashboards permettant de visualiser entre autres** :
 
