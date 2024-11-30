@@ -148,16 +148,6 @@ Après avoir démarré les services, vous pouvez accéder aux différentes inter
 
 ---
 
-## CI/CD ⚙️
-
-Le projet utilise **GitHub Actions** ⚙️ pour l'intégration continue et le déploiement continu :
-
-- **Tests automatisés** 🧪 : À chaque push ou pull request, les tests unitaires sont exécutés pour s'assurer que le code est fonctionnel.
-- **Build des images Docker** 🐳 : Les images Docker sont construites et testées.
-- **Déploiement sur Docker Hub** 🐳 : Si les tests réussissent, les images sont poussées sur Docker Hub avec un nouveau tag de version.
-
----
-
 ## Monitoring 📈
 
 **Prometheus** 📈 collecte les métriques système, telles que l'utilisation du CPU, de la mémoire et des ressources réseau. **Grafana** 📊 est utilisé pour visualiser ces métriques à travers des tableaux de bord personnalisables.
@@ -173,6 +163,17 @@ Le projet utilise **GitHub Actions** ⚙️ pour l'intégration continue et le d
   - Utilisation du disque. 💾
   - Utilisation du réseau. 🌐
   - Performances des services Docker. 🐳
+
+---
+
+## CI/CD ⚙️
+
+Le projet utilise **GitHub Actions** ⚙️ pour l'intégration continue et le déploiement continu :
+
+- **Tests automatisés** 🧪 : À chaque push ou pull request, les tests unitaires sont exécutés pour s'assurer que le code est fonctionnel.
+- **Build des images Docker** 🐳 : Les images Docker sont construites et testées.
+- **Déploiement sur Docker Hub** 🐳 : Si les tests réussissent, les images sont poussées sur Docker Hub avec un nouveau tag de version.
+
 
 ---
 
