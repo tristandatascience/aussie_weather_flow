@@ -1,0 +1,22 @@
+:doctype: book
+:lang: fr
+:chapter-signifier: Chapitre
+:imagesdir: images
+:icons: font
+:toc: left
+:toc-title: Table des matières
+:toclevels: 4
+:numbered:
+:source-highlighter: rouge
+
+= Projet Prévision Météo en Australie - MLOps Juillet 2024
+
+include::./Links.adoc[]
+
+include::1-Introduction.adoc[]
+
+include::2-Architecture.adoc[]
+
+include::3-Acquisition des données.adoc[]
+
+

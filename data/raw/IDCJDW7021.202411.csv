@@ -1,0 +1,36 @@
+"Daily Weather Observations for Hobart, Tasmania for November 2024"
+"Prepared at 06:20 UTC on Wednesday 27 November 2024   IDCJDW7021.202411"
+"Copyright 2003 Commonwealth Bureau of Meteorology"
+"Most observations from Battery Point, but some from Hobart Airport West."
+"Hobart Airport West {station 94008} was originally called Hobart Airport. The name was changed with the opening of the new site Hobart Airport {station 94250}."
+"Temperature, humidity, wind, pressure and rainfall observations are from Hobart (Ellerslie Road) {station 094029}"
+"Cloud, evaporation and sunshine observations are from Hobart Airport West {station 094008}"
+
+,"Date","Minimum temperature (°C)","Maximum temperature (°C)","Rainfall (mm)","Evaporation (mm)","Sunshine (hours)","Direction of maximum wind gust ","Speed of maximum wind gust (km/h)","Time of maximum wind gust","9am Temperature (°C)","9am relative humidity (%)","9am cloud amount (oktas)","9am wind direction","9am wind speed (km/h)","9am MSL pressure (hPa)","3pm Temperature (°C)","3pm relative humidity (%)","3pm cloud amount (oktas)","3pm wind direction","3pm wind speed (km/h)","3pm MSL pressure (hPa)"
+,2024-11-1,7.7,14.8,0.8,,,SW,56,12:00,12.0,46,,WSW,19,1014.4,14.3,40,,WSW,26,1017.0
+,2024-11-2,4.1,22.5,0,,,N,56,16:34,10.7,55,,NNW,20,1019.5,22.5,29,,N,24,1010.4
+,2024-11-3,10.5,20.4,0.4,,,NNW,76,04:05,16.6,40,,NW,28,998.3,18.2,39,,NW,30,1001.2
+,2024-11-4,11.4,20.3,0,,,NW,50,15:00,12.2,61,,NNW,22,1008.0,19.0,35,,NNW,30,1009.2
+,2024-11-5,8.4,21.0,0,,,WNW,46,01:47,14.7,50,,N,17,1014.9,20.1,37,,SE,17,1011.7
+,2024-11-6,10.0,29.7,0,,,NNW,61,12:07,15.3,56,,NNW,33,1003.1,29.6,27,,N,30,995.9
+,2024-11-7,10.6,20.1,0,,,NNW,44,10:57,14.9,44,,NNW,24,1007.4,19.0,33,,SE,11,1005.2
+,2024-11-8,9.4,18.1,0,,,NW,85,08:45,15.8,38,,NW,44,996.3,16.0,30,,WNW,26,1001.6
+,2024-11-9,9.1,18.6,0,,,NW,50,10:23,14.3,49,,NW,20,1013.3,16.6,41,,NNW,20,1012.4
+,2024-11-10,9.6,16.9,0.4,,,NW,43,00:40,12.2,59,,SSE,7,1020.9,15.8,46,,SE,22,1021.5
+,2024-11-11,7.0,19.0,0,,,SE,44,14:21,12.8,61,,ESE,13,1021.5,18.4,40,,SE,20,1018.9
+,2024-11-12,10.4,23.2,0,,,SW,35,16:42,15.5,56,,NNW,13,1018.7,19.6,52,,SE,20,1014.0
+,2024-11-13,13.4,20.3,0.4,,,SW,37,17:57,17.6,63,,W,7,1007.4,14.5,84,,ENE,20,1008.5
+,2024-11-14,7.9,19.7,2.0,,,WSW,57,16:20,14.8,44,,NNW,20,1016.6,17.3,39,,SW,20,1016.1
+,2024-11-15,7.5,17.9,0,,,SW,31,23:53,10.8,62,,SE,9,1025.2,15.2,53,,SE,20,1023.3
+,2024-11-16,10.2,24.5,0,,,S,43,14:33,17.2,54,,N,22,1016.7,20.1,57,,S,28,1015.0
+,2024-11-17,15.7,24.6,0,,,WNW,72,13:28,20.4,63,,N,22,997.5,16.0,62,,NW,30,995.7
+,2024-11-18,9.9,17.3,8.8,,,SW,59,15:30,13.8,51,,SW,19,1006.6,16.6,47,,WSW,28,1011.2
+,2024-11-19,8.7,17.6,0.2,,,SE,35,15:04,11.9,52,,SSW,7,1023.6,15.5,54,,ESE,20,1021.5
+,2024-11-20,7.4,17.1,0,,,SSE,43,10:48,15.1,49,,NE,13,1026.1,12.7,64,,SSE,22,1027.4
+,2024-11-21,9.2,20.6,0,,,S,39,16:44,15.2,57,,N,9,1027.2,19.7,53,,SE,20,1023.8
+,2024-11-22,11.2,21.7,0,,,ESE,28,12:41,15.7,65,,ENE,11,1022.4,20.5,55,,SE,19,1019.7
+,2024-11-23,14.4,27.0,0,,,WNW,48,11:14,19.7,65,,NNW,28,1014.7,26.7,33,,N,19,1011.4
+,2024-11-24,13.3,16.4,0,,,NNW,33,00:45,13.3,92,,SE,17,1018.0,15.0,74,,SE,20,1018.1
+,2024-11-25,12.4,18.9,0,,,ESE,30,13:11,13.8,88,,SE,13,1017.2,17.3,65,,SE,20,1014.5
+,2024-11-26,13.3,22.6,0.2,,,SE,30,10:32,16.8,77,,NE,11,1011.1,21.6,63,,SE,17,1007.8
+,2024-11-27,15.8,,0,,,,,,18.4,84,,NNW,13,1004.6,17.0,98,,SE,13,1002.2

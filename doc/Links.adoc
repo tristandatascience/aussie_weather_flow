@@ -1,0 +1,4 @@
+:DataScientest:         https://datascientest.com[DataScientest]
+:DSMLOps:               https://datascientest.com/en/ml-ops-course[MLOps]
+
+:KagglePrj:             https://www.kaggle.com/jsphyg/weather-dataset-rattle-package[Kaggle]

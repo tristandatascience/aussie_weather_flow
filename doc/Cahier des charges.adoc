@@ -1,0 +1,145 @@
+:doctype: book
+:lang: fr
+:chapter-signifier: Chapitre
+:imagesdir: images
+:icons: font
+:toc: left
+:toc-title: Table des matières
+:toclevels: 4
+:numbered:
+:source-highlighter: rouge
+
+= Cahier des charges - Projet MLOps METEO
+
+== Contexte et Objectifs
+
+Les services d’urgences hospitaliers sont de plus en plus saturés et les ressources en personnels souvent sous tension. La gestion des flux de patients et en particulier l’anticipation des arrivées devient cruciale pour adapter les organisations et les affectations des ressources soignantes.
+
+Un premier modèle prédictif a été réalisé à partir des données historiques d’activité. +
+Le projet est de l’enrichir avec des données telles que la météo. +
+En effet, les grosses chaleurs, les vents porteurs d’allergènes ou de particules polluantes, l’hygrométrie ont souvent été reliés à des pics d’activité.
+
+Nous proposons dans ce projet, de réaliser une API qui permettra de savoir s’il va pleuvoir à J+1 dans une ville d’Australie. +
+Le résultat sera ensuite intégré dans le modèle de prédiction des flux patients. +
+Dans un premier temps on pourra mettre l’API en accès sur l’intranet de l’établissement.
+
+Le commanditaire est le service des urgences d’un établissement hospitalier. +
+L’utilisateur final est la cellule de gestion des flux. +
+L’administration technique sera la Direction des Services Informatiques de l’établissement. +
+Le pilotage métier sera intégré dans les missions de la Cellule de Gouvernance afin d’être notamment toujours en conformité avec le RGPD. 
+ 
+== Modèle
+
+=== Random Forest
+
+Différents modèles ont été testé (gradient boosting, Random Forest...). +
+Le modèle retenu est un Random Forest, algorithme d'apprentissage automatique utilisé principalement pour la classification et la régression.
+
+Voici les principaux principes de son fonctionnement :
+
+* Le modèle construit plusieurs arbres de décision à partir d'un sous-ensemble aléatoire des données d'entraînement en utilisant une méthode de bootstrapping. +
+* Chaque arbre de décision vote pour une classe, et la classe avec le plus de votes est choisie comme prédiction finale. +
+* En combinant plusieurs arbres, Random Forest réduit la variance du modèle global, ce qui le rend plus stable et moins sensible aux fluctuations des données. +
+* Il faut surveiller le Temps de calcul qui peut être plus lent à entraîner en raison du grand nombre d'arbres.
+
+=== Métriques
+
+Dans notre cas, le modèle Random Forest a été entraîné et évalué sur un ensemble de données comprenant des caractéristiques météorologiques. Les résultats de l'évaluation montrent une précision de 94.75%, indiquant que le modèle prédit correctement presque 95% des cas.
+
+Voici un résumé des performances :
+
+Accuracy : 94.75%
+
+Rapport de classification :
+
+* Précision pour "Pas de pluie" : 97% +
+* Précision pour "Pluie" : 92% +
+* F1-score : 95%
+
+On rappelle :
+
+* *Accuracy* : Mesure le pourcentage de prédictions correctes (positives ou négatives). Un score élevé indique une bonne performance globale du modèle. 
+* *Précision* (Precision) : Évalue la proportion de vraies prédictions positives (VP) par rapport à toutes les prédictions positives (VP et FP). Une précision élevée pour les prédictions de pluie est essentielle pour minimiser les fausses alertes.
+* *Rappel* (Recall) : Mesure la capacité du modèle à identifier correctement les cas de pluie. (VP et FN) Un rappel élevé est nécessaire pour s'assurer que les événements de pluie ne passent pas inaperçus.
+* *F1-score* : La moyenne harmonique de la précision et du rappel, utile pour évaluer l'équilibre entre ces deux métriques. (tous les positifs, que les positifs)
+* *Robustesse* : Le modèle doit être capable de gérer des variations dans les données d'entrée, y compris les cas déséquilibrés entre les classes (pluie/non-pluie).
+* *Temps d'entraînement* : Mesuré pour garantir que le modèle peut être formé dans un délai raisonnable, ce qui est crucial pour un déploiement en temps réel.
+* *Temps de prédiction* : Évalué pour s'assurer que le modèle peut fournir des prévisions rapidement, permettant une intégration efficace dans des systèmes de notification.
+
+NOTE: La prédiction météo est considérée fiable en général à 3 jours (même si cela dépend des modèles). Il faut donc un temps d’entrainement compatible. On pourrait envisager une mise à jour toutes les 24-48 heures.
+
+== Sources de données
+
+=== Dans le cadre du projet
+
+Les données d’entrainement proviennent d’une base de 10 années d’observations météorologiques dans diverses villes australiennes. +
+https://www.kaggle.com/jsphyg/weather-dataset-rattle-package
+
+Des nouvelles données seront intégrées afin de re-entrainer le(s) modèle(s) et proposer une nouvelle version si le modèle est plus performant. +
+http://www.bom.gov.au/climate/data 
+
+Elles seront scrappées sur le site.
+
+=== Dans le cadre d’un développement dans des établissements de santé
+
+Les données d’enrichissement pourraient avantageusement être des données météo locales. En effet il y a des phénomènes cycliques tels que El niño ou La niña qui évoluent à travers le Pacific sur plusieurs années et modifient beaucoup le climat. Par ailleurs, s’agissant de la mise en suspension ou non de polluants, on a également tout intérêt à avoir des données de proximité.
+
+== Gestion de l’ingestion de nouvelles données
+
+* Acquisition des données.
+* Qualification, transformation, entrainement d’un nouveau modèle.
+* Comparaison de la performance.
+* Choix de garder ou pas en fonction des seuils décisionnels fixés.
+* Mise en production. Historisation.
+
+NOTE: Si on se projette sur l’application finale, il faudra tester le transfert des données de l’API meteo vers l’API Flux patients : la probabilité de pluie à J+1 sera une variable supplémentaire dans le modèle complet, puis tester la nouvelle performance du modèle complet.
+
+== API 
+
+=== Les utilisateurs et leurs droits
+
+Un accès *admin* permettra de contrôler les flux, recevoir des alertes (mail par exemple), adapter si besoin le recueil de données incrémental, (changement de source d’information, de format), faire évoluer les modèles.
+
+Les utilisateurs finaux sont identifiés dans le système d’information hospitalier (SIH). Il pourrait être intéressant de récupérer les credentials de l’Active Directory. Cela permettrait à tout nouvel arrivant d’utiliser l’API. Les droits ne sont qu’en lecture ; il n’y a pas de donnée sensible.
+
+Dans le contexte du mémoire on fera une authentification plus « universelle ».
+
+=== End points
+
+* *Status* : Vérification du fonctionnement de l’API.
+* *Authentification* : Vérification des autorisations et des droits.
+* *Prediction* :
+** Appel au modèle
+** Renvoie une probabilité de pluie à J+1 
+* *Administration* (accès réservé)
+** Exécution manuelle d'une prédiction
+
+=== Evolutions
+
+Autres actions possibles, à développer ultérieurement :
+
+* Intégration de nouvelles données Préparation, entrainement +
+* Alertes sur amélioration ou nom de la prédiction
+* Mise à jour du modèle
+* Déploiement
+
+== Architecture, choix techniques
+
+Les données collectées sur le site australien, seront stockées dans une base Postgres. +
+Après intégration des données, le modèle est re-entrainé. +
+On utilise MLFlow pour le suivi des expériences. +
+La conteneurisation, par Docker permet une automatisation du process avec Airflow. +
+On prévoit des conteneurs pour MLFlow, pour AirFlow et pour l’API elle-même.
+
+image::Diagramme.png[]
+
+== Testing & Monitoring
+
+Divers tests unitaires sont réalisés lors de l’intégration des données, la transformation, la réalisation de la prédiction.
+Un github actions permet de déclencher les tests lors des modifications de code, permettant d’assurer qualité et fiabilité.
+
+Les performances de l’API et le suivi de l’utilisation des ressources sera piloté par Prometheus avec une visualisation sur Grafana.
+
+== Schéma d’implémentation
+
+image::Schema MLOPS meteo.png[]

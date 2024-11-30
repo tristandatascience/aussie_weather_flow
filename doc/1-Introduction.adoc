@@ -1,0 +1,30 @@
+:imagesdir: images
+:icons: font
+:toc:
+
+include::./Links.adoc[]
+
+== Introduction
+
+Ce dépot contient le code de notre projet **Prévision Météo en Australie - MLOps**, développé durant notre cursus {DSMLOps} chez {DataScientest}.
+
+Ce projet a pour objectif le déploiement et le monitoring d'une solution pour la prédiction météo selon un cycle MLOps.
+
+Le but est de prévoir s'il va pleuvoir le lendemain.
+
+Basé sur les données initiales d'un projet {KagglePrj}.
+
+Notre travail :
+
+* définir un process MLOps.
+
+Ce projet a été développé par l'équipe suivante :
+
+* Shirley Gervolino (https://github.com/Shirley687[GitHub] / https://www.linkedin.com/in/[LinkedIn])
+* Tristan Lozahic (https://github.com/tristandatascience[GitHub] / https://www.linkedin.com/in/[LinkedIn])
+* Prudence Amani (https://github.com/[GitHub] / https://www.linkedin.com/in/[LinkedIn])
+* Stéphane Los (https://github.com/hil-slos[GitHub] / https://fr.linkedin.com/in/losstephane/[LinkedIn])
+
+== Documents de référence
+
+* Le *Cahier des charges* : "Cahier des charges.pdf"

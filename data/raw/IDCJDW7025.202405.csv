@@ -1,0 +1,40 @@
+"Daily Weather Observations for Launceston, Tasmania for May 2024"
+"Prepared at 13:03 UTC on Wednesday  6 November 2024   IDCJDW7025.202405"
+"Copyright 2003 Commonwealth Bureau of Meteorology"
+"Most observations from Ti Tree Bend, but pressure and cloud from the airport."
+"Conditions at Launceston Airport may be markedly different to those in the city on some days. Some cloud observations are from automated equipment; these are somewhat different to those made by a human observer and may not appear every day."
+"Temperature, humidity, wind, pressure and rainfall observations are from Launceston (Ti Tree Bend) {station 091237}"
+"Cloud observations are from Launceston Airport {station 091311}"
+
+,"Date","Minimum temperature (°C)","Maximum temperature (°C)","Rainfall (mm)","Evaporation (mm)","Sunshine (hours)","Direction of maximum wind gust ","Speed of maximum wind gust (km/h)","Time of maximum wind gust","9am Temperature (°C)","9am relative humidity (%)","9am cloud amount (oktas)","9am wind direction","9am wind speed (km/h)","9am MSL pressure (hPa)","3pm Temperature (°C)","3pm relative humidity (%)","3pm cloud amount (oktas)","3pm wind direction","3pm wind speed (km/h)","3pm MSL pressure (hPa)"
+,2024-05-1,1.0,18.5,0,,,SSE,15,12:23,6.3,82,,N,2,,17.9,35,,NNW,2,
+,2024-05-2,2.5,15.5,0,,,SSE,35,10:16,10.0,66,8,SSE,19,,14.9,46,,S,9,
+,2024-05-3,2.8,17.8,0,,,SSE,19,11:50,7.7,78,,E,4,,16.9,48,7,SSW,6,
+,2024-05-4,3.7,18.0,0,,,SE,17,11:15,9.1,78,,ENE,4,,17.0,52,,S,6,
+,2024-05-5,3.1,18.4,0,,,E,15,12:44,6.1,94,7,E,7,,17.6,49,,SSE,2,
+,2024-05-6,6.0,17.0,0,,,SSE,31,09:51,11.5,55,8,SSE,17,,16.3,39,,SSW,4,
+,2024-05-7,1.6,18.6,0,,,S,13,15:14,6.0,83,,E,6,,17.4,48,,SSE,6,
+,2024-05-8,5.9,18.3,0,,,SSE,28,10:27,13.4,71,,SE,15,,17.3,59,8,SSE,15,
+,2024-05-9,6.8,20.6,0,,,E,22,15:24,11.7,88,, ,Calm,,20.1,53,8,SE,9,
+,2024-05-10,6.6,18.8,0,,,SSE,15,12:42,11.7,91,8,ESE,2,,18.1,63,7,SSE,7,
+,2024-05-11,6.6,18.3,0.8,,,SSE,19,13:32,9.4,96,,NE,11,,16.9,55,8,SE,7,
+,2024-05-12,6.9,17.4,0,,,NW,15,15:27,9.8,90,8,SE,2,,16.6,64,8,NNE,6,
+,2024-05-13,6.0,18.0,0,,,NNW,44,14:15,10.3,95,1,WNW,4,,15.3,83,3,NNW,22,
+,2024-05-14,6.8,16.8,2.8,,,SW,35,09:45,11.0,78,,SE,7,,15.9,38,,WNW,9,
+,2024-05-15,4.4,17.5,0,,,NNW,44,10:52,13.5,73,5,NNW,22,,17.1,64,,NNW,20,
+,2024-05-16,1.8,17.3,0,,,NW,39,10:57,6.2,98,, ,Calm,,16.8,55,,NW,20,
+,2024-05-17,6.1,16.6,0,,,SSW,46,16:40,13.1,80,1,W,9,,15.0,32,,SSE,11,
+,2024-05-18,-0.3,12.7,0.2,,,NW,30,15:40,2.1,84,8,E,7,,11.8,42,,NNW,17,
+,2024-05-19,2.1,18.5,0,,,NW,26,03:52,10.4,91,6, ,Calm,,16.6,45,2,SSE,11,
+,2024-05-20,1.0,15.1,0,,,SSE,30,11:35,6.2,80,,ESE,6,,14.5,45,,SE,6,
+,2024-05-21,-0.8,15.5,0,,,SSE,20,12:16,3.0,87,,ENE,4,,14.5,51,5,SE,2,
+,2024-05-22,3.0,17.2,0.4,,,NW,22,13:26,9.3,92,8, ,Calm,,16.3,65,6,NW,11,
+,2024-05-23,4.4,16.5,0.2,,,S,31,23:29,5.1,97,3, ,Calm,,15.9,67,8,NNW,6,
+,2024-05-24,5.0,14.4,10.8,,,SSE,31,10:29,9.0,81,,ESE,15,,14.1,63,,SSE,11,
+,2024-05-25,6.0,15.0,0,,,SE,11,07:14,6.3,91,6,ENE,6,,14.7,47,,SSE,6,
+,2024-05-26,-0.1,15.0,0,,,E,11,01:06,2.6,92,,E,4,,14.4,49,,NW,4,
+,2024-05-27,2.6,16.8,0,,,NNW,35,14:21,11.1,97,1,NNW,6,,15.5,63,,NNW,22,
+,2024-05-28,6.9,18.5,0,,,NNW,31,11:00,13.3,92,,NW,7,,17.8,70,,NNW,17,
+,2024-05-29,6.9,18.2,0,,,NW,28,13:19,11.6,99,2,NNW,7,,16.9,68,,NNW,17,
+,2024-05-30,5.7,19.1,0.2,,,NNW,70,23:41,6.1,98,8,NNW,2,,16.5,81,8,NW,19,
+,2024-05-31,6.0,15.0,19.0,,,NNW,87,11:17,12.1,87,8,NW,39,,12.3,70,6,NW,30,

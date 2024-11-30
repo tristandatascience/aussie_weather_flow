@@ -1,0 +1,50 @@
+:imagesdir: images
+:icons: font
+:toc:
+
+== Architecture
+
+=== Composants
+
+==== MLflow
+
+*MLflow* est utilisé pour le suivi des entraînements et les expériences réalisées.
+
+Il est également utilisé pour la phase de mise en production et le déploiement de modèles.
+
+==== Airflow
+
+Pour automatiser le workflow nous utilisons *Airflow* qui nous permet de gérer :
+
+* l'acquisition de nouvelles données météo,
+* leur sauvegarde dans un fichier CSV adapté,
+* la préparation des données,
+* l'insertion des données dans la base Postgres,
+
+En collaboration avec MLflow :
+
+* l'entraînement du modèle,
+* la sélection et la mise en production du meilleur modèle.
+
+==== Application FastAPI
+
+Cette application utilise le modèle mis en production et fournit une API permettant de réaliser les prédictions et déclencher le réentraînement du modèle.
+
+==== Frontal
+
+Pour réaliser l'interface utilisateur nous utilisons *Streamlit* qui fournit une interface Web à l'application.
+
+==== Prometheus
+
+*Prometheus* sert à la collecte des métriques des différents services.
+
+==== Grafana
+
+Le monitoring est assuré par *Grafana*.
+
+==== Docker
+
+Enfin, tous les services sont conteneurisés grâce à *Docker*.
+
+=== Diagramme
+

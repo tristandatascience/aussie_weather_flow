@@ -1,0 +1,40 @@
+"Daily Weather Observations for Launceston, Tasmania for December 2023"
+"Prepared at 13:03 UTC on Monday 11 November 2024   IDCJDW7025.202312"
+"Copyright 2003 Commonwealth Bureau of Meteorology"
+"Most observations from Ti Tree Bend, but pressure and cloud from the airport."
+"Conditions at Launceston Airport may be markedly different to those in the city on some days. Some cloud observations are from automated equipment; these are somewhat different to those made by a human observer and may not appear every day."
+"Temperature, humidity, wind, pressure and rainfall observations are from Launceston (Ti Tree Bend) {station 091237}"
+"Cloud observations are from Launceston Airport {station 091311}"
+
+,"Date","Minimum temperature (°C)","Maximum temperature (°C)","Rainfall (mm)","Evaporation (mm)","Sunshine (hours)","Direction of maximum wind gust ","Speed of maximum wind gust (km/h)","Time of maximum wind gust","9am Temperature (°C)","9am relative humidity (%)","9am cloud amount (oktas)","9am wind direction","9am wind speed (km/h)","9am MSL pressure (hPa)","3pm Temperature (°C)","3pm relative humidity (%)","3pm cloud amount (oktas)","3pm wind direction","3pm wind speed (km/h)","3pm MSL pressure (hPa)"
+,2023-12-1,10.4,22.6,0,,,SSE,28,07:04,15.5,64,8,SE,13,,20.1,47,7,NNE,7,
+,2023-12-2,12.5,26.0,0,,,NW,35,16:51,17.8,65,8,ESE,4,,24.0,36,4,S,11,
+,2023-12-3,13.4,23.3,0.6,,,NNW,33,15:36,16.7,81,8,E,6,,20.8,54,1,NNW,20,
+,2023-12-4,13.3,21.9,0,,,NNW,35,16:40,19.2,56,4,N,13,,21.2,56,8,NNW,20,
+,2023-12-5,10.6,24.4,0,,,NNW,46,14:26,17.9,74,8,ESE,6,,22.6,53,1,NNW,30,
+,2023-12-6,8.2,22.8,0,,,NNW,41,16:47,16.3,47,,NNW,7,,21.5,38,2,NNW,19,
+,2023-12-7,7.9,24.2,0,,,NNW,44,16:37,15.4,58,,NW,6,,22.7,44,,NW,24,
+,2023-12-8,12.8,26.3,0,,,NNW,44,16:17,17.6,64,,NW,15,,22.7,61,7,NW,19,
+,2023-12-9,16.1,21.2,10.4,,,SSE,43,15:08,17.4,75,8,NW,13,,20.8,50,8,SE,17,
+,2023-12-10,10.0,21.8,0,,,NNW,30,15:25,15.5,57,,SE,9,,20.0,51,8,NNW,11,
+,2023-12-11,11.7,29.9,0,,,NW,35,17:03,17.5,71,,S,9,,29.3,27,,WNW,9,
+,2023-12-12,14.0,27.8,0,,,NW,31,13:50,18.8,72,,NNW,4,,25.6,54,,NW,20,
+,2023-12-13,13.1,27.2,0,,,SW,35,22:29,21.5,61,,N,4,,19.9,94,8,E,7,
+,2023-12-14,15.9,22.0,16.0,,,NW,67,01:33,17.8,81,8,NNW,22,,20.4,59,8,NW,22,
+,2023-12-15,9.6,22.1,0,,,NNW,48,14:54,15.4,71,7,NNW,9,,19.9,44,2,NW,22,
+,2023-12-16,10.7,21.8,0,,,W,50,12:45,15.9,69,3,NW,24,,20.3,32,1,WNW,24,
+,2023-12-17,8.5,21.3,0,,,NNW,41,14:06,15.8,62,,NW,13,,19.4,53,3,NNW,26,
+,2023-12-18,13.4,21.5,0,,,N,28,20:02,17.6,70,6,NW,7,,19.8,67,7,NW,9,
+,2023-12-19,15.3,23.9,22.6,,,SSE,50,17:37,18.6,78,8, ,Calm,,22.0,44,8,NNW,31,
+,2023-12-20,8.6,23.5,0,,,SE,30,08:52,15.1,53,,SSE,19,,22.4,34,,ENE,6,
+,2023-12-21,11.6,22.9,2.6,,,SE,33,16:59,17.5,65,,SSE,9,,21.9,37,3,SSE,22,
+,2023-12-22,9.1,22.9,0,,,SSE,35,08:29,17.2,48,6,SSE,20,,21.7,37,,SE,15,
+,2023-12-23,10.4,23.8,0,,,NW,35,15:13,16.6,56,,SSE,6,,22.0,37,5,NE,6,
+,2023-12-24,14.9,24.4,0,,,N,41,16:08,18.6,64,8,N,7,,23.2,45,8,NW,11,
+,2023-12-25,12.2,24.7,3.0,,,S,41,10:22,17.8,62,2,SE,15,,23.9,39,2,ENE,6,
+,2023-12-26,9.6,27.8,0,,,SSE,28,09:38,18.8,62,,SE,4,,26.4,35,2,NW,6,
+,2023-12-27,16.2,29.7,0,,,ESE,35,14:37,21.7,60,1,SSE,15,,28.6,39,8,SE,13,
+,2023-12-28,15.4,27.2,4.6,,,NW,44,13:21,20.0,80,6,N,4,,23.7,51,8,NNW,26,
+,2023-12-29,9.2,24.0,0,,,W,46,16:08,16.7,45,,S,7,,22.5,33,6,NW,28,
+,2023-12-30,12.0,21.6,0,,,S,39,16:50,15.7,40,1,SSW,17,,19.7,35,,SW,19,
+,2023-12-31,7.5,26.0,0,,,NW,43,14:15,16.2,46,,SSE,2,,25.4,34,,NW,9,

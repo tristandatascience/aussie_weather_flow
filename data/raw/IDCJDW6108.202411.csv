@@ -1,0 +1,36 @@
+"Daily Weather Observations for Pearce RAAF Base, Western Australia for November 2024"
+"Prepared at 08:20 UTC on Wednesday 27 November 2024   IDCJDW6108.202411"
+"Copyright 2003 Commonwealth Bureau of Meteorology"
+"Most observations from Pearce RAAF Base, but some from Perth Airport."
+"The mean sea level pressure at Perth Airport is provided for convenience. On most occasions it will be within 1 hPa of that at Pearce.Some cloud observations are from automated equipment; these are somewhat different to those made by a human observer and may not appear every day."
+"Temperature, humidity, wind, pressure, cloud and rainfall observations are from Pearce RAAF {station 009053}"
+"Sunshine observations are from Perth Airport {station 009021}"
+
+,"Date","Minimum temperature (°C)","Maximum temperature (°C)","Rainfall (mm)","Evaporation (mm)","Sunshine (hours)","Direction of maximum wind gust ","Speed of maximum wind gust (km/h)","Time of maximum wind gust","9am Temperature (°C)","9am relative humidity (%)","9am cloud amount (oktas)","9am wind direction","9am wind speed (km/h)","9am MSL pressure (hPa)","3pm Temperature (°C)","3pm relative humidity (%)","3pm cloud amount (oktas)","3pm wind direction","3pm wind speed (km/h)","3pm MSL pressure (hPa)"
+,2024-11-1,12.2,32.3,0,,11.9,SW,39,12:56,27.9,22,,NNE,6,1010.7,27.8,29,,WSW,28,1009.2
+,2024-11-2,16.1,25.0,0.2,,3.6,SSW,31,12:46,19.9,71,8,SW,19,1015.6,21.8,59,8,SW,22,1013.8
+,2024-11-3,12.7,24.3,3.0,,12.6,WSW,41,14:01,18.5,58,,SSW,13,1015.9,22.8,38,,SW,28,1013.9
+,2024-11-4,9.5,24.4,0.2,,10.9,SW,41,15:32,17.9,61,,SSE,6,1014.6,21.0,50,8,SW,28,1013.1
+,2024-11-5,14.5,24.6,0,,7.6,WSW,56,11:12,19.9,63,8,WSW,22,1015.6,22.0,52,7,WSW,28,1015.1
+,2024-11-6,13.2,22.7,0,,8.6,SW,46,09:08,18.8,49,8,SW,24,1019.6,21.7,35,4,SSW,22,1019.3
+,2024-11-7,5.3,24.0,0,,10.9,SW,43,14:59,18.1,44,,S,22,1021.3,22.1,37,,SW,26,1017.1
+,2024-11-8,13.3,24.1,2.6,,5.2,NE,37,04:51,19.6,60,6,S,9,1014.7,22.7,47,3,S,20,1013.4
+,2024-11-9,13.9,24.6,1.6,,7.2,SW,37,15:04,17.1,65,7,NE,15,1020.1,23.3,44,5,SW,20,1017.5
+,2024-11-10,8.9,26.7,0,,12.4,ENE,39,07:15,20.6,54,,NE,15,1020.5,24.9,41,1,SSW,26,1017.5
+,2024-11-11,9.6,28.9,0,,12.9,WSW,39,13:50,21.1,57,,WSW,11,1019.2,26.2,36,,WSW,26,1016.0
+,2024-11-12,9.1,27.5,0,,9.1,S,41,08:05,19.3,58,8,SSE,20,1020.3,27.5,40,,SW,24,1017.1
+,2024-11-13,9.6,34.9,0,,12.4,E,48,06:26,24.1,43,,ESE,17,1017.9,33.9,15,,SW,15,1012.5
+,2024-11-14,16.8,35.1,0,,12.4,E,35,03:52,25.9,40,,S,13,1012.0,31.1,34,,SW,22,1009.8
+,2024-11-15,15.6,27.8,0,,8.7,SSW,43,14:02,21.4,58,7,SSW,15,1013.7,25.3,43,4,SSW,30,1012.6
+,2024-11-16,11.4,25.4,0,,12.9,S,43,14:52,16.7,36,,SE,22,1019.5,23.1,31,,S,31,1015.6
+,2024-11-17,11.3,29.2,0,,12.9,E,57,23:49,18.3,39,,E,24,1019.0,28.5,19,,ESE,22,1013.8
+,2024-11-18,16.7,35.6,0,,9.5,E,61,01:43,24.3,32,,ENE,31,1012.9,34.2,20,4,E,20,1008.5
+,2024-11-19,20.9,28.7,0.4,,2.0,NNW,44,10:47,25.6,50,8,N,15,1011.0,23.7,67,8,NNE,11,1010.0
+,2024-11-20,17.9,28.3,4.0,,6.8,WNW,43,15:07,22.7,73,8,N,19,1008.0,26.6,48,3,W,30,1005.7
+,2024-11-21,17.4,24.8,1.0,,5.1,SW,44,11:38,19.8,81,8,SW,17,1009.3,22.0,57,8,SW,28,1009.6
+,2024-11-22,11.2,25.4,0.2,,13.1,SW,41,15:35,20.8,50,1,S,17,1017.5,24.2,37,,SW,24,1016.7
+,2024-11-23,10.4,32.5,0,,13.1,E,54,07:33,22.3,46,,E,20,1020.3,31.2,19,,ESE,13,1015.2
+,2024-11-24,14.5,39.5,0,,13.1,SW,46,14:49,29.2,31,,ENE,20,1013.0,36.7,17,1,SW,35,1006.3
+,2024-11-25,16.3,27.2,0,,13.1,SSW,56,15:41,22.2,43,,S,39,1012.4,24.2,38,,SW,33,1011.1
+,2024-11-26,8.8,26.3,0,,13.0,E,52,23:49,17.1,37,,SE,24,1019.6,25.1,21,,SSE,15,1015.2
+,2024-11-27,12.5,,0,,,,,,19.5,38,,NNE,22,1020.2,28.5,20,,ESE,24,1015.2

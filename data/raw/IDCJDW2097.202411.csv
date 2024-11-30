@@ -1,0 +1,35 @@
+"Daily Weather Observations for Newcastle, New South Wales for November 2024"
+"Prepared at 05:36 UTC on Wednesday 27 November 2024   IDCJDW2097.202411"
+"Copyright 2003 Commonwealth Bureau of Meteorology"
+"Most observations from Nobbys Head, but cloud from Newcastle University."
+"Temperature, humidity, wind and rainfall observations are from Newcastle Nobbys Signal Station AWS {station 061055}"
+"Cloud observations are from Newcastle University {station 061390}"
+
+,"Date","Minimum temperature (°C)","Maximum temperature (°C)","Rainfall (mm)","Evaporation (mm)","Sunshine (hours)","Direction of maximum wind gust ","Speed of maximum wind gust (km/h)","Time of maximum wind gust","9am Temperature (°C)","9am relative humidity (%)","9am cloud amount (oktas)","9am wind direction","9am wind speed (km/h)","9am MSL pressure (hPa)","3pm Temperature (°C)","3pm relative humidity (%)","3pm cloud amount (oktas)","3pm wind direction","3pm wind speed (km/h)","3pm MSL pressure (hPa)"
+,2024-11-1,17.4,22.1,0.2,,,SE,35,00:56,20.3,75,,SSW,13,,20.5,65,,SSE,22,
+,2024-11-2,16.4,20.8,10.6,,,ENE,57,16:13,17.3,88,,ESE,24,,20.0,78,,E,39,
+,2024-11-3,17.2,31.1,0,,,NNW,43,14:24,20.4,74,,N,19,,28.4,49,,N,13,
+,2024-11-4,20.4,21.2,0,,,SSW,54,14:14,20.8,84,,SSW,19,,18.8,87,,SSW,43,
+,2024-11-5,18.6,21.3,3.4,,,SSW,39,23:02,20.5,78,,SE,22,,21.1,78,,ESE,22,
+,2024-11-6,19.2,26.6,0.2,,,E,33,17:22,20.1,85,,NNW,17,,22.7,81,,E,20,
+,2024-11-7,20.1,33.2,0,,,W,56,14:54,24.6,77,,N,4,,24.4,68,,ESE,26,
+,2024-11-8,17.9,24.1,15.8,,,NE,35,18:37,21.3,55,,W,17,,22.4,66,,E,17,
+,2024-11-9,18.3,23.4,0,,,SW,52,02:31,21.5,72,,SW,17,,22.6,75,,SSE,19,
+,2024-11-10,19.7,23.9,0,,,SSW,54,14:06,21.8,80,,N,6,,21.5,83,,SSW,37,
+,2024-11-11,19.2,21.3,0,,,SSW,50,03:40,19.7,82,,SSW,24,,20.1,84,,SSW,26,
+,2024-11-12,17.4,21.8,14.2,,,E,35,14:06,18.4,92,,W,13,,20.1,81,,SSW,15,
+,2024-11-13,17.7,22.9,11.0,,,E,48,17:04,21.6,86,,SE,6,,22.1,75,,E,20,
+,2024-11-14,17.2,21.9,7.4,,,SSW,52,12:20,20.3,81,,SW,15,,20.9,80,,S,31,
+,2024-11-15,19.1,21.5,0,,,E,39,19:18,20.2,72,,ESE,19,,20.7,73,,ESE,20,
+,2024-11-16,19.9,23.1,0,,,E,48,17:48,20.6,80,,E,33,,21.9,76,,E,33,
+,2024-11-17,19.5,24.6,0,,,WSW,67,20:12,22.5,72,,NE,11,,22.6,77,,E,30,
+,2024-11-18,18.0,22.8,6.0,,,SSW,41,08:45,18.1,89,,SSW,30,,22.5,77,,E,7,
+,2024-11-19,16.1,21.4,2.4,,,ESE,35,23:06,19.7,69,,E,15,,20.5,66,,ESE,24,
+,2024-11-20,17.9,21.9,0,,,E,35,15:23,21.1,75,,E,7,,20.9,67,,E,26,
+,2024-11-21,18.3,22.7,0,,,E,33,14:29,21.4,66,,ENE,6,,21.1,65,,ESE,26,
+,2024-11-22,17.0,22.0,0,,,,,,21.9,74,,SE,6,,21.7,75,,E,30,
+,2024-11-23,18.0,22.7,0,,,E,44,15:16,21.1,71,,E,11,,21.7,69,,E,33,
+,2024-11-24,17.9,22.8,0,,,E,37,15:36,22.0,75,,NE,6,,22.0,75,,E,31,
+,2024-11-25,19.1,24.4,0,,,E,41,14:21,22.4,74,,E,6,,21.8,75,,E,33,
+,2024-11-26,19.6,27.8,0,,,E,39,13:03,23.0,76,,N,9,,23.4,71,,E,33,
+,2024-11-27,20.2,,0,,,,,,27.7,51,,NNW,20,,22.8,75,,E,24,
