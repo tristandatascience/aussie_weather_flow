@@ -31,7 +31,7 @@ jobs:
         run: |
           pytest plugins/tests --maxfail=5 --disable-warnings
 
-  build-test-push:
+  build-and-push:
     needs: test
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
