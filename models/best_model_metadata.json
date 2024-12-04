@@ -1,1 +1,1 @@
-{"accuracy": 0.76730869338886, "precision": 0.7683783890270988, "recall": 0.76730869338886, "f1_score": 0.7672734931232741, "export_date": "2024-12-04T12:29:18.971953", "model_type": "RandomForestClassifier"}
+{"accuracy": 0.7704320666319625, "precision": 0.7713512256263224, "recall": 0.7704320666319625, "f1_score": 0.7702585888985926, "export_date": "2024-12-04T21:07:14.065849", "model_type": "RandomForestClassifier"}

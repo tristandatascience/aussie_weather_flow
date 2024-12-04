@@ -1,57 +1,184 @@
-from collections import OrderedDict
-
 import streamlit as st
+import requests
+import pandas as pd
+# URL de base de l'API FastAPI
+BASE_URL = "http://fastapi:8000"
 
-import config
+# Fonction pour récupérer les stations depuis l'API
+def get_stations():
+    try:
+        response = requests.get(f"{BASE_URL}/locations")
+        if response.status_code == 200:
+            locations = response.json()
+            stations = {location["Location_Name"]: location["Location_Code"] for location in locations}
+            return stations
+        else:
+            st.error("Failed to fetch stations")
+            return {}
+    except Exception as e:
+        st.error(f"Error fetching stations: {e}")
+        return {}
 
-# TODO : you can (and should) rename and add tabs in the ./tabs folder,
-#        and import them here.
-from tabs import intro, prediction, administration, conclusion
+# Fonction pour effectuer une prédiction
+def predict(station_id):
+    try:
+        response = requests.get(f"{BASE_URL}/predict/{station_id}")
+        if response.status_code == 200:
+            return response.json()
+        else:
+            st.error("Failed to get prediction")
+            return None
+    except Exception as e:
+        st.error(f"Error during prediction: {e}")
+        return None
+
+# Fonction pour se connecter (Admin page)
+def login():
+    user = st.text_input("Username")
+    password = st.text_input("Password", type="password")
+    
+    if st.button("Login"):
+        try:
+            token_response = requests.post(
+                f"{BASE_URL}/token",
+                data={"username": user, "password": password},
+                headers={"Content-Type": "application/x-www-form-urlencoded"}
+            )
+            if token_response.status_code == 200:
+                token = token_response.json().get("access_token")
+                st.session_state.token = token
+                st.success("Login successful")
+                st.rerun()  # Utilisation de st.rerun() au lieu de st.experimental_rerun()
+            else:
+                st.error("Invalid username or password")
+        except Exception as e:
+            st.error(f"Login failed: {e}")
+    
+    return False
+
+# Fonction pour entraîner le modèle (Admin page)
+def train():
+    if "token" in st.session_state:
+        try:
+            response = requests.post(
+                f"{BASE_URL}/admin/refresh",
+                headers={"Authorization": f"Bearer {st.session_state.token}"}
+            )
+            if response.status_code == 200:
+                st.success("Latest data retrieval and training launched successfully")
+            else:
+                st.error("data retrieval and training failed")
+        except Exception as e:
+            st.error(f"data retrieval and training failed: {e}")
+    else:
+        st.error("You must be logged in to train the model")
 
 
-st.set_page_config(
-    page_title=config.TITLE,
-    page_icon="https://datascientest.com/wp-content/uploads/2020/03/"
-              "cropped-favicon-datascientest-1-32x32.png",
-)
+def get_all_model_versions():
+    try:
+        response = requests.get(f"{BASE_URL}/models")
+        if response.status_code == 200:
+            return response.json().get("models", [])
+        else:
+            st.error("Échec de la récupération des modèles")
+            return []
+    except Exception as e:
+        st.error(f"Erreur lors de la récupération des modèles : {e}")
+        return []
 
-# with open("style.css", "r") as f:
-#    style = f.read()
-
-# st.markdown(f"<style>{style}</style>", unsafe_allow_html=True)
-
-# TODO: add new and/or renamed tab in this ordered dict by
-# passing the name in the sidebar as key and the imported tab
-# as value as follow :
-TABS = OrderedDict(
-    [
-        (intro.sidebar_name, intro),
-        (prediction.sidebar_name, prediction),
-        (administration.sidebar_name, administration),
-        (conclusion.sidebar_name, conclusion),
-    ]
-)
+def load_model_version(version):
+    try:
+        response = requests.post(f"{BASE_URL}/models/{version}/load")
+        if response.status_code == 200:
+            return True
+        else:
+            st.error("Échec du chargement du modèle")
+            return False
+    except Exception as e:
+        st.error(f"Erreur lors du chargement du modèle : {e}")
+        return False
 
 
-def run():
-    st.sidebar.image(
-        "https://dst-studio-template.s3.eu-west-3.amazonaws.com/"
-        "logo-datascientest.png",
-        width=200,
+# Fonction principale
+def main():
+    st.title("Weather App")
+    
+    # Menu de navigation
+    page = st.sidebar.selectbox(
+        "Select a Page",
+        ["Predict", "Admin"]
     )
-    tab_name = st.sidebar.radio(label="tabs", options=list(TABS.keys()),
-                                index=0, label_visibility="hidden")
-    st.sidebar.markdown("---")
-    st.sidebar.markdown(f"## {config.PROMOTION}")
+    
+    # Page "Predict"
+    if page == "Predict":
+        st.subheader("Prediction Page")
+        
+        stations = get_stations()
+        if stations:
+            city = st.selectbox("Select a City", options=list(stations.keys()))
+            
+            if st.button("Predict"):
+                station_id = stations[city]
+                prediction = predict(station_id)
+                if prediction:
+                    st.write(f"Prediction for {city}: {prediction}")
+        else:
+            st.error("No stations available")
 
-    st.sidebar.markdown("### Team members:")
-    for member in config.TEAM_MEMBERS:
-        st.sidebar.markdown(member.sidebar_markdown(), unsafe_allow_html=True)
+    # Page "Admin"
+    elif page == "Admin":
+        st.subheader("Page d'Administration")
+        
+        if "token" in st.session_state:
+            st.success("Vous êtes connecté !")
+            
+            # Section des modèles
+            st.subheader("Gestion des Modèles")
+            
+            models = get_all_model_versions()
+            if not models:
+                st.warning("Aucun modèle disponible.")
+            else:
+                # Création d'un DataFrame pour un affichage plus propre
+                models_data = []
+                for model in models:
+                    models_data.append({
+                        "Version": model["version"],
+                        "Date de création": model["creation_date"],
+                        "Statut": model["status"],
+                        "F1-Score": f"{model['metrics']['f1_score']:.3f}",
+                        "Précision": f"{model['metrics']['precision']:.3f}",
+                        "Rappel": f"{model['metrics']['recall']:.3f}"
+                    })
+                
+                df = pd.DataFrame(models_data)
+                st.dataframe(df)
+                
+                # Sélection et chargement d'un modèle
+                selected_version = st.selectbox(
+                    "Sélectionner une version du modèle",
+                    options=[m["version"] for m in models],
+                    format_func=lambda x: f"Version {x}"
+                )
+                
+                col1, col2 = st.columns(2)
+                with col1:
+                    if st.button("Charger le modèle sélectionné"):
+                        if load_model_version(selected_version):
+                            st.success(f"Modèle version {selected_version} chargé avec succès")
+                
+                with col2:
+                    if st.button("Entraîner un nouveau modèle"):
+                        train()
 
-    tab = TABS[tab_name]
+            
+        else:
+            st.info("Veuillez vous connecter pour accéder aux fonctionnalités d'administration")
+            login()
 
-    tab.run()
 
 
 if __name__ == "__main__":
-    run()
+    main()
+
+

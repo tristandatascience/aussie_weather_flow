@@ -1,10 +1,10 @@
 "Daily Weather Observations for Norfolk Island for December 2024"
-"Prepared at 05:36 UTC on Wednesday  4 December 2024   IDCJDW2100.202412"
+"Prepared at 10:00 UTC on Wednesday  4 December 2024   IDCJDW2100.202412"
 "Copyright 2003 Commonwealth Bureau of Meteorology"
 "Observations were drawn from Norfolk Island Aero {station 200288}"
 
 ,"Date","Minimum temperature (°C)","Maximum temperature (°C)","Rainfall (mm)","Evaporation (mm)","Sunshine (hours)","Direction of maximum wind gust ","Speed of maximum wind gust (km/h)","Time of maximum wind gust","9am Temperature (°C)","9am relative humidity (%)","9am cloud amount (oktas)","9am wind direction","9am wind speed (km/h)","9am MSL pressure (hPa)","3pm Temperature (°C)","3pm relative humidity (%)","3pm cloud amount (oktas)","3pm wind direction","3pm wind speed (km/h)","3pm MSL pressure (hPa)"
-,2024-12-1,20.1,24.6,0,,,E,48,11:56,22.2,80,,E,30,1017.9,22.3,78,,E,24,1016.5
+,2024-12-1,20.1,24.6,0,,,E,48,11:56,23.1,78,,E,31,1017.8,22.3,78,,E,24,1016.5
 ,2024-12-2,19.7,24.7,0,,,E,48,12:16,22.3,79,,E,31,1018.9,23.2,77,,E,28,1017.8
-,2024-12-3,19.1,24.9,0.2,,,ENE,43,09:58,23.1,77,,E,31,1019.7,22.0,82,,E,24,1017.8
-,2024-12-4,19.5,,0,,,,,,22.7,84,,ESE,20,1018.2,22.7,88,,E,20,1017.2
+,2024-12-3,19.1,24.9,0.2,,,ENE,43,09:58,22.2,81,8,E,24,1019.7,22.0,82,,E,24,1017.8
+,2024-12-4,19.5,,0,,,,,,21.7,87,7,ESE,20,1018.4,22.7,88,,E,20,1017.2

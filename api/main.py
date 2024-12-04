@@ -14,7 +14,8 @@ import os
 import asyncio
 import base64
 import uuid
-from weather_utils.model_functions import load_df, predict_with_model
+from weather_utils.model_functions import load_df, predict_with_model, save_model
+from weather_utils.mlflow_functions import get_all_model_versions, load_specific_model_version
 from auth import (
     create_access_token,
     get_current_user,
@@ -33,6 +34,14 @@ AIRFLOW_PASSWORD = os.getenv("AIRFLOW_PASSWORD")
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 MODEL_PATH = os.getenv("MODEL_PATH")
 TEMP_PATH = os.getenv("TEMP_PATH")
+
+
+
+import logging
+
+logging.basicConfig(level=logging.DEBUG)
+logger = logging.getLogger(__name__)
+
 
 @app.post("/token")
 async def login(form_data: OAuth2PasswordRequestForm = Depends()):
@@ -165,3 +174,58 @@ async def refresh_dags(auth_token: str = Depends(oauth2_scheme)):
         status="success"
     )
 
+
+#import logging
+#import mlflow
+#from mlflow.tracking import MlflowClient
+#from fastapi import FastAPI, HTTPException, Depends, status, Security
+# ... autres imports ...
+
+# Configuration du logger
+#logging.basicConfig(level=logging.DEBUG)
+#logger = logging.getLogger(__name__)
+
+# Configuration de MLflow (à ajouter après la création de l'app)
+#mlflow.set_tracking_uri(os.getenv("MLFLOW_TRACKING_URI", "http://mlflow:5000"))
+
+@app.get("/models")
+def list_models():
+    try:
+        models = get_all_model_versions()
+        logger.debug(f"Modèles récupérés: {models}")
+        
+        if not models:
+            return {
+                "message": "Aucun modèle n'est actuellement enregistré dans MLflow",
+                "models": [],
+                "status": "success"
+            }
+        return {
+            "message": f"{len(models)} modèle(s) trouvé(s)",
+            "models": models,
+            "status": "success"
+        }
+    except Exception as e:
+        logger.error(f"Erreur lors de la récupération des modèles: {str(e)}", exc_info=True)
+        raise HTTPException(
+            status_code=500,
+            detail=f"Erreur lors de la communication avec MLflow : {str(e)}"
+        )
+
+@app.get("/models/{version}")
+def get_model_info(version: str):
+    models = get_all_model_versions()
+    model_info = next((m for m in models if m['version'] == version), None)
+    if model_info is None:
+        raise HTTPException(status_code=404, detail="Version du modèle non trouvée")
+    return model_info
+
+
+@app.post("/models/{version}/load")
+def load_model(version: str):
+    model = load_specific_model_version(version)
+    save_model(model)
+    if model is None:
+        raise HTTPException(status_code=404, detail="Impossible de charger cette version du modèle")
+    # Logique pour utiliser le modèle...
+    return {"message": f"Modèle version {version} chargé avec succès"}

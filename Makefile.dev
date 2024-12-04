@@ -11,7 +11,7 @@ stop:
 	docker compose -f docker-compose.dev.yml down
 
 restart:
-	docker compose up -f docker-compose.dev.yml --build
+	docker compose  -f docker-compose.dev.yml up --build 
 
 airflow-logs:
 	docker compose -f docker-compose.dev.yml logs airflow-webserver

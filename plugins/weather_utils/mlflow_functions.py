@@ -31,7 +31,7 @@ BEST_MODEL_PATH = os.path.join(MODEL_PATH, "best_model.joblib")
 # Function to prepare data
 def prepare_data(df):
     if df is not None and not df.empty:
-        X = df.drop(columns="RainTomorrow")
+        X = df.drop(columns=["RainTomorrow", "ingestion_date"])
         y = df["RainTomorrow"]
         X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
         return X_train, X_test, y_train, y_test
@@ -235,46 +235,49 @@ def get_best_model():
             print("No experiment found")
             return None, None
 
-        # Search for all runs
+        # Rechercher tous les runs et les trier par F1-score
         runs = client.search_runs(
-            experiment_ids=[experiment.experiment_id], 
-            order_by=["metrics.f1_score DESC"]  # Changed to f1_score and DESC
+            experiment_ids=[experiment.experiment_id],
+            order_by=["metrics.f1_score DESC"],
+            max_results=1000  # Augmenter pour être sûr d'avoir tous les runs
         )
 
-        # Filter runs that have all required metrics
-        required_metrics = ['accuracy', 'precision', 'recall', 'f1_score']
-        valid_runs = [run for run in runs if all(metric in run.data.metrics for metric in required_metrics)]
+        best_f1 = -1
+        best_run = None
 
-        if not valid_runs:
-            print("No runs found with all required metrics")
+        # Parcourir tous les runs pour trouver celui avec le meilleur F1-score
+        for run in runs:
+            if 'f1_score' in run.data.metrics:
+                current_f1 = run.data.metrics['f1_score']
+                if current_f1 > best_f1:
+                    best_f1 = current_f1
+                    best_run = run
+
+        if best_run is None:
+            print("Aucun run trouvé avec un score F1")
             return None, None
 
-        # Get the run with the highest F1-score
-        best_run = valid_runs[0]
-        metrics_dict = {
-            'accuracy': best_run.data.metrics["accuracy"],
-            'precision': best_run.data.metrics["precision"],
-            'recall': best_run.data.metrics["recall"],
-            'f1_score': best_run.data.metrics["f1_score"]
-        }
-
-        # Load the model from the best run
+        # Charger le modèle du meilleur run
         best_model = mlflow.sklearn.load_model(
             f"runs:/{best_run.info.run_id}/rf_training"
         )
 
-        print(f"Best model found with metrics:")
-        for metric, value in metrics_dict.items():
-            print(f"{metric}: {value}")
-        
+        metrics_dict = {
+            'accuracy': best_run.data.metrics.get("accuracy"),
+            'precision': best_run.data.metrics.get("precision"),
+            'recall': best_run.data.metrics.get("recall"),
+            'f1_score': best_run.data.metrics.get("f1_score")
+        }
+
+        print(f"Meilleur modèle trouvé avec F1-score: {best_f1}")
         return best_model, metrics_dict
 
     except Exception as e:
-        print(f"Error getting best model: {str(e)}")
+        print(f"Error in export_best_model: {str(e)}")
         print("Detailed error info:")
         import traceback
         traceback.print_exc()
-        return None, None
+        return False
 
 def export_best_model():
     """Export best model to a shared volume"""
@@ -385,3 +388,74 @@ def check_mlflow_state():
         import traceback
         traceback.print_exc()
         return False
+
+
+
+import mlflow
+from mlflow.tracking import MlflowClient
+import logging
+
+logging.basicConfig(level=logging.DEBUG)
+logger = logging.getLogger(__name__)
+
+import mlflow
+from mlflow.tracking import MlflowClient
+from datetime import datetime
+
+def get_all_model_versions():
+    try:
+        client = MlflowClient()
+        registered_models = client.search_registered_models()
+        
+        models_info = []
+        for rm in registered_models:
+            versions = client.get_latest_versions(rm.name)
+            for version in versions:
+                # Récupérer les métriques pour cette version
+                run = client.get_run(version.run_id)
+                metrics = run.data.metrics
+                
+                # Formater la date de création
+                creation_timestamp = datetime.fromtimestamp(version.creation_timestamp / 1000.0)
+                formatted_date = creation_timestamp.strftime("%d-%m-%Y %H:%M:%S")
+                
+                model_info = {
+                    "name": rm.name,
+                    "version": version.version,
+                    "status": version.status,
+                    "creation_date": formatted_date,
+                    "metrics": {
+                        "accuracy": metrics.get("accuracy", None),
+                        "precision": metrics.get("precision", None),
+                        "recall": metrics.get("recall", None),
+                        "f1_score": metrics.get("f1_score", None),
+                        "mae": metrics.get("mae", None),
+                        "mse": metrics.get("mse", None),
+                        "rmse": metrics.get("rmse", None)
+                    }
+                }
+                models_info.append(model_info)
+        
+        return models_info
+    except Exception as e:
+        print(f"Erreur lors de la récupération des modèles : {str(e)}")
+        return []
+
+
+def load_specific_model_version(version):
+    """
+    Charge une version spécifique du modèle depuis MLflow
+    Args:
+        version (str): Numéro de version du modèle à charger
+    Returns:
+        model: Le modèle chargé ou None en cas d'erreur
+    """
+    try:
+        model_name = "RandomForestClassifier"
+        model = mlflow.sklearn.load_model(
+            f"models:/{model_name}/{version}"
+        )
+        return model
+    except Exception as e:
+        print(f"Erreur lors du chargement du modèle version {version}: {str(e)}")
+        return None

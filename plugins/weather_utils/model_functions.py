@@ -92,6 +92,7 @@ def training_model(df):
 def predict_with_model(model, data):
     try:
         features = data.drop(columns='RainTomorrow') if 'RainTomorrow' in data.columns else data
+        features = features.drop(columns=['ingestion_date'])
         
         if features.empty:
             raise ValueError("Input data is empty")

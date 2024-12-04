@@ -19,7 +19,7 @@ def load_csv_to_postgres():
         df = read_csv_file(csv_file_path, sep=',')
         if df is None:
             raise AirflowException("Failed to read CSV file.")
-
+        df['ingestion_date'] = pd.Timestamp.now().date()
         engine = get_postgres_engine()
         if engine is None:
             raise AirflowException("Failed to get PostgreSQL engine.")
@@ -29,7 +29,7 @@ def load_csv_to_postgres():
             'temperature': sqlalchemy.types.Float(),
             # ... add other column types
         }
-        load_dataframe_to_postgres(df, table_name, engine, if_exists='replace', index=False)
+        load_dataframe_to_postgres(df, table_name, engine, if_exists='append', index=False)
         engine.dispose()
 
     except AirflowException as e:

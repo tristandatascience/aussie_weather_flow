@@ -313,6 +313,8 @@ services:
       - ./users:/app/users
       - ./plugins/weather_utils:/app/weather_utils
       - ./temp:/app/temp
+    environment:
+      MLFLOW_TRACKING_URI: "http://mlflow-webserver:5000"
     command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload --log-level debug
 
 
