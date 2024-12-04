@@ -1,0 +1,28 @@
+## Conteneurisation, Tests et Déploiement de notre Projet avec Docker, Docker Compose et GitHub Actions
+
+Ce document décrit l'implémentation de la conteneurisation, des tests unitaires et du déploiement automatisé sur Docker Hub dans notre projet.
+
+###  1 : Conteneurisation avec Docker et Docker Compose
+
+Pour faciliter le développement, le test et le déploiement de notre application, nous avons utilisé Docker et Docker Compose. Chaque composant de notre application (frontend, backend, base de données, etc.) est encapsulé dans un conteneur Docker distinct.  
+
+* **Dockerfiles:**  Chaque service possède son propre Dockerfile, définissant l'environnement d'exécution, les dépendances et les configurations nécessaires.  Ces Dockerfiles permettent de construire des images Docker reproductibles et portables.
+* **Docker Compose:**  Nous utilisons Docker Compose pour orchestrer l'exécution de plusieurs conteneurs. Le fichier `docker-compose.yml` définit les différents services, leurs dépendances, les ports exposés, les volumes montés et les variables d'environnement.  Ceci simplifie grandement le démarrage et l'arrêt de l'application dans un environnement de développement.
+* **Avantages:** La conteneurisation nous a permis d'isoler les dépendances de chaque service, de garantir la cohérence entre les environnements de développement, de test et de production, et de simplifier le déploiement.
+
+###  2 : Tests Unitaires avec GitHub Actions
+
+Pour garantir la qualité du code et détecter les régressions rapidement, nous avons mis en place des tests unitaires automatisés avec GitHub Actions.
+
+* **Workflow GitHub Actions:**  Un workflow GitHub Actions est configuré pour exécuter les tests unitaires à chaque push sur le dépôt Git.  Ce workflow utilise une image Docker contenant les outils nécessaires pour exécuter les tests.
+* **Exécution des tests:**  Le workflow exécute les tests unitaires pour chaque service de l'application.  Les résultats des tests sont affichés dans l'interface GitHub Actions.
+* **Intégration continue:**  L'intégration des tests unitaires dans GitHub Actions nous permet de détecter les erreurs tôt dans le cycle de développement et de garantir la qualité du code avant le déploiement.
+
+###  3 : Push sur Docker Hub avec GitHub Actions
+
+Pour automatiser le déploiement de notre application, nous utilisons GitHub Actions pour pousser les images Docker construites vers Docker Hub.
+
+* **Workflow de déploiement:** Un workflow GitHub Actions est configuré pour construire les images Docker de chaque service et les pousser vers Docker Hub après la réussite des tests unitaires.
+* **Authentification Docker Hub:**  Le workflow utilise des secrets GitHub pour stocker les identifiants Docker Hub, permettant une authentification sécurisée.
+* **Déclenchement du workflow:** Le workflow de déploiement peut être déclenché manuellement ou automatiquement à chaque push sur la branche main.
+* **Avantages:** L'automatisation du déploiement avec GitHub Actions nous permet de déployer rapidement et facilement de nouvelles versions de notre application sur Docker Hub, réduisant ainsi le risque d'erreurs et accélérant le cycle de livraison.

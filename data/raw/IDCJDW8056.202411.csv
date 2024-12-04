@@ -1,5 +1,5 @@
 "Daily Weather Observations for Yulara, Northern Territory for November 2024"
-"Prepared at 07:00 UTC on Wednesday 27 November 2024   IDCJDW8056.202411"
+"Prepared at 07:00 UTC on Saturday 30 November 2024   IDCJDW8056.202411"
 "Copyright 2003 Commonwealth Bureau of Meteorology"
 "Observations from Yulara Airport."
 "Yulara Airport is about 20 kilometres away from Uluru. Some cloud observations are from automated equipment; these are somewhat different to those made by a human observer and may not appear every day."
@@ -32,4 +32,7 @@
 ,2024-11-24,19.1,30.2,1.0,,,ENE,57,16:56,22.5,78,8,ESE,15,1013.7,29.5,51,3,W,7,1010.0
 ,2024-11-25,19.9,34.6,3.0,,,SW,35,16:13,25.6,66,,ESE,15,1010.6,31.5,38,2,NE,9,1004.4
 ,2024-11-26,19.7,34.2,5.8,,,WNW,63,20:53,23.1,79,8,NNW,15,1007.2,33.0,36,4,WSW,20,1002.8
-,2024-11-27,19.2,,5.0,,,,,,23.4,32,1,SE,17,1010.9,30.5,33,,ESE,9,1007.4
+,2024-11-27,19.2,31.8,5.0,,,SSW,37,00:21,23.4,32,1,SE,17,1010.9,30.5,33,,ESE,9,1007.4
+,2024-11-28,18.0,32.9,0,,,E,46,09:43,24.5,38,,E,28,1013.5,31.6,29,4,E,13,1009.2
+,2024-11-29,19.7,34.3,0,,,SW,61,17:14,25.8,38,,ENE,24,1011.4,33.0,25,5,NNW,17,1006.4
+,2024-11-30,19.4,,2.0,,,,,,26.5,47,1,NE,19,1007.3,36.7,19,3,WNW,22,1002.1

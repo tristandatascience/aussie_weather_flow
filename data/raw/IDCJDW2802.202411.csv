@@ -1,5 +1,5 @@
 "Daily Weather Observations for Tuggeranong, Australian Capital Territory for November 2024"
-"Prepared at 05:36 UTC on Wednesday 27 November 2024   IDCJDW2802.202411"
+"Prepared at 05:36 UTC on Saturday 30 November 2024   IDCJDW2802.202411"
 "Copyright 2003 Commonwealth Bureau of Meteorology"
 "Observations were drawn from Tuggeranong (Isabella Plains) AWS {station 070339}"
 
@@ -30,4 +30,7 @@
 ,2024-11-24,12.8,33.4,0,,,WNW,39,15:00,22.3,51,,W,7,1018.0,32.2,22,,N,15,1013.8
 ,2024-11-25,13.4,32.9,0,,,N,35,15:16,22.4,55,,NNE,6,1014.7,32.2,26,,NW,15,1010.2
 ,2024-11-26,15.4,30.4,0,,,WNW,35,09:53,24.7,44,,NNW,13,1011.4,27.0,41,,WNW,15,1010.1
-,2024-11-27,17.5,,0,,,,,,23.6,57,,N,9,1008.8,20.4,92,,N,17,1009.3
+,2024-11-27,17.5,27.8,0,,,NNW,41,09:49,23.6,57,,N,9,1008.8,20.4,92,,N,17,1009.3
+,2024-11-28,17.9,31.0,5.6,,,ENE,39,17:36,20.4,87,,NW,7,1014.1,29.6,40,,NNW,17,1012.4
+,2024-11-29,15.7,23.1,0,,,ESE,24,16:15,20.3,71,, ,Calm,1019.0,22.3,74,,ENE,13,1016.5
+,2024-11-30,17.3,,17.0,,,,,,18.5,100,,NE,11,1010.4,19.1,100,,N,9,1005.9

@@ -1,5 +1,5 @@
 "Daily Weather Observations for Witchcliffe (Margaret River District), Western Australia for November 2024"
-"Prepared at 08:20 UTC on Wednesday 27 November 2024   IDCJDW6081.202411"
+"Prepared at 08:20 UTC on Saturday 30 November 2024   IDCJDW6081.202411"
 "Copyright 2003 Commonwealth Bureau of Meteorology"
 "Observations are from Witchliffe West (109521) which opened in June 2022. Witchcliffe is about 9 km south-south-east of Margaret River."
 "Observations were drawn from Witchcliffe West {station 109521}"
@@ -31,4 +31,7 @@
 ,2024-11-24,11.2,27.2,0,,,SE,43,17:33,20.7,57,,E,6,1015.1,22.1,67,,SSE,26,1012.0
 ,2024-11-25,13.2,18.5,0.4,,,SSE,54,13:32,16.8,65,,S,24,1016.1,16.4,35,,S,30,1017.3
 ,2024-11-26,9.5,19.0,0,,,SE,46,15:35,15.7,50,,SSE,22,1021.5,17.3,46,,SSE,22,1020.3
-,2024-11-27,9.0,,0,,,,,,17.0,65,,SE,19,1022.6,20.7,58,,SE,22,1019.3
+,2024-11-27,9.0,22.3,0,,,SSE,41,17:25,17.0,65,,SE,19,1022.6,20.7,58,,SE,22,1019.3
+,2024-11-28,11.4,28.4,0,,,ENE,33,07:06,20.5,46,,ENE,20,1019.6,25.0,43,,W,22,1015.8
+,2024-11-29,13.1,30.6,0,,,NE,30,09:56,21.4,47,,ENE,17,1013.2,29.6,26,,NE,13,1009.9
+,2024-11-30,12.8,,0,,,,,,26.6,43,,N,13,1003.1,21.6,80,,W,28,1002.4

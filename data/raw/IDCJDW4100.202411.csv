@@ -1,5 +1,5 @@
 "Daily Weather Observations for Richmond Airport, Queensland for November 2024"
-"Prepared at 06:26 UTC on Wednesday 27 November 2024   IDCJDW4100.202411"
+"Prepared at 06:26 UTC on Saturday 30 November 2024   IDCJDW4100.202411"
 "Copyright 2003 Commonwealth Bureau of Meteorology"
 "Most observations from Richmod Airport, but cloud and evaporation data from Richmond Post Office."
 "Temperature, humidity, wind, pressure and rainfall observations are from Richmond Airport {station 030161}"
@@ -32,4 +32,7 @@
 ,2024-11-24,25.2,39.6,0,,,NE,39,02:00,30.5,43,,NE,20,1012.0,39.2,20,,ESE,19,1006.2
 ,2024-11-25,25.5,38.4,0,,,NE,35,02:06,30.7,41,,NNE,11,1010.4,37.1,23,,SE,17,1005.6
 ,2024-11-26,25.1,39.6,0,,,WSW,39,20:07,31.2,32,,NNW,15,1009.7,37.4,22,,NE,9,1003.7
-,2024-11-27,24.6,,5.0,,,,,,31.3,45,,N,20,1008.4,33.7,45,,SW,31,1005.0
+,2024-11-27,24.6,37.0,5.0,,,SSW,44,13:47,31.3,45,,N,20,1008.4,33.7,45,,SW,31,1005.0
+,2024-11-28,22.2,27.3,48.8,,,SE,37,02:57,22.8,96,,NE,11,1011.6,25.7,88,,WNW,11,1009.3
+,2024-11-29,22.8,30.7,5.6,,,ESE,28,08:05,26.9,70,,ESE,20,1010.1,27.3,77,,SSW,20,1007.1
+,2024-11-30,22.3,,52.2,,,,,,26.1,82,,NE,9,1010.0,31.6,52,,WNW,6,1005.7

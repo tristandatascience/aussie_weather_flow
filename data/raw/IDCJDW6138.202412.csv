@@ -1,0 +1,12 @@
+"Daily Weather Observations for Walpole, Western Australia for December 2024"
+"Prepared at 08:20 UTC on Wednesday  4 December 2024   IDCJDW6138.202412"
+"Copyright 2003 Commonwealth Bureau of Meteorology"
+"Observations from North Walpole."
+"The North Walpole observation site is approximately 3 kilometres north-northwest of Walpole and at higher elevation, so significantly different conditions may be experienced at the two places on particular days."
+"Observations were drawn from North Walpole {station 009998}"
+
+,"Date","Minimum temperature (°C)","Maximum temperature (°C)","Rainfall (mm)","Evaporation (mm)","Sunshine (hours)","Direction of maximum wind gust ","Speed of maximum wind gust (km/h)","Time of maximum wind gust","9am Temperature (°C)","9am relative humidity (%)","9am cloud amount (oktas)","9am wind direction","9am wind speed (km/h)","9am MSL pressure (hPa)","3pm Temperature (°C)","3pm relative humidity (%)","3pm cloud amount (oktas)","3pm wind direction","3pm wind speed (km/h)","3pm MSL pressure (hPa)"
+,2024-12-1,14.8,21.2,0.2,,,WNW,59,16:23,19.8,63,,WNW,19,1000.8,17.0,69,,WNW,24,999.1
+,2024-12-2,10.9,20.0,5.0,,,WNW,57,10:33,14.8,74,,W,17,1002.5,19.1,58,,W,28,1003.9
+,2024-12-3,13.8,24.7,0.4,,,WNW,57,14:18,19.9,73,,NW,31,1005.2,23.7,57,,WNW,31,1002.7
+,2024-12-4,15.0,,4.2,,,,,,16.5,75,,WSW,17,1008.4,19.9,59,,SW,15,1010.1

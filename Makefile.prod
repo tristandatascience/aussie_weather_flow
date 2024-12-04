@@ -11,14 +11,14 @@ stop:
 	docker compose -f docker-compose.prod.yml down
 
 restart:
-	docker compose -f docker-compose.prod.yml up --build
+	docker compose -f docker-compose.prod.yml up --build 
 
 airflow-logs:
 	docker compose -f docker-compose.prod.yml logs airflow-webserver
 
 del-containers-and-images:
-	docker stop $(docker ps -q)
-	docker rm $(docker ps -aq)
+	docker stop $(docker ps -q) \
+	docker rm $(docker ps -aq) \
 	docker volume rm $(docker volume ls -q)
 
 free-space:

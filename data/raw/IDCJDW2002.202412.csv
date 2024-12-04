@@ -1,0 +1,12 @@
+"Daily Weather Observations for Albury-Wodonga for December 2024"
+"Prepared at 05:36 UTC on Wednesday  4 December 2024   IDCJDW2002.202412"
+"Copyright 2003 Commonwealth Bureau of Meteorology"
+"Observations from Albury airport."
+"Some cloud observations are from automated equipment; these are somewhat different to those made by a human observer and may not appear every day."
+"Observations were drawn from Albury Airport AWS {station 072160}"
+
+,"Date","Minimum temperature (°C)","Maximum temperature (°C)","Rainfall (mm)","Evaporation (mm)","Sunshine (hours)","Direction of maximum wind gust ","Speed of maximum wind gust (km/h)","Time of maximum wind gust","9am Temperature (°C)","9am relative humidity (%)","9am cloud amount (oktas)","9am wind direction","9am wind speed (km/h)","9am MSL pressure (hPa)","3pm Temperature (°C)","3pm relative humidity (%)","3pm cloud amount (oktas)","3pm wind direction","3pm wind speed (km/h)","3pm MSL pressure (hPa)"
+,2024-12-1,17.4,28.9,6.4,,,WNW,52,12:25,21.3,80,7,NW,15,1006.0,28.3,34,1,WNW,30,1004.4
+,2024-12-2,13.3,33.1,0.2,,,NW,28,13:33,20.9,64,,ESE,6,1008.6,32.0,26,,W,9,1005.3
+,2024-12-3,19.7,31.5,10.6,,,WNW,52,20:09,21.5,89,8,NNE,24,1005.8,28.4,63,5,NNW,24,1003.7
+,2024-12-4,18.0,,5.6,,,,,,22.8,76,,SSE,4,1013.4,31.3,36,,W,22,1013.1

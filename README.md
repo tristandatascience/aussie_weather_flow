@@ -1,6 +1,6 @@
 # Projet Prévision Météo en Australie - MLOps Juillet 2024 ☀️🌧️
 
-Ce projet déploie un modèle **Random Forest** 🌲 dans une application de prévision de pluie à J+1 sur une ville donnée en Australie 🇦🇺. Le projet intègre des outils MLOps tels que **Airflow** 🏗️, **MLflow** 🚀 pour la pipeline data-model, **Prometheus** 📈 et **Grafana** 📊 pour le monitoring des ressources machines, ainsi que **FastAPI** ⚡ et **Streamlit** 🎨 pour l'inférence.
+Ce projet déploie un modèle **Random Forest**  dans une application de prévision de pluie à J+1 sur une ville donnée en Australie 🇦🇺. Le projet intègre des outils MLOps tels que **Airflow** , **MLflow**  pour la pipeline data-model, **Prometheus**  et **Grafana**  pour le monitoring des ressources machines, ainsi que **FastAPI**  et **Streamlit**  pour l'inférence.
 
 ## Table des matières 📚
 
@@ -21,30 +21,30 @@ Ce projet déploie un modèle **Random Forest** 🌲 dans une application de pr�
 
 ## Description du projet 📝
 
-Le projet vise à prédire la probabilité de pluie le lendemain pour une ville spécifique en Australie. Il s'appuie sur un modèle **Random Forest** 🌲 entraîné sur des données météorologiques actualisées quotidiennement. Les principaux composants du projet sont :
+Le projet vise à prédire la probabilité de pluie le lendemain pour une ville spécifique en Australie. Il s'appuie sur un modèle **Random Forest**  entraîné sur des données météorologiques actualisées quotidiennement. Les principaux composants du projet sont :
 
-- **Airflow** 🏗️ pour orchestrer les pipelines de données (ETL) et l'entraînement du modèle.
-- **MLflow** 🚀 pour gérer les expériences de machine learning et suivre les performances des modèles.
-- **FastAPI** ⚡ et **Streamlit** 🎨 pour fournir une interface utilisateur pour les prédictions et une interface administrateur pour gérer les mises à jour et les entraînements.
-- **Prometheus** 📈 et **Grafana** 📊 pour le monitoring des ressources serveurs et la visualisation des métriques.
-- Utilisation de **Docker** 🐳 pour la containerisation et de **Docker Hub** 🐳 pour le déploiement des images.
-- **GitHub Actions** ⚙️ pour l'intégration continue et le déploiement continu (CI/CD).
+- **Airflow**  pour orchestrer les pipelines de données (ETL) et l'entraînement du modèle.
+- **MLflow**  pour gérer les expériences de machine learning et suivre les performances des modèles.
+- **FastAPI**  et **Streamlit**  pour fournir une interface utilisateur pour les prédictions et une interface administrateur pour gérer les mises à jour et les entraînements.
+- **Prometheus**  et **Grafana**  pour le monitoring des ressources serveurs et la visualisation des métriques.
+- Utilisation de **Docker**  pour la containerisation et de **Docker Hub**  pour le déploiement des images.
+- **GitHub Actions**  pour l'intégration continue et le déploiement continu (CI/CD).
 
 ---
 
 ## Architecture du projet 🏛️
 
-![Architecture du Projet][] <!-- Assurez-vous d'inclure une image représentant l'architecture de votre projet -->
+![[Architecture du Projet][] <](https://github.com/Shirley687/MLOPS-METEO/blob/main/doc/images/Diagramme.png)
 
 Le projet est entièrement containerisé, ce qui facilite le déploiement et la scalabilité. L'architecture se compose des éléments suivants :
 
-- **Scraping des données** 🕸️ : Récupération quotidienne des relevés météorologiques via des scripts Python.
-- **Pipeline ETL avec Airflow** 🏗️ : Extraction, transformation et chargement des données dans une base de données PostgreSQL.
-- **Entraînement du modèle avec MLflow** 🚀 : Entraînement hebdomadaire du modèle Random Forest, comparaison avec le modèle précédent selon le F1-score, et déploiement du meilleur modèle.
-- **API d'inférence avec FastAPI** ⚡ : Fournit des prédictions basées sur le modèle déployé.
-- **Interface utilisateur avec Streamlit** 🎨 : Permet aux utilisateurs de faire des prédictions et aux administrateurs de lancer manuellement une récupération des données du jour et un entraînement avec sélection du meilleur modèle.
-- **Monitoring avec Prometheus** 📈 et **Grafana** 📊 : Collecte et visualisation des métriques du système et des performances du modèle.
-- **CI/CD avec GitHub Actions** ⚙️ : Tests automatisés et déploiement continu sur Docker Hub.
+- **Scraping des données**  : Récupération quotidienne des relevés météorologiques via des scripts Python.
+- **Pipeline ETL avec Airflow**  : Extraction, transformation et chargement des données dans une base de données PostgreSQL.
+- **Entraînement du modèle avec MLflow**  : Entraînement hebdomadaire du modèle Random Forest, comparaison avec le modèle précédent selon le F1-score, et déploiement du meilleur modèle.
+- **API d'inférence avec FastAPI**  : Fournit des prédictions basées sur le modèle déployé.
+- **Interface utilisateur avec Streamlit**  : Permet aux utilisateurs de faire des prédictions et aux administrateurs de lancer manuellement une récupération des données du jour et un entraînement avec sélection du meilleur modèle.
+- **Monitoring avec Prometheus**  et **Grafana**  : Collecte et visualisation des métriques du système et des performances du modèle.
+- **CI/CD avec GitHub Actions**  : Tests automatisés et déploiement continu sur Docker Hub.
 
 ---
 
@@ -52,24 +52,24 @@ Le projet est entièrement containerisé, ce qui facilite le déploiement et la 
 
 - **DAG de collecte des données (quotidien)**
   - **Tâches** :
-    - Scraping du site météorologique pour obtenir les relevés journaliers. 🌦️
-    - Nettoyage et préparation des données. 🧹
-    - Insertion des données dans la base de données PostgreSQL. 🗄️
+    - Scraping du site météorologique pour obtenir les relevés journaliers. 
+    - Nettoyage et préparation des données. 
+    - Insertion des données dans la base de données PostgreSQL. 
 - **DAG d'entraînement du modèle (hebdomadaire)**
   - **Tâches** :
-    - Chargement des données depuis la base de données. 📥
-    - Entraînement du modèle Random Forest avec MLflow. 🚀
-    - Comparaison avec le modèle précédent en utilisant le F1-score. 📊
-    - Enregistrement du meilleur modèle pour l'inférence. 💾
+    - Chargement des données depuis la base de données. 
+    - Entraînement du modèle Random Forest avec MLflow. 
+    - Comparaison avec le modèle précédent en utilisant le F1-score. 
+    - Enregistrement du meilleur modèle pour l'inférence. 
 - **DAG combiné (exécution manuelle)**
   - **Tâches** :
-    - Exécution des tâches de collecte des données. 🌐
-    - Entraînement du modèle et sélection du meilleur. 🏆
+    - Exécution des tâches de collecte des données. 
+    - Entraînement du modèle et sélection du meilleur. 
   - **Utilisation** :
     - Peut être déclenché depuis le panneau administrateur de l'application Streamlit pour forcer une mise à jour du modèle.
 - **DAG de tests unitaires**
   - **Tâches** :
-    - Exécution de la suite de tests pour valider le bon fonctionnement des pipelines et du modèle. ✅
+    - Exécution de la suite de tests pour valider le bon fonctionnement des pipelines et du modèle. 
 
 ---
 
@@ -98,7 +98,7 @@ Le projet est entièrement containerisé, ce qui facilite le déploiement et la 
 
 ### Pré-requis 📋
 
-- **Docker** 🐳 et **Docker Compose** 📦 installés sur votre machine.
+- **Docker**  et **Docker Compose**  installés sur votre machine.
 - **Make** installé pour utiliser les Makefiles.
 
 ### Version de production 🏭
@@ -150,7 +150,7 @@ Après avoir démarré les services, vous pouvez accéder aux différentes inter
 
 ## Monitoring 📈
 
-**Prometheus** 📈 collecte les métriques système, telles que l'utilisation du CPU, de la mémoire et des ressources réseau. **Grafana** 📊 est utilisé pour visualiser ces métriques à travers des tableaux de bord personnalisables.
+**Prometheus**  collecte les métriques système, telles que l'utilisation du CPU, de la mémoire et des ressources réseau. **Grafana**  est utilisé pour visualiser ces métriques à travers des tableaux de bord personnalisables.
 
 - **Accéder à Grafana** :
 
@@ -158,11 +158,11 @@ Après avoir démarré les services, vous pouvez accéder aux différentes inter
 
 - **Dashboards permettant de visualiser entre autres** :
 
-  - Utilisation du CPU. 🖥️
-  - Utilisation de la mémoire. 🧠
-  - Utilisation du disque. 💾
-  - Utilisation du réseau. 🌐
-  - Performances des services Docker. 🐳
+  - Utilisation du CPU. 
+  - Utilisation de la mémoire. 
+  - Utilisation du disque. 
+  - Utilisation du réseau. 
+  - Performances des services Docker. 
 
 ---
 
@@ -170,9 +170,9 @@ Après avoir démarré les services, vous pouvez accéder aux différentes inter
 
 Le projet utilise **GitHub Actions** ⚙️ pour l'intégration continue et le déploiement continu :
 
-- **Tests automatisés** 🧪 : À chaque push ou pull request, les tests unitaires sont exécutés pour s'assurer que le code est fonctionnel.
-- **Build des images Docker** 🐳 : Les images Docker sont construites et testées.
-- **Déploiement sur Docker Hub** 🐳 : Si les tests réussissent, les images sont poussées sur Docker Hub avec un nouveau tag de version.
+- **Tests automatisés**  : À chaque push ou pull request, les tests unitaires sont exécutés pour s'assurer que le code est fonctionnel.
+- **Build des images Docker**  : Les images Docker sont construites et testées.
+- **Déploiement sur Docker Hub**  : Si les tests réussissent, les images sont poussées sur Docker Hub avec un nouveau tag de version.
 
 
 ---
@@ -181,20 +181,22 @@ Le projet utilise **GitHub Actions** ⚙️ pour l'intégration continue et le d
 
 Ce projet est sous licence MIT - voir le fichier [LICENSE](./LICENSE) pour plus de détails.
 
----
 
+*Ce projet a été réalisé dans le cadre du programme MLOps de Juillet 2024.*
+
+---
 ## Équipe du projet 👥
 
 Ce projet a été développé par l'équipe suivante :
 
-- **Shirley GERVOLINO** [![GitHub][]](https://github.com/Shirley687) / [![LinkedIn][]](https://www.linkedin.com/in/)
-- **Tristan** [![GitHub][]](https://github.com/tristandatascience) / [![LinkedIn][]](https://www.linkedin.com/in/)
-- **Prudence Amani** [![GitHub][]](https://github.com/) / [![LinkedIn][]](https://www.linkedin.com/in/)
-- **Stéphane LOS** [![GitHub][]](https://github.com/hil-slos) / [![LinkedIn][]](https://fr.linkedin.com/in/losstephane/)
+- **Shirley GERVOLINO** [![](https://img.shields.io/badge/GitHub-black?logo=github&style=flat-square)](https://github.com/Shirley687) [![](https://img.shields.io/badge/in-blue?logo=linkedin&style=flat-square)](https://www.linkedin.com/in/shirley-gervolino-33520721/)
 
+- **Tristan LOZAHIC** [![](https://img.shields.io/badge/GitHub-black?logo=github&style=flat-square)](https://github.com/tristandatascience) [![](https://img.shields.io/badge/in-blue?logo=linkedin&style=flat-square)](https://www.linkedin.com/in/tristanlozahic/)
+
+- **Prudence Amani** [![](https://img.shields.io/badge/GitHub-black?logo=github&style=flat-square)](https://github.com/) [![](https://img.shields.io/badge/in-blue?logo=linkedin&style=flat-square)](https://www.linkedin.com/in/)
+
+- **Stéphane LOS** [![](https://img.shields.io/badge/GitHub-black?logo=github&style=flat-square)](https://github.com/hil-slos) [![](https://img.shields.io/badge/in-blue?logo=linkedin&style=flat-square)](https://fr.linkedin.com/in/losstephane/)
 ---
-
-*Ce projet a été réalisé dans le cadre du programme MLOps de Juillet 2024.*
 
 ---
 

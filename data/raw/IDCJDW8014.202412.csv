@@ -1,0 +1,10 @@
+"Daily Weather Observations for Darwin, Northern Territory for December 2024"
+"Prepared at 07:00 UTC on Wednesday  4 December 2024   IDCJDW8014.202412"
+"Copyright 2003 Commonwealth Bureau of Meteorology"
+"Observations were drawn from Darwin Airport {station 014015}"
+
+,"Date","Minimum temperature (°C)","Maximum temperature (°C)","Rainfall (mm)","Evaporation (mm)","Sunshine (hours)","Direction of maximum wind gust ","Speed of maximum wind gust (km/h)","Time of maximum wind gust","9am Temperature (°C)","9am relative humidity (%)","9am cloud amount (oktas)","9am wind direction","9am wind speed (km/h)","9am MSL pressure (hPa)","3pm Temperature (°C)","3pm relative humidity (%)","3pm cloud amount (oktas)","3pm wind direction","3pm wind speed (km/h)","3pm MSL pressure (hPa)"
+,2024-12-1,24.5,34.0,10.4,3.6,10.4,E,39,01:23,29.5,79,6,ESE,7,1008.0,33.8,55,6,NW,13,1004.8
+,2024-12-2,28.0,33.4,0,6.4,6.3,NW,28,16:19,31.0,75,7,NNW,11,1007.5,32.0,66,8,W,13,1004.8
+,2024-12-3,23.7,31.8,44.2,,3.9,SE,43,05:35,25.5,94,8,NNW,4,1006.6,30.6,76,7,NW,17,1004.8
+,2024-12-4,25.5,,0.2,3.2,,,,,29.9,79,8,SSE,9,1006.4,33.0,64,7,NW,26,1002.9

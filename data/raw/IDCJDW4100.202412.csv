@@ -1,0 +1,12 @@
+"Daily Weather Observations for Richmond Airport, Queensland for December 2024"
+"Prepared at 06:26 UTC on Wednesday  4 December 2024   IDCJDW4100.202412"
+"Copyright 2003 Commonwealth Bureau of Meteorology"
+"Most observations from Richmod Airport, but cloud and evaporation data from Richmond Post Office."
+"Temperature, humidity, wind, pressure and rainfall observations are from Richmond Airport {station 030161}"
+"Cloud and evaporation observations are from Richmond Post Office {station 030045}"
+
+,"Date","Minimum temperature (°C)","Maximum temperature (°C)","Rainfall (mm)","Evaporation (mm)","Sunshine (hours)","Direction of maximum wind gust ","Speed of maximum wind gust (km/h)","Time of maximum wind gust","9am Temperature (°C)","9am relative humidity (%)","9am cloud amount (oktas)","9am wind direction","9am wind speed (km/h)","9am MSL pressure (hPa)","3pm Temperature (°C)","3pm relative humidity (%)","3pm cloud amount (oktas)","3pm wind direction","3pm wind speed (km/h)","3pm MSL pressure (hPa)"
+,2024-12-1,24.1,36.9,0,,,WNW,46,14:57,30.0,66,,NW,13,1008.8,33.6,48,,WNW,35,1003.8
+,2024-12-2,24.9,37.3,0,,,S,56,16:10,31.8,59,,NW,19,1006.6,36.8,39,,NNW,15,1001.2
+,2024-12-3,23.7,35.7,2.2,,,WNW,43,18:08,28.7,74,,N,15,1007.4,34.6,49,,N,13,1003.1
+,2024-12-4,24.1,,0.2,,,,,,30.0,64,,NE,13,1009.2,31.2,57,,NNE,20,1006.3

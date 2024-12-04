@@ -25,6 +25,6 @@ Ce projet a été développé par l'équipe suivante :
 * Prudence Amani (https://github.com/[GitHub] / https://www.linkedin.com/in/[LinkedIn])
 * Stéphane Los (https://github.com/hil-slos[GitHub] / https://fr.linkedin.com/in/losstephane/[LinkedIn])
 
-== Documents de référence
+=== Documents de référence
 
 * Le *Cahier des charges* : "Cahier des charges.pdf"

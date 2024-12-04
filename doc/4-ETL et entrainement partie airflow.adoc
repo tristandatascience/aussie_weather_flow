@@ -1,0 +1,86 @@
+
+
+## Pipelines de Traitement de Données avec Airflow et MLflow
+
+Ce document décrit quatre pipelines de traitement de données implémentés dans Apache Airflow, en intégrant MLflow pour la gestion des expériences de Machine Learning.
+
+---
+
+### DAG 1 : ETL des données (Exécution quotidienne)
+
+**Description:** Ce DAG automatise l'extraction, la transformation et le chargement (ETL) des données.
+
+**Tâches:**
+
+1. **`scrap_data_task`**: Collecte les données brutes.
+2. **`scrap_to_csv_task`**: Convertit les données au format CSV.
+3. **`prepare_data_task`**: Prépare et nettoie les données CSV.
+4. **`load_csv_to_postgres_task`**: Charge les données traitées dans PostgreSQL.
+
+**Schéma:**
+
+```
+scrap_data_task --> scrap_to_csv_task --> prepare_data_task --> load_csv_to_postgres_task
+```
+
+---
+
+### DAG 2 : Entraînement et Export d'un Modèle (Exécution hebdomadaire)
+
+**Description:** Ce DAG gère l'entraînement et l'exportation d'un modèle de Machine Learning avec MLflow.
+
+**Tâches:**
+
+1. **`load_sql_to_df_task`**: Charge les données d'entraînement depuis SQL vers un DataFrame.
+2. **`train_model_task`**: Entraîne le modèle (exécuté dans une *run* MLflow).
+3. **`export_best_model_task`**: Exporte le meilleur modèle via MLflow.
+
+**Schéma:**
+
+```
+load_sql_to_df_task --> train_model_task --> export_best_model_task
+```
+
+---
+
+### DAG 3 : ETL et Entraînement Manuel
+
+**Description:** Ce DAG combine les DAGs 1 et 2 et est conçu pour être lancé manuellement.
+
+**Tâches:**
+
+1. **`scrap_data_task`**: Collecte les données brutes.
+2. **`scrap_to_csv_task`**: Convertit les données au format CSV.
+3. **`prepare_data_task`**: Prépare et nettoie les données CSV.
+4. **`load_csv_to_postgres_task`**: Charge les données traitées dans PostgreSQL.
+5. **`load_sql_to_df_task`**: Charge les données d'entraînement depuis SQL vers un DataFrame.
+6. **`train_model_task`**: Entraîne le modèle (exécuté dans une *run* MLflow).
+7. **`export_best_model_task`**: Exporte le meilleur modèle depuis MLflow vers l'api de prediction.
+
+**Schéma:**
+
+```
+scrap_data_task --> scrap_to_csv_task --> prepare_data_task --> load_csv_to_postgres_task --> load_sql_to_df_task --> train_model_task --> export_best_model_task
+```
+
+---
+
+### DAG 4 : Tests Unitaires
+
+**Description:** Ce DAG exécute une suite de tests unitaires.
+
+**Tâches:**
+
+1. **`list_directory`**: Liste le contenu d'un répertoire.
+2. **`test_acquire`**: Teste la fonction d'acquisition des données.
+3. **`test_convert_to_one_csv`**: Teste la conversion des données au format CSV.
+4. **`run_tests_csv_to_sql`**: Teste le chargement des données CSV dans SQL.
+5. **`run_tests_sql`**: Teste les requêtes SQL.
+6. **`run_tests_model`**: Teste le modèle de Machine Learning.
+
+**Schéma:**
+
+```
+list_directory --> test_acquire --> test_convert_to_one_csv --> run_tests_csv_to_sql --> run_tests_sql --> run_tests_model
+```
+

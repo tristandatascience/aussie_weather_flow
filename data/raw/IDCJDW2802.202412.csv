@@ -1,0 +1,10 @@
+"Daily Weather Observations for Tuggeranong, Australian Capital Territory for December 2024"
+"Prepared at 05:36 UTC on Wednesday  4 December 2024   IDCJDW2802.202412"
+"Copyright 2003 Commonwealth Bureau of Meteorology"
+"Observations were drawn from Tuggeranong (Isabella Plains) AWS {station 070339}"
+
+,"Date","Minimum temperature (°C)","Maximum temperature (°C)","Rainfall (mm)","Evaporation (mm)","Sunshine (hours)","Direction of maximum wind gust ","Speed of maximum wind gust (km/h)","Time of maximum wind gust","9am Temperature (°C)","9am relative humidity (%)","9am cloud amount (oktas)","9am wind direction","9am wind speed (km/h)","9am MSL pressure (hPa)","3pm Temperature (°C)","3pm relative humidity (%)","3pm cloud amount (oktas)","3pm wind direction","3pm wind speed (km/h)","3pm MSL pressure (hPa)"
+,2024-12-1,17.3,25.6,48.2,,,NW,35,16:17,18.6,92,,N,7,1007.1,23.5,54,,NNW,15,1004.6
+,2024-12-2,10.5,30.1,1.0,,,NW,37,10:38,20.7,57,,N,7,1008.7,28.9,30,,NW,15,1006.7
+,2024-12-3,16.4,25.7,0,,,N,39,11:19,21.6,72,,NNW,7,1008.0,23.2,68,,NW,22,1005.7
+,2024-12-4,16.4,,9.8,,,,,,21.0,95,, ,Calm,1014.4,28.2,53,,N,17,1013.3

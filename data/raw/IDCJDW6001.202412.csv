@@ -1,0 +1,13 @@
+"Daily Weather Observations for Albany, Western Australia for December 2024"
+"Prepared at 08:20 UTC on Wednesday  4 December 2024   IDCJDW6001.202412"
+"Copyright 2003 Commonwealth Bureau of Meteorology"
+"Most observations from a city site down near the harbour, but some from the airport."
+"The airport is approximately 11 kilometres inland and on some days can experience quite different evaporation and sunshine conditions from those in the city."
+"Temperature, humidity, wind, cloud and rainfall observations are from Albany {station 009500}"
+"Pressure, evaporation and sunshine observations are from Albany Airport {station 009999}"
+
+,"Date","Minimum temperature (°C)","Maximum temperature (°C)","Rainfall (mm)","Evaporation (mm)","Sunshine (hours)","Direction of maximum wind gust ","Speed of maximum wind gust (km/h)","Time of maximum wind gust","9am Temperature (°C)","9am relative humidity (%)","9am cloud amount (oktas)","9am wind direction","9am wind speed (km/h)","9am MSL pressure (hPa)","3pm Temperature (°C)","3pm relative humidity (%)","3pm cloud amount (oktas)","3pm wind direction","3pm wind speed (km/h)","3pm MSL pressure (hPa)"
+,2024-12-1,16.1,23.0,0.2,,,,,,19.5,70,7,WNW,24,1001.1,,,,,,998.5
+,2024-12-2,11.9,22.2,3.0,,,,,,15.0,73,4,W,13,1002.7,,,,,,1003.7
+,2024-12-3,14.0,26.5,0.6,,,,,,21.9,60,4,W,11,1005.4,,,,,,1002.1
+,2024-12-4,15.6,,0.3,,,,,,17.7,77,7,W,19,1008.4,,,,,,1010.2

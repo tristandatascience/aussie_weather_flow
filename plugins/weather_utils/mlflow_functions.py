@@ -312,6 +312,42 @@ def export_best_model():
         traceback.print_exc()
         return False
 
+
+def export_last_model():
+    """Export best model to a shared volume"""
+    try:
+        print(f"MLflow Tracking URI: {mlflow.get_tracking_uri()}")
+
+        last_model = get_latest_model()
+        if last_model is not None:
+            # Créer le dossier models s'il n'existe pas
+            os.makedirs("/opt/airflow/models", exist_ok=True)
+
+            # Sauvegarder le modèle
+            model_path = "/opt/airflow/models/best_model.joblib"
+            joblib.dump(last_model, model_path)
+
+            # Sauvegarder les métadonnées
+            metadata = {
+                'export_date': datetime.datetime.now().isoformat(),
+                'model_type': 'RandomForestClassifier',
+            }
+
+            metadata_path = "/opt/airflow/models/best_model_metadata.json"
+            with open(metadata_path, "w") as f:
+                json.dump(metadata, f)
+
+            print(f"Model exported successfully to {model_path}")
+            print(f"Metadata saved to {metadata_path}")
+            return True
+
+    except Exception as e:
+        print(f"Error in export_last_model: {str(e)}")
+        print("Detailed error info:")
+        import traceback
+        traceback.print_exc()
+        return False
+
 def check_mlflow_state():
     """
     Fonction de diagnostic pour vérifier l'état de MLflow

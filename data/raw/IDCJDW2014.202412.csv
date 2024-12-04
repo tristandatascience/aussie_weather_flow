@@ -1,0 +1,10 @@
+"Daily Weather Observations for Bellambi, New South Wales for December 2024"
+"Prepared at 05:36 UTC on Wednesday  4 December 2024   IDCJDW2014.202412"
+"Copyright 2003 Commonwealth Bureau of Meteorology"
+"Observations were drawn from Bellambi AWS {station 068228}"
+
+,"Date","Minimum temperature (°C)","Maximum temperature (°C)","Rainfall (mm)","Evaporation (mm)","Sunshine (hours)","Direction of maximum wind gust ","Speed of maximum wind gust (km/h)","Time of maximum wind gust","9am Temperature (°C)","9am relative humidity (%)","9am cloud amount (oktas)","9am wind direction","9am wind speed (km/h)","9am MSL pressure (hPa)","3pm Temperature (°C)","3pm relative humidity (%)","3pm cloud amount (oktas)","3pm wind direction","3pm wind speed (km/h)","3pm MSL pressure (hPa)"
+,2024-12-1,18.4,27.3,2.6,,,NE,44,12:31,24.9,71,,NW,9,,19.9,82,,SE,24,
+,2024-12-2,,30.3,9.6,,,WNW,43,07:22,26.3,57,,WNW,31,,23.3,75,,N,13,
+,2024-12-3,19.1,29.5,0.2,,,NNW,56,13:34,22.8,74,,NNE,13,,28.9,50,,NNW,33,
+,2024-12-4,19.7,,0,,,,,,20.8,75,,S,24,,22.8,74,,S,13,

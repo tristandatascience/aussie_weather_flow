@@ -1,0 +1,13 @@
+"Daily Weather Observations for Portland, Victoria for December 2024"
+"Prepared at 05:36 UTC on Wednesday  4 December 2024   IDCJDW3068.202412"
+"Copyright 2003 Commonwealth Bureau of Meteorology"
+"Most observations from Portland, evaporation and sunshine measured at Mount Gambier."
+"Some cloud observations are from automated equipment; these are somewhat different to those made by a human observer and may not appear every day."
+"Temperature, humidity, wind, pressure, cloud and rainfall observations are from Portland Airport {station 090171}"
+"Evaporation and sunshine observations are from Mount Gambier Aero {station 026021}"
+
+,"Date","Minimum temperature (°C)","Maximum temperature (°C)","Rainfall (mm)","Evaporation (mm)","Sunshine (hours)","Direction of maximum wind gust ","Speed of maximum wind gust (km/h)","Time of maximum wind gust","9am Temperature (°C)","9am relative humidity (%)","9am cloud amount (oktas)","9am wind direction","9am wind speed (km/h)","9am MSL pressure (hPa)","3pm Temperature (°C)","3pm relative humidity (%)","3pm cloud amount (oktas)","3pm wind direction","3pm wind speed (km/h)","3pm MSL pressure (hPa)"
+,2024-12-1,14.0,18.9,58.8,,,WNW,61,04:52,14.6,100,7,W,31,1002.0,17.2,88,8,WNW,37,1004.1
+,2024-12-2,8.1,26.2,3.8,,,NW,52,22:38,16.5,100,,ENE,7,1005.2,21.8,70,7,ESE,15,1001.3
+,2024-12-3,16.5,20.2,12.6,,,WNW,52,08:33,20.2,95,8,NW,28,999.7,16.7,73,8,WSW,26,1007.7
+,2024-12-4,7.0,,0.8,,,,,,15.1,91,,NNE,11,1017.2,21.3,50,,ESE,17,1016.6

@@ -1,0 +1,10 @@
+"Daily Weather Observations for Cairns, Queensland for December 2024"
+"Prepared at 06:26 UTC on Wednesday  4 December 2024   IDCJDW4024.202412"
+"Copyright 2003 Commonwealth Bureau of Meteorology"
+"Observations were drawn from Cairns Aero {station 031011}"
+
+,"Date","Minimum temperature (°C)","Maximum temperature (°C)","Rainfall (mm)","Evaporation (mm)","Sunshine (hours)","Direction of maximum wind gust ","Speed of maximum wind gust (km/h)","Time of maximum wind gust","9am Temperature (°C)","9am relative humidity (%)","9am cloud amount (oktas)","9am wind direction","9am wind speed (km/h)","9am MSL pressure (hPa)","3pm Temperature (°C)","3pm relative humidity (%)","3pm cloud amount (oktas)","3pm wind direction","3pm wind speed (km/h)","3pm MSL pressure (hPa)"
+,2024-12-1,25.1,32.3,1.4,,,SE,22,04:56,30.3,75,,SE,7,1009.6,28.7,80,4,ENE,9,1006.5
+,2024-12-2,25.1,31.9,11.6,,,S,35,19:43,28.4,84,8,NNW,6,1008.5,29.5,75,6,NE,13,1005.0
+,2024-12-3,24.1,31.3,45.8,,,NNE,26,11:25,29.0,73,7,NE,2,1009.5,29.8,68,,NNE,13,1005.8
+,2024-12-4,24.0,,41.2,,,,,,25.4,91,8,S,15,1010.2,24.3,95,,ESE,19,1008.4

@@ -1,5 +1,5 @@
 "Daily Weather Observations for Watsonia, Victoria for November 2024"
-"Prepared at 05:37 UTC on Wednesday 27 November 2024   IDCJDW3079.202411"
+"Prepared at 05:37 UTC on Saturday 30 November 2024   IDCJDW3079.202411"
 "Copyright 2003 Commonwealth Bureau of Meteorology"
 "Most observations taken from Viewbank, other observations taken from Melbourne Airport."
 "This same data is also available under the location name "Viewbank". Some cloud observations are from automated equipment; these are somewhat different to those made by a human observer and may not appear every day."
@@ -33,4 +33,7 @@
 ,2024-11-24,18.6,22.6,5.0,10.0,0.0,SSW,19,22:31,18.7,99,8,WSW,2,1017.2,21.4,88,8, ,Calm,1016.0
 ,2024-11-25,16.6,18.7,9.2,0.0,0.0,SW,19,23:55,16.9,100,8,WSW,9,1014.6,18.1,98,8,W,9,1012.5
 ,2024-11-26,16.8,29.6,5.8,0.0,5.3,SE,28,18:06,18.1,100,7,WNW,4,1010.0,27.5,58,7,ESE,6,1006.4
-,2024-11-27,18.0,,32.6,9.0,,,,,20.7,99,7,NNE,6,1001.6,29.0,54,6,N,17,1000.2
+,2024-11-27,18.0,30.6,32.6,9.0,6.2,N,52,09:31,20.7,99,7,NNE,6,1001.6,29.0,54,6,N,17,1000.2
+,2024-11-28,14.6,26.3,11.8,6.2,9.7,SSW,33,12:51,18.0,88,5,S,4,1013.8,24.5,59,3,SSE,13,1014.1
+,2024-11-29,15.4,31.6,0.2,6.8,12.2,SE,35,16:57,20.8,78,7,E,4,1017.6,30.7,48,1,S,11,1013.1
+,2024-11-30,19.0,,2.2,7.6,,,,,19.0,97,8,W,6,1009.1,21.2,95,7,SSE,9,1001.3

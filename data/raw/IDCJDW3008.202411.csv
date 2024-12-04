@@ -1,5 +1,5 @@
 "Daily Weather Observations for Bendigo, Victoria for November 2024"
-"Prepared at 05:36 UTC on Wednesday 27 November 2024   IDCJDW3008.202411"
+"Prepared at 05:37 UTC on Saturday 30 November 2024   IDCJDW3008.202411"
 "Copyright 2003 Commonwealth Bureau of Meteorology"
 "Some cloud observations are from automated equipment; these are somewhat different to those made by a human observer and may not appear every day."
 "Observations were drawn from Bendigo Airport {station 081123}"
@@ -31,4 +31,7 @@
 ,2024-11-24,18.9,21.3,2.8,,,SE,28,20:00,19.2,90,8,SE,7,1016.5,21.1,89,8,NNE,11,1015.3
 ,2024-11-25,17.4,21.0,9.8,,,SE,30,23:31,18.0,95,8,SE,7,1013.8,20.1,88,8,NE,6,1011.7
 ,2024-11-26,16.6,29.3,4.4,,,ENE,35,21:09,20.7,82,,S,7,1009.2,26.3,64,3,W,9,1006.6
-,2024-11-27,19.6,,16.0,,,,,,20.7,91,8,NNW,17,1003.3,21.9,86,3,N,11,1001.7
+,2024-11-27,19.6,28.9,16.0,,,NNE,85,13:35,20.7,91,8,NNW,17,1003.3,21.9,86,3,N,11,1001.7
+,2024-11-28,12.6,27.8,2.0,,,NNE,39,14:36,20.5,57,,WSW,4,1013.1,25.4,35,,NW,11,1013.2
+,2024-11-29,16.2,32.6,0,,,NE,48,20:48,23.2,59,,ESE,11,1016.5,31.4,26,,N,13,1012.7
+,2024-11-30,18.1,,8.0,,,,,,18.1,96,7,SSE,11,1008.5,18.7,94,8,WNW,17,1003.2

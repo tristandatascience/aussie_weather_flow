@@ -1,5 +1,5 @@
 "Daily Weather Observations for Ballarat, Victoria for November 2024"
-"Prepared at 05:36 UTC on Wednesday 27 November 2024   IDCJDW3005.202411"
+"Prepared at 05:37 UTC on Saturday 30 November 2024   IDCJDW3005.202411"
 "Copyright 2003 Commonwealth Bureau of Meteorology"
 "Some cloud observations are from automated equipment; these are somewhat different to those made by a human observer and may not appear every day."
 "Observations were drawn from Ballarat Aerodrome {station 089002}"
@@ -31,4 +31,7 @@
 ,2024-11-24,16.9,23.3,9.6,,,SE,24,14:58,17.9,93,8,SE,15,1017.1,22.8,59,8,SE,13,1016.2
 ,2024-11-25,15.1,21.9,0.2,,,SE,30,15:37,16.2,89,8,SE,17,1014.6,20.9,73,8,SE,15,1011.7
 ,2024-11-26,14.5,28.5,0,,,N,33,15:06,18.8,82,8,N,11,1009.9,26.9,43,2,N,20,1006.9
-,2024-11-27,18.0,,8.0,,,,,,20.0,91,8,N,31,1002.5,22.7,68,8,NW,39,1001.3
+,2024-11-27,18.0,27.3,8.0,,,NW,65,14:06,20.0,91,8,N,31,1002.5,22.7,68,8,NW,39,1001.3
+,2024-11-28,9.5,24.9,0.8,,,ESE,46,18:51,16.2,77,4,SSE,13,1013.7,22.8,45,6,SE,15,1014.2
+,2024-11-29,15.4,29.7,0,,,SE,50,20:01,19.5,76,,SE,22,1017.5,28.0,32,,N,15,1014.5
+,2024-11-30,17.0,,0.4,,,,,,17.5,94,8,SE,15,1010.0,17.6,96,8,WSW,19,1003.4

@@ -1,0 +1,13 @@
+"Daily Weather Observations for Pearce RAAF Base, Western Australia for December 2024"
+"Prepared at 08:20 UTC on Wednesday  4 December 2024   IDCJDW6108.202412"
+"Copyright 2003 Commonwealth Bureau of Meteorology"
+"Most observations from Pearce RAAF Base, but some from Perth Airport."
+"The mean sea level pressure at Perth Airport is provided for convenience. On most occasions it will be within 1 hPa of that at Pearce.Some cloud observations are from automated equipment; these are somewhat different to those made by a human observer and may not appear every day."
+"Temperature, humidity, wind, pressure, cloud and rainfall observations are from Pearce RAAF {station 009053}"
+"Sunshine observations are from Perth Airport {station 009021}"
+
+,"Date","Minimum temperature (°C)","Maximum temperature (°C)","Rainfall (mm)","Evaporation (mm)","Sunshine (hours)","Direction of maximum wind gust ","Speed of maximum wind gust (km/h)","Time of maximum wind gust","9am Temperature (°C)","9am relative humidity (%)","9am cloud amount (oktas)","9am wind direction","9am wind speed (km/h)","9am MSL pressure (hPa)","3pm Temperature (°C)","3pm relative humidity (%)","3pm cloud amount (oktas)","3pm wind direction","3pm wind speed (km/h)","3pm MSL pressure (hPa)"
+,2024-12-1,14.5,25.8,0,,10.6,W,50,15:35,21.5,55,8,NW,13,1004.6,23.9,39,8,W,35,1003.0
+,2024-12-2,14.5,22.8,3.0,,7.9,SW,44,08:44,17.1,83,8,SW,19,1007.6,20.8,52,8,SW,28,1008.0
+,2024-12-3,11.5,24.3,0,,3.3,W,37,12:19,19.3,71,8,NNW,17,1010.7,22.9,55,7,WNW,22,1008.3
+,2024-12-4,16.5,,0.4,,,,,,22.4,55,8,WSW,19,1010.2,24.6,41,3,WSW,26,1009.7

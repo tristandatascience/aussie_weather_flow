@@ -2,19 +2,19 @@ init-airflow:
 	mkdir -p ./logs ./data ./data/raw ./data/digest ./data/pandas 
 	chmod -R 755  ./data ./data/raw ./data/digest ./data/pandas ./prometheus ./grafana ./grafana/provisioning/datasources ./grafana/provisioning/dashboards
 	@echo AIRFLOW_UID=$(shell id -u) > .env
-	docker compose up airflow-init
+	docker compose  -f docker-compose.dev.yml up airflow-init
 
 start:
-	docker compose up
+	docker compose -f docker-compose.dev.yml up
 
 stop:
-	docker compose down
+	docker compose -f docker-compose.dev.yml down
 
 restart:
-	docker compose up --build
+	docker compose up -f docker-compose.dev.yml --build
 
 airflow-logs:
-	docker compose logs airflow-webserver
+	docker compose -f docker-compose.dev.yml logs airflow-webserver
 
 del-containers-and-images:
 	docker stop $(docker ps -q)

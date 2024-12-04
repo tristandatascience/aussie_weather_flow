@@ -48,3 +48,4 @@ Enfin, tous les services sont conteneurisés grâce à *Docker*.
 
 === Diagramme
 
+image::Diagramme.png[]

@@ -1,0 +1,21 @@
+## Surveillance d'Airflow avec Prometheus, Node Exporter et Grafana
+
+Ce document présente l'utilisation de Prometheus, du Node Exporter et de Grafana pour surveiller les performances et l'état d'Apache Airflow.
+
+###  1 : Collecte des Métriques avec Prometheus et Node Exporter
+
+Prometheus est un système de surveillance et d'alerte open-source qui collecte des métriques à partir de cibles configurées en interrogeant régulièrement leurs points de terminaison HTTP.  Dans le contexte la source de métriques est :
+
+**Node Exporter:**  Le Node Exporter est un agent Prometheus qui collecte des métriques système au niveau de la machine sur laquelle Airflow est exécuté.  Cela inclut des métriques telles que l'utilisation du CPU, la mémoire, l'espace disque et l'utilisation du réseau.  Ces métriques fournissent des informations essentielles sur la santé globale du système et peuvent aider à identifier les goulots d'étranglement potentiels.
+
+###  2 : Visualisation et Alertes avec Grafana
+
+Grafana est une plateforme open-source pour la visualisation et l'analyse de données métriques.  Elle se connecte à Prometheus en tant que source de données et permet de créer des tableaux de bord interactifs et des graphiques pour visualiser les métriques collectées.
+
+1. **Tableaux de bord:**  Grafana permet de créer des tableaux de bord personnalisés pour afficher les métriques clés d'Airflow.  Par exemple, un tableau de bord peut afficher l'utilisation du CPU et de la mémoire du serveur Airflow, l'état des DAGs, la durée d'exécution des tâches, etc.
+
+2. **Graphiques:**  Différents types de graphiques, tels que des graphiques linéaires, des graphiques à barres et des graphiques circulaires, peuvent être utilisés pour visualiser les métriques.  Cela permet de comprendre facilement les tendances et les anomalies dans les performances d'Airflow.
+
+3. **Alertes:**  Grafana permet de configurer des alertes basées sur des seuils définis pour les métriques.  Par exemple, une alerte peut être déclenchée si l'utilisation du CPU dépasse un certain seuil ou si un DAG échoue.  Les alertes peuvent être envoyées par e-mail, Slack, PagerDuty, etc.
+
+En combinant Prometheus, le Node Exporter et Grafana, il est possible de mettre en place une solution complète de surveillance pour Airflow.  Cela permet de suivre les performances, d'identifier les problèmes potentiels et de garantir le bon fonctionnement des pipelines de données.

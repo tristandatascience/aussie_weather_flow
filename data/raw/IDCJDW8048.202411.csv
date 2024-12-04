@@ -1,5 +1,5 @@
 "Daily Weather Observations for Tindal RAAF, Northern Territory for November 2024"
-"Prepared at 07:00 UTC on Wednesday 27 November 2024   IDCJDW8048.202411"
+"Prepared at 07:00 UTC on Saturday 30 November 2024   IDCJDW8048.202411"
 "Copyright 2003 Commonwealth Bureau of Meteorology"
 "Some cloud observations are from automated equipment; these are somewhat different to those made by a human observer and may not appear every day."
 "Observations were drawn from Tindal RAAF {station 014932}"
@@ -31,4 +31,7 @@
 ,2024-11-24,23.4,35.8,3.8,,,S,35,03:26,24.9,91,8, ,Calm,1010.8,34.9,47,2,NE,6,1005.9
 ,2024-11-25,23.7,36.0,29.0,,,NE,63,17:47,27.6,85,7,S,11,1010.1,34.4,45,,WNW,9,1003.8
 ,2024-11-26,23.5,35.4,15.4,,,WNW,31,20:25,27.9,75,5, ,Calm,1008.7,34.6,46,,NNE,2,1003.3
-,2024-11-27,25.2,,0,,,,,,29.4,73,8,WSW,2,1009.0,33.2,57,8,NNW,11,1003.8
+,2024-11-27,25.2,34.8,0,,,ESE,44,15:31,29.4,73,8,WSW,2,1009.0,33.2,57,8,NNW,11,1003.8
+,2024-11-28,24.3,36.4,3.0,,,NE,33,17:13,28.5,79,,NNE,7,1009.3,34.9,48,,N,9,1004.3
+,2024-11-29,24.6,31.5,7.0,,,NE,28,08:40,24.7,90,8,ENE,17,1009.7,29.8,69,8,ESE,9,1005.5
+,2024-11-30,24.4,,4.0,,,,,,29.8,72,1,ESE,6,1008.0,35.2,52,,WSW,11,1003.1

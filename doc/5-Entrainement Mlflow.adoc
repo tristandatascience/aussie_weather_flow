@@ -1,0 +1,24 @@
+## Entraînement et Promotion d'un Modèle Random Forest avec MLflow
+
+
+###  1 : Entraînement du Modèle Random Forest
+
+L'entraînement du nouveau modèle Random Forest est géré par une tâche Airflow et suivi avec MLflow.  Voici les étapes clés :
+
+1. **Chargement des données:** Les données d'entraînement sont chargées depuis la base de données vers un DataFrame Pandas via la tâche `load_sql_to_df_task`.
+
+2. **Définition des paramètres:** Les hyperparamètres du modèle Random Forest, tels que le nombre d'estimateurs (`n_estimators`), la profondeur maximale (`max_depth`) et le critère de fractionnement (`criterion`), sont définis.  Ces paramètres peuvent être optimisés via une recherche par grille ou une recherche aléatoire avec MLflow.
+
+3. **Entraînement avec MLflow:** L'entraînement du modèle de la tache `train_model_task` est encapsulé dans une *run* MLflow.  Cela permet de suivre automatiquement les paramètres utilisés, les métriques de performance et le modèle lui-même.  Le code Python pour l'entraînement pourrait ressembler à ceci :
+
+
+###  2 : Comparaison et Promotion du Modèle
+
+Après l'entraînement, le nouveau modèle est comparé au modèle précédent en utilisant le score F1 enregistré dans MLflow et si meilleur enrengistré avec la tache `export_best_model_task`.
+
+1. **Récupération des scores F1:**  Les scores F1 du nouveau modèle et du modèle précédent sont récupérés depuis MLflow.
+
+2. **Comparaison des scores:** Si le score F1 du nouveau modèle est supérieur de plus de 1% au score F1 du modèle précédent, le nouveau modèle est promu.
+
+3. **Promotion du modèle:** La promotion du modèle implique que le nouveau modèle est enregistré comme le modèle de production.
+   

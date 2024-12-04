@@ -1,5 +1,5 @@
 "Daily Weather Observations for Pearce RAAF Base, Western Australia for November 2024"
-"Prepared at 08:20 UTC on Wednesday 27 November 2024   IDCJDW6108.202411"
+"Prepared at 08:20 UTC on Saturday 30 November 2024   IDCJDW6108.202411"
 "Copyright 2003 Commonwealth Bureau of Meteorology"
 "Most observations from Pearce RAAF Base, but some from Perth Airport."
 "The mean sea level pressure at Perth Airport is provided for convenience. On most occasions it will be within 1 hPa of that at Pearce.Some cloud observations are from automated equipment; these are somewhat different to those made by a human observer and may not appear every day."
@@ -33,4 +33,7 @@
 ,2024-11-24,14.5,39.5,0,,13.1,SW,46,14:49,29.2,31,,ENE,20,1013.0,36.7,17,1,SW,35,1006.3
 ,2024-11-25,16.3,27.2,0,,13.1,SSW,56,15:41,22.2,43,,S,39,1012.4,24.2,38,,SW,33,1011.1
 ,2024-11-26,8.8,26.3,0,,13.0,E,52,23:49,17.1,37,,SE,24,1019.6,25.1,21,,SSE,15,1015.2
-,2024-11-27,12.5,,0,,,,,,19.5,38,,NNE,22,1020.2,28.5,20,,ESE,24,1015.2
+,2024-11-27,12.5,29.2,0,,13.1,ESE,48,00:57,19.5,38,,NNE,22,1020.2,28.5,20,,ESE,24,1015.2
+,2024-11-28,16.9,32.9,0,,13.1,E,61,03:51,22.8,36,,ENE,30,1017.0,32.1,18,,ESE,20,1012.3
+,2024-11-29,21.7,33.0,0,,1.2,ENE,50,04:06,24.2,30,1,NE,11,1012.2,32.6,17,8,E,13,1007.5
+,2024-11-30,23.9,,0,,,,,,32.3,32,,NNW,28,1004.5,30.5,41,,W,30,1001.6

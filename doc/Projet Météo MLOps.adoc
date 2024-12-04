@@ -19,4 +19,12 @@ include::2-Architecture.adoc[]
 
 include::3-Acquisition des données.adoc[]
 
+include::4-ETL et entrainement partie airflow.adoc[]
 
+include::5-Entrainement Mlflow.adoc[]
+
+include::6-Monitoring Grafana Promotheus.adoc[]
+
+include::7-Contenerisation tests et Integration.adoc[]
+
+include::8-API-Streamlit interface utilisateur et admin.adoc[]

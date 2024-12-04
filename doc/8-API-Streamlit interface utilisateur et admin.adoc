@@ -1,0 +1,41 @@
+## API FastAPI, Interface Streamlit et Cas d'Utilisation pour la Prédiction Météo
+
+Ce document décrit l'API FastAPI, l'interface Streamlit et les cas d'utilisation de notre application de prédiction météo.
+
+### API FastAPI
+
+L'API FastAPI est le cœur de notre application, fournissant les fonctionnalités de prédiction et d'administration.  Elle est conçue pour être performante, facile à utiliser et bien documentée.
+
+* **`/token` (Authentification):**  Cette route permet aux administrateurs de s'authentifier et d'obtenir un jeton d'accès JWT (JSON Web Token).  L'authentification est nécessaire pour accéder aux routes d'administration.
+* **`/predict/{id}` (Prédiction):**  Cette route permet de prédire s'il pleuvra demain pour une station donnée, identifiée par son `id`.  Elle accepte l'ID de la station en paramètre et retourne une prédiction (par exemple, "Oui" ou "Non").
+* **`/admin/refresh` (Rafraîchissement des données et entraînement):**  Cette route, accessible uniquement aux administrateurs authentifiés, permet de lancer le DAG Airflow responsable de la récupération des données, de l'entraînement du modèle et de son évaluation.  Le nouveau modèle entraîné est ensuite utilisé pour les prédictions.
+
+### Interface Streamlit
+
+L'interface Streamlit fournit une interface utilisateur conviviale pour interagir avec l'API FastAPI.  Elle est composée de quatre pages principales :
+
+* **Accueil:**  Page d'accueil présentant l'application et ses fonctionnalités.
+* **Prédiction (J+1):**  Cette page permet aux utilisateurs de sélectionner une station météo dans un menu déroulant et d'obtenir une prédiction pour le lendemain.  La prédiction est obtenue en appelant la route `/predict/{id}` de l'API FastAPI.
+* **Lancer DAG (Données/Entraînement):**  Cette page, accessible uniquement aux administrateurs après authentification, permet de lancer manuellement le DAG Airflow pour la mise à jour des données et l'entraînement du modèle.  Elle appelle la route `/admin/refresh` de l'API.
+* **Conclusion/Améliorations:**  Cette page présente les conclusions du projet et les pistes d'améliorations possibles.
+
+### Cas d'Utilisation
+
+Voici deux cas d'utilisation illustrant l'utilisation de l'application :
+
+* **Cas d'utilisation 1 : Prédiction météo pour un utilisateur:**
+
+    1. L'utilisateur accède à la page "Prédiction (J+1)" de l'interface Streamlit.
+    2. Il sélectionne la station météo qui l'intéresse dans le menu déroulant.
+    3. L'application appelle la route `/predict/{id}` de l'API FastAPI avec l'ID de la station sélectionnée.
+    4. L'API retourne la prédiction, qui est affichée à l'utilisateur dans l'interface Streamlit.
+
+* **Cas d'utilisation 2 : Mise à jour du modèle par l'administrateur:**
+
+    1. L'administrateur accède à la page "Lancer DAG (Données/Entraînement)" de l'interface Streamlit.
+    2. Il s'authentifie pour accéder à cette page.
+    3. Il clique sur le bouton pour lancer le DAG Airflow.
+    4. L'application appelle la route `/admin/refresh` de l'API FastAPI.
+    5. L'API déclenche l'exécution du DAG Airflow.
+    6. Le DAG récupère les données les plus récentes, entraîne un nouveau modèle avec MLflow et l'évalue.
+    7. Le nouveau modèle est evalué et s'il est meilleur que le precedent est enregistré et utilisé pour les futures prédictions.

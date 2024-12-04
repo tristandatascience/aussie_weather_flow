@@ -1,5 +1,5 @@
 "Daily Weather Observations for Gold Coast, Queensland for November 2024"
-"Prepared at 06:26 UTC on Wednesday 27 November 2024   IDCJDW4050.202411"
+"Prepared at 06:26 UTC on Saturday 30 November 2024   IDCJDW4050.202411"
 "Copyright 2003 Commonwealth Bureau of Meteorology"
 "Observations from the Gold Coast Seaway, at the northern end of Southport Spit."
 "The Gold Coast Seaway site is an Automatic Weather Station (AWS) at the northern end of Southport Spit. If you are interested in the southern end of the Gold Coast, see the observations from Coolangatta."
@@ -32,4 +32,7 @@
 ,2024-11-24,17.6,25.6,0.2,,,E,28,14:40,25.1,65,,SSE,11,1020.2,24.5,70,,E,20,1017.6
 ,2024-11-25,19.9,25.9,0.4,,,E,24,03:17,24.9,62,,ENE,15,1018.5,24.6,63,,E,19,1015.6
 ,2024-11-26,19.5,27.8,0,,,NE,31,14:48,25.4,73,,NE,17,1016.8,27.1,62,,NE,24,1013.8
-,2024-11-27,20.2,,0.2,,,,,,24.2,86,,NNE,20,1015.0,28.0,74,,NE,22,1012.7
+,2024-11-27,20.2,29.0,0.2,,,NE,33,13:21,24.2,86,,NNE,20,1015.0,28.0,74,,NE,22,1012.7
+,2024-11-28,22.2,28.6,0.6,,,NE,31,15:01,26.7,77,,NNE,11,1015.9,27.2,75,,NE,24,1013.6
+,2024-11-29,22.3,27.9,0.8,,,ENE,35,21:15,26.1,83,,E,15,1016.1,25.2,82,,SE,15,1013.9
+,2024-11-30,22.2,,13.4,,,,,,23.7,94,,NE,24,1013.4,24.5,90,,NNE,28,1010.3

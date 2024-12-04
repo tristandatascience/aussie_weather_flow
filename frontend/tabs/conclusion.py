@@ -12,14 +12,23 @@ def run():
 
     st.title(title)
 
-    st.markdown("---")
+    st.divider()
+
+    st.subheader("Conclusion")
 
     st.markdown(
         """
-        Onglet Conclusion
+        Evolutions envisagées :
+
+        - Sécuriser le système avec la mise en oeuvre de SSL/TLS.
+        - Mettre des liens vers les différentes interfaces web des outils  
+          MLflow, Airflow, Prometheus, Grafana.
+        - Utiliser plusieurs modèles différents et sélectionner
+          automatiquement le meilleur.
+        - Intégrer les métriques pour surveiller la performance des modèles.
+        - Intégrer l'application de prédiction météo aux autres systèmes
+          de l'Hôpital via l'API fournie.
+        - ...
         """
     )
 
-    st.subheader("Objectif")
-
-    st.markdown("Pour le lendemain, prédire s'il pleuvra ou non.")

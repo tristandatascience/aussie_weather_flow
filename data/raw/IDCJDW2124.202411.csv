@@ -1,5 +1,5 @@
 "Daily Weather Observations for Sydney, New South Wales for November 2024"
-"Prepared at 05:36 UTC on Wednesday 27 November 2024   IDCJDW2124.202411"
+"Prepared at 05:36 UTC on Saturday 30 November 2024   IDCJDW2124.202411"
 "Copyright 2003 Commonwealth Bureau of Meteorology"
 "Most observations from Observatory Hill, but some from Fort Denison and Sydney Airport."
 "Sydney Airport is about 10 km to the south of Observatory Hill."
@@ -34,4 +34,7 @@
 ,2024-11-24,18.8,26.4,0,9.8,11.6,ENE,48,16:06,22.6,75,3,E,17,1017.2,24.4,66,7,ENE,17,1015.5
 ,2024-11-25,18.9,27.8,0,9.4,10.8,NE,54,16:29,22.7,78,3,E,19,1015.1,26.4,62,4,ENE,24,1011.9
 ,2024-11-26,19.0,28.2,0,10.0,11.7,NE,46,14:43,23.9,79,1,W,4,1011.7,26.9,62,3,E,9,1007.7
-,2024-11-27,19.8,,0,9.2,,,,,25.6,72,5,ESE,15,1008.2,28.4,57,6,E,19,1005.9
+,2024-11-27,19.8,32.9,0,9.2,8.1,E,35,14:00,25.6,72,5,ESE,15,1008.2,28.4,57,6,E,19,1005.9
+,2024-11-28,23.3,29.0,0,10.4,1.6,S,35,17:30,27.1,59,7,W,6,1013.2,27.2,70,7,NNE,4,1012.7
+,2024-11-29,20.5,22.1,2.4,3.0,0.0,ENE,41,21:47,20.9,92,8,SSW,19,1018.4,20.6,95,8,S,19,1016.6
+,2024-11-30,20.4,,45.8,9.0,,,,,21.3,99,8,ENE,15,1011.7,23.0,89,8,NE,15,1008.3

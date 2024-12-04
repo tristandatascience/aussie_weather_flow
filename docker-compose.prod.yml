@@ -1,10 +1,6 @@
 version: '3.9'
-
-x-airflow-common:
-  &airflow-common
-  image: tristandatascience/mlops-meteo:airflow-base-0.2
-  environment:
-    &airflow-common-env
+x-airflow-common: &airflow-common
+  environment: &airflow-common-env
     AIRFLOW__CORE__EXECUTOR: CeleryExecutor
     AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
     AIRFLOW_CONN_WEATHER_DATA_POSTGRES: postgresql+psycopg2://airflow:airflow@postgres:5432/weather_data
@@ -18,7 +14,8 @@ x-airflow-common:
     AIRFLOW__WEBSERVER__ENABLE_API: 'true'
     _PIP_ADDITIONAL_REQUIREMENTS: ${_PIP_ADDITIONAL_REQUIREMENTS:-}
     AIRFLOW_HOME: /opt/airflow
-    PYTHONPATH: "$:/opt/airflow/plugins"
+    PYTHONPATH: "$$PYTHONPATH:/opt/airflow/plugins"
+    # Sets the tracking uri env variable for mlflow in all airflow containers
     MLFLOW_TRACKING_URI: "http://mlflow-webserver:5000"
     AIRFLOW_API_URL: 'http://airflow-webserver:8080/api/v1'
     GIT_PYTHON_REFRESH: "quiet"
@@ -30,17 +27,15 @@ x-airflow-common:
     - ./models:/opt/airflow/models
     - ./data:/opt/airflow/data
     - ./temp:/opt/airflow/temp
-
   user: "${AIRFLOW_UID:-50000}:0"
-  depends_on:
-    &airflow-common-depends-on
+  depends_on: &airflow-common-depends-on
     redis:
       condition: service_healthy
     postgres:
       condition: service_healthy
-
+  image: tristandatascience/mlops-meteo:airflow-base-0.4
 services:
-
+  # This container runs the postgresql database for mlflow.
   postgres-mlflow:
     image: postgres:13
     environment:
@@ -54,13 +49,12 @@ services:
       interval: 5s
       retries: 5
     restart: always
-
+  # This container runs the artifact storage as an S3 server.
   s3-artifact-storage:
     image: minio/minio
     volumes:
       - mlflow-data:/data
-    environment:
-      &env-mlflow-s3
+    environment: &env-mlflow-s3
       MINIO_ROOT_USER: mlflow_access
       MINIO_ROOT_PASSWORD: mlflow_secret
     command: server /data --console-address ":9001"
@@ -68,27 +62,23 @@ services:
       - 9000:9000
       - 9001:9001
     healthcheck:
+      #test: ["CMD", "curl -I http://localhost:9000/minio/health/live"]
       test: ["CMD", "/usr/bin/mc", "ready", "local"]
       interval: 5s
       retries: 5
     restart: always
-
+  # This container creates the "data" in the S3 server, in which mlflow will later store the artifacts.
   mlflow-init:
     image: minio/mc
     depends_on:
       - s3-artifact-storage
     environment:
-      <<: *env-mlflow-s3
+      !!merge <<: *env-mlflow-s3
     entrypoint: >
-      /bin/sh -c "
-      /usr/bin/mc config host add myminio http://s3-artifact-storage:9000 $ $;
-      /usr/bin/mc mb myminio/data;
-      /usr/bin/mc policy download myminio/data;
-      exit 0;
-      "
+      /bin/sh -c " /usr/bin/mc config host add myminio http://s3-artifact-storage:9000 $$MINIO_ROOT_USER $$MINIO_ROOT_PASSWORD; /usr/bin/mc mb myminio/data; /usr/bin/mc policy download myminio/data; exit 0; "
 
+  # This container runs the webserver for mlflow.
   mlflow-webserver:
-    image: tristandatascience/mlops-meteo:mlflow-webserver-0.2
     ports:
       - 5000:5000
     environment:
@@ -101,7 +91,8 @@ services:
       - postgres-mlflow
       - s3-artifact-storage
       - mlflow-init
-
+    image: tristandatascience/mlops-meteo:mlflow-webserver-0.4
+  # This container runs the postgresql server for airflow.
   postgres:
     image: postgres:13
     environment:
@@ -117,7 +108,7 @@ services:
       retries: 5
       start_period: 5s
     restart: always
-
+  # The redis - broker that forwards messages from scheduler to worker.
   redis:
     image: redis:7.2-bookworm
     expose:
@@ -129,9 +120,9 @@ services:
       retries: 50
       start_period: 30s
     restart: always
-
+  # The webserver is available at http://localhost:8080
   airflow-webserver:
-    <<: *airflow-common
+    !!merge <<: *airflow-common
     command: webserver
     ports:
       - "8080:8080"
@@ -143,12 +134,12 @@ services:
       start_period: 30s
     restart: always
     depends_on:
-      <<: *airflow-common-depends-on
+      !!merge <<: *airflow-common-depends-on
       airflow-init:
         condition: service_completed_successfully
-
+  # The scheduler monitors all tasks and DAGs, then triggers the task instances once their dependencies are complete.
   airflow-scheduler:
-    <<: *airflow-common
+    !!merge <<: *airflow-common
     command: scheduler
     healthcheck:
       test: ["CMD", "curl", "--fail", "http://localhost:8974/health"]
@@ -158,47 +149,46 @@ services:
       start_period: 30s
     restart: always
     depends_on:
-      <<: *airflow-common-depends-on
+      !!merge <<: *airflow-common-depends-on
       airflow-init:
         condition: service_completed_successfully
-
+  # The worker that executes the tasks given by the scheduler.
   airflow-worker:
-    <<: *airflow-common
+    !!merge <<: *airflow-common
     command: celery worker
     healthcheck:
       test:
-        - 'CMD-SHELL'
-        - 'celery --app airflow.providers.celery.executors.celery_executor.app inspect ping -d "celery@$" || celery --app airflow.executors.celery_executor.app inspect ping -d "celery@$"'
+        - "CMD-SHELL"
+        - 'celery --app airflow.providers.celery.executors.celery_executor.app inspect ping -d "celery@$${HOSTNAME}" || celery --app airflow.executors.celery_executor.app inspect ping -d "celery@$${HOSTNAME}"'
       interval: 30s
       timeout: 10s
       retries: 5
       start_period: 30s
     environment:
-      <<: *airflow-common-env
+      !!merge <<: *airflow-common-env
       DUMB_INIT_SETSID: "0"
     restart: always
     depends_on:
-      <<: *airflow-common-depends-on
+      !!merge <<: *airflow-common-depends-on
       airflow-init:
         condition: service_completed_successfully
-
   airflow-triggerer:
-    <<: *airflow-common
+    !!merge <<: *airflow-common
     command: triggerer
     healthcheck:
-      test: ['CMD-SHELL', 'airflow jobs check --job-type TriggererJob --hostname "$"']
+      test: ["CMD-SHELL", 'airflow jobs check --job-type TriggererJob --hostname "$${HOSTNAME}"']
       interval: 30s
       timeout: 10s
       retries: 5
       start_period: 30s
     restart: always
     depends_on:
-      <<: *airflow-common-depends-on
+      !!merge <<: *airflow-common-depends-on
       airflow-init:
         condition: service_completed_successfully
-
+  # The initialization service.
   airflow-init:
-    <<: *airflow-common
+    !!merge <<: *airflow-common
     entrypoint: /bin/bash
     command:
       - -c
@@ -207,17 +197,17 @@ services:
           printf "%04d%04d%04d%04d" $${1//./ }
         }
         airflow_version=$$(gosu airflow airflow version)
-        airflow_version_comparable=$$(ver $)
+        airflow_version_comparable=$$(ver $${airflow_version})
         min_airflow_version=2.2.0
-        min_airflow_version_comparable=$$(ver $)
+        min_airflow_version_comparable=$$(ver $${min_airflow_version})
         if (( airflow_version_comparable < min_airflow_version_comparable )); then
           echo
-          echo -e "\033[1;31mERROR!!!: Too old Airflow version $!\e[0m"
-          echo "The minimum Airflow version supported: $. Only use this or higher!"
+          echo -e "\033[1;31mERROR!!!: Too old Airflow version $${airflow_version}!\e[0m"
+          echo "The minimum Airflow version supported: $${min_airflow_version}. Only use this or higher!"
           echo
           exit 1
         fi
-        if [[ -z "" ]]; then
+        if [[ -z "${AIRFLOW_UID}" ]]; then
           echo
           echo -e "\033[1;33mWARNING!!!: AIRFLOW_UID not set!\e[0m"
           echo "If you are on Linux, you SHOULD follow the instructions below to set "
@@ -241,7 +231,7 @@ services:
         if (( cpus_available < 2 )); then
           echo
           echo -e "\033[1;33mWARNING!!!: Not enough CPUS available for Docker.\e[0m"
-          echo "At least 2 CPUs recommended. You have $"
+          echo "At least 2 CPUs recommended. You have $${cpus_available}"
           echo
           warning_resources="true"
         fi
@@ -252,7 +242,7 @@ services:
           echo
           warning_resources="true"
         fi
-        if [[ $ == "true" ]]; then
+        if [[ $${warning_resources} == "true" ]]; then
           echo
           echo -e "\033[1;33mWARNING!!!: You have not enough resources to run Airflow (see above)!\e[0m"
           echo "Please follow the instructions to increase amount of resources available:"
@@ -260,23 +250,32 @@ services:
           echo
         fi
         mkdir -p /sources/logs /sources/dags /sources/plugins /sources/mlflow-data /sources/data/ /sources/data/raw /sources/data/digest  /sources/data/pandas
-        chown -R ":0" /sources/{logs,dags,plugins,mlflow-data}
+        chown -R "${AIRFLOW_UID}:0" /sources/{logs,dags,plugins,mlflow-data}
         exec /entrypoint airflow version
     environment:
-      <<: *airflow-common-env
+      !!merge <<: *airflow-common-env
       _AIRFLOW_DB_MIGRATE: 'true'
       _AIRFLOW_WWW_USER_CREATE: 'true'
       _AIRFLOW_WWW_USER_USERNAME: ${_AIRFLOW_WWW_USER_USERNAME:-airflow}
       _AIRFLOW_WWW_USER_PASSWORD: ${_AIRFLOW_WWW_USER_PASSWORD:-airflow}
       _PIP_ADDITIONAL_REQUIREMENTS: ''
-    user: '0:0'
+    user: "0:0"
     volumes:
       - .:/sources
-
+  airflow-cli:
+    !!merge <<: *airflow-common
+    profiles:
+      - debug
+    environment:
+      !!merge <<: *airflow-common-env
+      CONNECTION_CHECK_MAX_COUNT: "0"
+    command:
+      - bash
+      - -c
+      - airflow
   fastapi:
-    image: tristandatascience/mlops-meteo:fastapi-0.2
     ports:
-      - '8000:8000'
+      - "8000:8000"
     volumes:
       - ./models:/app/models
       - ./data:/app/data
@@ -285,9 +284,7 @@ services:
       - ./plugins/weather_utils:/app/weather_utils
       - ./temp:/app/temp
     command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload --log-level debug
-    depends_on:
-      - airflow-webserver
-
+    image: tristandatascience/mlops-meteo:fastapi-0.4
   prometheus:
     image: prom/prometheus:v2.37.0
     volumes:
@@ -299,7 +296,7 @@ services:
       - '--web.console.libraries=/usr/share/prometheus/console_libraries'
       - '--web.console.templates=/usr/share/prometheus/consoles'
     ports:
-      - '9090:9090'
+      - "9090:9090"
     depends_on:
       - airflow-webserver
       - airflow-scheduler
@@ -308,12 +305,12 @@ services:
       - postgres
       - redis
     healthcheck:
-      test: ['CMD', 'wget', '--spider', '-S', 'http://localhost:9090/-/healthy']
+      test: ["CMD", "wget", "--spider", "-S", "http://localhost:9090/-/healthy"]
       interval: 30s
       timeout: 30s
       retries: 3
     restart: always
-    user: 'nobody'
+    user: "nobody"
     networks:
       - default
     deploy:
@@ -325,7 +322,6 @@ services:
     configs:
       - source: prometheus_config
         target: /etc/prometheus/prometheus.yml
-
   node-exporter:
     image: prom/node-exporter:latest
     container_name: node-exporter
@@ -340,15 +336,14 @@ services:
       - '--path.sysfs=/host/sys'
       - '--collector.filesystem.ignored-mount-points=^/(sys|proc|dev|host|etc)($$|/)'
     ports:
-      - '9100:9100'
+      - "9100:9100"
     networks:
       - default
-
   grafana:
     image: grafana/grafana:latest
     container_name: grafana
     ports:
-      - '3000:3000'
+      - "3000:3000"
     volumes:
       - grafana-data:/var/lib/grafana:rslave
       - ./grafana/provisioning:/etc/grafana/provisioning:rslave
@@ -359,17 +354,15 @@ services:
     restart: unless-stopped
     depends_on:
       - prometheus
-
   frontend:
-    image: tristandatascience/mlops-meteo:frontend-0.2
     volumes:
       - ./frontend:/app
     ports:
-      - '8501:8501'
-    command: ['streamlit', 'run', 'app.py', '--server.port=8501', '--server.address=0.0.0.0']
+      - "8501:8501"
+    command: ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0"]
     depends_on:
       - fastapi
-
+    image: tristandatascience/mlops-meteo:frontend-0.4
 volumes:
   postgres-db-volume-airflow:
     driver: local
@@ -381,7 +374,6 @@ volumes:
     driver: local
   grafana-data:
     driver: local
-
 configs:
   prometheus_config:
     file: ./prometheus/prometheus.yml

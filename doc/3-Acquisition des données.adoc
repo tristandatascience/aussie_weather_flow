@@ -8,7 +8,7 @@ include::./Links.adoc[]
 
 === Analyse de la source
 
-Les données initiales du projet {KagglePrj} comportent une compilation 10 ans d'observations météo en Australie de 2007 à 2017 fournies par le Bureau Australien de Météorologie.
+Les données initiales du projet {KagglePrj} comportent une compilation de 10 ans d'observations météo en Australie de 2007 à 2017 fournies par le Bureau Australien de Météorologie.
 
 On peut accéder aux observations journalières depuis ici : +
 http://www.bom.gov.au/climate/data
@@ -36,7 +36,7 @@ Cette page contient un formulaire et il est nécessaire pour obtenir des donnée
 
 Le formulaire permet de sélectionner une station météo en recherchant par rapport à une localité mais il est possible de préciser directement la station si on en connait son identifiant.
 
-La compilation initiale comporte le nom de 50 villes mais pas l'identifiant des stations météo.
+La compilation initiale comporte le nom de 49 villes mais pas l'identifiant des stations météo.
 
 Il nous faut donc estimer celles qui nous intéressent sachant que plusieurs localités portent le même nom...
 
@@ -216,6 +216,158 @@ De même, si le fichier existe déjà on ne procède pas au scraping.
 
 Enfin, nous pourrons rafraîchir quotidiennement le dernier CSV de chaque station pour obtenir les données de la veille.
 
-Le programme est disponible dans le dossier "src/data/raw".
+Le programme *acquire.py* est disponible dans le dossier "src/data/raw/acquisition".
 
 Un fichier "ReadMe" est fourni qui contient les instructions pour l'utilisation.
+
+=== Traitements préliminaires
+
+Les données initiales du projet {KagglePrj} comportent une compilation de 10 ans d'observations météo en Australie de 2007 à 2017 fournies par le Bureau Australien de Météorologie.
+
+Le fichier "*weatherAUS.csv*" contient cette compilation et a servi de base pour le projet de fin de cursus "Data Scientist" : +
+https://github.com/DataScientest-Studio/fev23_cds_meteo_australie
+
+Pour pouvoir éventuellement réutiliser des portions de ce projet il nous faut traiter les données acquises précédemment afin de les compiler dans le même format que le fichier "*weatherAUS.csv*".
+
+==== Comparaison des formats
+
+Les fichiers diffèrent dans leur structure.
+
+===== weatherAUS.csv
+
+----
+Date,Location,MinTemp,MaxTemp,Rainfall,Evaporation,Sunshine,WindGustDir,WindGustSpeed,WindDir9am,WindDir3pm,WindSpeed9am,WindSpeed3pm,Humidity9am,Humidity3pm,Pressure9am,Pressure3pm,Cloud9am,Cloud3pm,Temp9am,Temp3pm,RainToday,RainTomorrow
+2008-12-01,Albury,13.4,22.9,0.6,NA,NA,W,44,W,WNW,20,24,71,22,1007.7,1007.1,8,NA,16.9,21.8,No,No
+2008-12-02,Albury,7.4,25.1,0,NA,NA,WNW,44,NNW,WSW,4,22,44,25,1010.6,1007.8,NA,NA,17.2,24.3,No,No
+2008-12-03,Albury,12.9,25.7,0,NA,NA,WSW,46,W,WSW,19,26,38,30,1007.6,1008.7,NA,2,21,23.2,No,No
+...
+----
+
+La première ligne contient l'en-tête des colonnes.
+
+===== IDCJDW2002.202308
+
+----
+"Daily Weather Observations for Albury-Wodonga for August 2023"
+"Prepared at 13:00 UTC on Friday 13 September 2024   IDCJDW2002.202308"
+"Copyright 2003 Commonwealth Bureau of Meteorology"
+"Observations from Albury airport."
+"Some cloud observations are from automated equipment; these are somewhat different to those made by a human observer and may not appear every day."
+"Observations were drawn from Albury Airport AWS {station 072160}"
+
+,"Date","Minimum temperature (°C)","Maximum temperature (°C)","Rainfall (mm)","Evaporation (mm)","Sunshine (hours)","Direction of maximum wind gust ","Speed of maximum wind gust (km/h)","Time of maximum wind gust","9am Temperature (°C)","9am relative humidity (%)","9am cloud amount (oktas)","9am wind direction","9am wind speed (km/h)","9am MSL pressure (hPa)","3pm Temperature (°C)","3pm relative humidity (%)","3pm cloud amount (oktas)","3pm wind direction","3pm wind speed (km/h)","3pm MSL pressure (hPa)"
+,2023-08-1,10.5,16.0,0,,,WNW,24,13:08,12.6,75,,W,9,1031.0,14.4,65,,W,15,1030.1
+,2023-08-2,1.8,17.6,0,,,NE,24,14:32,8.6,88,,NNW,2,1035.2,17.1,54,,N,15,1032.5
+,2023-08-3,1.9,19.6,0.2,,,NE,28,15:23,11.1,80,,NE,6,1034.5,19.3,55,,NE,19,1029.9
+...
+----
+
+Les premières lignes contiennent des meta informations en première colonne.
+
+L'en_tête est précédé d'une ligne vide.
+
+Les données commencent en colonne 1.
+
+On supprimera la première colonne (0) et on ne prendra pas en compte les lignes vides.
+
+.Champs - fichiers acquis
+[width="100%",options="header",cols="20%,80%"]
+|===
+|Col  |Data
+| 0   |"Date"
+| 1   |"Minimum temperature (°C)"
+| 2   |"Maximum temperature (°C)"
+| 3   |"Rainfall (mm)"
+| 4   |"Evaporation (mm)"
+| 5   |"Sunshine (hours)"
+| 6   |"Direction of maximum wind gust "
+| 7   |"Speed of maximum wind gust (km/h)"
+| 8   |"Time of maximum wind gust"
+| 9   |"9am Temperature (°C)"
+|10   |"9am relative humidity (%)"
+|11   |"9am cloud amount (oktas)"
+|12   |"9am wind direction"
+|13   |"9am wind speed (km/h)"
+|14   |"9am MSL pressure (hPa)"
+|15   |"3pm Temperature (°C)"
+|16   |"3pm relative humidity (%)"
+|17   |"3pm cloud amount (oktas)"
+|18   |"3pm wind direction"
+|19   |"3pm wind speed (km/h)"
+|20   |"3pm MSL pressure (hPa)"
+|===  
+
+===== Correspondance
+
+.Correspondance weatherAUS.csv - fichiers acquis
+[%autowidth, width="100%",options="header",cols="5"]
+|===
+|Col|weatherAUS.csv   |Fichiers acquis                      |Col|Commentaire
+|  0|Date             |"Date"                               |  0|Idem
+|  1|Location         |Champ absent                         |   |A créer 
+|  2|MinTemp          |"Minimum temperature (°C)"           |  1|Idem
+|  3|MaxTemp          |"Maximum temperature (°C)"           |  2|Idem
+|  4|Rainfall         |"Rainfall (mm)"                      |  3|Idem
+|  5|Evaporation      |"Evaporation (mm)"                   |  4|Idem
+|  6|Sunshine         |"Sunshine (hours)"                   |  5|Idem
+|  7|WindGustDir      |"Direction of maximum wind gust"     |  6|Idem
+|  8|WindGustSpeed    |"Speed of maximum wind gust (km/h)"  |  7|Idem
+|  9|WindDir9am       |"9am wind direction"                 | 12|Idem
+| 10|WindDir3pm       |"3pm wind direction"                 | 18|Idem
+| 11|WindSpeed9am     |"9am wind speed (km/h)"              | 13|Idem
+| 12|WindSpeed3pm     |"3pm wind speed (km/h)"              | 19|Idem
+| 13|Humidity9am      |"9am relative humidity (%)"          | 10|Idem
+| 14|Humidity3pm      |"3pm relative humidity (%)"          | 16|Idem
+| 15|Pressure9am      |"9am MSL pressure (hPa)"             | 14|Idem
+| 16|Pressure3pm      |"3pm MSL pressure (hPa)"             | 20|Idem
+| 17|Cloud9am         |"9am cloud amount (oktas)"           | 11|Idem
+| 18|Cloud3pm         |"3pm cloud amount (oktas)"           | 17|Idem
+| 19|Temp9am          |"9am Temperature (°C)"               |  9|Idem
+| 20|Temp3pm          |"3pm Temperature (°C)"               | 15|Idem
+| 21|RainToday        |Champ absent                         |   |A créer
+| 22|RainTomorrow     |Champ absent                         |   |A créer
+|===
+
+*Location* : +
+On a la correspondance entre l'identifiant de station et celui des données dans la table "DataIds.csv" et entre l'identifiant de station et le nom de la localité dans "CodeVilleClimat.csv".
+
+(Sachant que plusieurs stations peuvent participer à un même ensemble de données.)
+
+*RainToday* : +
+Boolean: 1 if precipitation (mm) in the 24 hours to 9am exceeds 1mm, otherwise 0
+
+*RainTomorrow* : +
+The amount of next day rain in mm. Used to create response variable RainTomorrow. A kind of measure of the "risk".
+
+NOTE: Cette description nous semble foireuse par rapport au contenu du ficher. (Yes, No)
+
+==== Algorithme
+
+L'algorithme d'acquisition a récupéré depuis la source les fichiers CSV bruts qu'il range dans le dossier *raw*.
+Dans le même temps, il a aussi stocké dans le dossier *digest* les fichiers expurgés des commentaires de début et lignes vides.
+
+L'algorithme fusionne les fichiers "CodeVilleClimat.csv" and "DataIds.csv" afin de pouvoir associer les identifiants de données aux localités.
+
+Il récupère la liste des fichiers CSV du dossier *digest* et la trie.
+
+Pour tous les fichiers de cette liste :
+
+* il lit le fichier CSV avec le bon en-tête,
+* il reformate la date pour que le tri se passe bien,
+* il ajoute la colonne "Location" avec donc le nom associé à l'identifiant de données,
+* il ajoute la colonne calculée "RainToday",
+* il ajoute la colonne "RainToday" décalée, "RainTomorrow",
+* il concatène le dataframe avec les précédents.
+
+Pour terminer, le dataframe final est trié selon la localité et la date et l'index est remis par défaut.
+
+Enfin, il est stocké au format CSV dans la dossier *pandas*, dans le fichier "weatherAUS.csv".
+
+Normalement prêt à être consommé ! :-)
+
+Le programme *convert.py* est disponible dans le dossier "src/data/raw/conversion".
+
+Le fichier "ReadMe" fourni contient les instructions pour l'utilisation.
+
+NOTE: Cette phase de traitement est assez rapide dans notre cas d'école. +
+Avec plus de données, il faudrait sans doute améliorer l'algorithme de sorte de ne pas avoir à tout refaire à chaque acquisition.
