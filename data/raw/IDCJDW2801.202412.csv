@@ -1,5 +1,5 @@
 "Daily Weather Observations for Canberra, Australian Capital Territory for December 2024"
-"Prepared at 05:36 UTC on Wednesday  4 December 2024   IDCJDW2801.202412"
+"Prepared at 05:36 UTC on Thursday  5 December 2024   IDCJDW2801.202412"
 "Copyright 2003 Commonwealth Bureau of Meteorology"
 "Observations from Canberra Airport."
 "Some cloud observations are from automated equipment; these are somewhat different to those made by a human observer and may not appear every day."
@@ -9,4 +9,5 @@
 ,2024-12-1,17.6,26.2,40.4,,,WNW,43,17:25,19.2,87,8,NNW,13,1007.6,24.2,54,8,NW,22,1005.2
 ,2024-12-2,10.2,30.8,0.6,,,NNW,56,12:48,21.5,59,,WNW,15,1009.1,29.6,29,,W,20,1007.3
 ,2024-12-3,16.5,25.3,0,,,NNW,56,13:42,20.9,80,7,NNW,15,1008.6,23.5,71,8,NNW,31,1006.0
-,2024-12-4,16.6,,7.0,,,,,,21.8,92,7,N,11,1014.9,29.2,55,1,N,19,1013.9
+,2024-12-4,16.6,30.5,7.0,,,E,43,16:08,21.8,92,7,N,11,1014.9,29.2,55,1,N,19,1013.9
+,2024-12-5,14.5,,4.4,,,,,,18.3,80,8,E,6,1020.2,30.2,52,2,NW,17,1016.4

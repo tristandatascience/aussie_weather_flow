@@ -11,7 +11,7 @@ x-airflow-common:
     &airflow-common-env
     AIRFLOW__CORE__EXECUTOR: CeleryExecutor
     AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://airflow:airflow@postgres/airflow
-    AIRFLOW_CONN_WEATHER_DATA_POSTGRES: postgresql+psycopg2://airflow:airflow@postgres:5432/weather_data 
+    AIRFLOW_CONN_WEATHER_DATA_POSTGRES: postgresql+psycopg2://airflow:airflow@postgres-weather-data:5432/weather_data  
     AIRFLOW__CELERY__RESULT_BACKEND: db+postgresql://airflow:airflow@postgres/airflow
     AIRFLOW__CELERY__BROKER_URL: redis://:@redis:6379/0
     AIRFLOW__CORE__FERNET_KEY: ''
@@ -61,6 +61,48 @@ services:
       interval: 5s
       retries: 5
     restart: always
+
+
+
+  # This container runs the postgresql server for airflow.
+  postgres:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: airflow
+    volumes:
+      #- ./init-db.sh:/docker-entrypoint-initdb.d/init-db.sh
+      - postgres-db-volume-airflow:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "airflow"]
+      interval: 10s
+      retries: 5
+      start_period: 5s
+    restart: always
+
+
+  postgres-weather-data:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: airflow
+      POSTGRES_PASSWORD: airflow
+      POSTGRES_DB: weather_data
+    volumes:
+      - ./init-weather-db:/docker-entrypoint-initdb.d/init-weather-db.sh:ro
+      - postgres-db-volume-weather-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "airflow", "-d", "weather_data"]
+      interval: 10s
+      retries: 5
+      start_period: 5s
+    restart: always
+    ports:
+      - "5432:5439"  # Utilisez un port différent si nécessaire
+
+
+
+
 
   # This container runs the artifact storage as an S3 server.
   s3-artifact-storage:
@@ -113,22 +155,6 @@ services:
       - s3-artifact-storage
       - mlflow-init
 
-  # This container runs the postgresql server for airflow.
-  postgres:
-    image: postgres:13
-    environment:
-      POSTGRES_USER: airflow
-      POSTGRES_PASSWORD: airflow
-      POSTGRES_DB: airflow
-    volumes:
-      - ./init-db.sh:/docker-entrypoint-initdb.d/init-db.sh
-      - postgres-db-volume-airflow:/var/lib/postgresql/data
-    healthcheck:
-      test: ["CMD", "pg_isready", "-U", "airflow"]
-      interval: 10s
-      retries: 5
-      start_period: 5s
-    restart: always
 
   # The redis - broker that forwards messages from scheduler to worker.
   redis:
@@ -413,6 +439,8 @@ volumes:
   prometheus-data:
     driver: local
   grafana-data:
+    driver: local
+  postgres-db-volume-weather-data:
     driver: local
 
 configs:

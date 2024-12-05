@@ -14,7 +14,7 @@ from airflow.exceptions import AirflowException
 import pickle
 
 # Define paths
-MODEL_PATH = './models/model_rf.joblib'  # Changed model name to reflect RandomForest
+MODEL_PATH = './models/best_model.joblib'  # Changed model name to reflect RandomForest
 TEMP_PATH = './temp/'
 os.makedirs(os.path.dirname(MODEL_PATH), exist_ok=True)
 

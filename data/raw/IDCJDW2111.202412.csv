@@ -1,5 +1,5 @@
 "Daily Weather Observations for Penrith, New South Wales for December 2024"
-"Prepared at 05:36 UTC on Wednesday  4 December 2024   IDCJDW2111.202412"
+"Prepared at 05:36 UTC on Thursday  5 December 2024   IDCJDW2111.202412"
 "Copyright 2003 Commonwealth Bureau of Meteorology"
 "Observations were drawn from Penrith Lakes AWS {station 067113}"
 
@@ -7,4 +7,5 @@
 ,2024-12-1,19.8,31.2,11.0,,,SW,52,12:42,24.2,80,,SW,4,,28.5,61,,NNW,7,
 ,2024-12-2,17.4,36.6,2.0,,,NW,31,11:13,23.2,80,,N,4,,36.1,26,,NNW,22,
 ,2024-12-3,19.7,32.1,0,,,NNW,43,12:13,26.0,64,,N,4,,28.1,60,,NW,9,
-,2024-12-4,20.8,,0.6,,,,,,23.3,77,,SE,2,,27.9,53,,SE,17,
+,2024-12-4,20.8,29.9,0.6,,,ESE,28,14:26,23.3,77,,SE,2,,27.9,53,,SE,17,
+,2024-12-5,20.2,,0.2,,,,,,22.7,72,,S,2,,28.9,58,,N,7,

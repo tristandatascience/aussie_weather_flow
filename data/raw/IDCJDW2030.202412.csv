@@ -1,5 +1,5 @@
 "Daily Weather Observations for Coffs Harbour, New South Wales for December 2024"
-"Prepared at 05:36 UTC on Wednesday  4 December 2024   IDCJDW2030.202412"
+"Prepared at 05:36 UTC on Thursday  5 December 2024   IDCJDW2030.202412"
 "Copyright 2003 Commonwealth Bureau of Meteorology"
 "Some cloud observations are from automated equipment; these are somewhat different to those made by a human observer and may not appear every day. Prior to February 2015, observations were recorded against Coffs Harbour MO (site number 059040)."
 "Observations were drawn from Coffs Harbour Airport {station 059151}"
@@ -8,4 +8,5 @@
 ,2024-12-1,20.6,27.2,24.8,,,NNE,52,14:26,25.1,85,,NNE,19,1009.8,25.7,79,8,NE,35,1007.4
 ,2024-12-2,17.9,28.1,7.6,,,NNE,44,12:45,24.6,76,,NE,13,1011.5,27.5,74,,NE,30,1009.4
 ,2024-12-3,23.5,28.3,0,,,NNE,50,15:06,26.2,74,3,N,19,1012.0,25.8,71,1,NNE,35,1009.6
-,2024-12-4,21.7,,0,,,,,,27.5,72,7,N,7,1013.9,25.3,75,,NE,24,1013.6
+,2024-12-4,21.7,29.5,0,,,NNE,37,15:04,27.5,72,7,N,7,1013.9,25.3,75,,NE,24,1013.6
+,2024-12-5,21.3,,0,,,,,,24.4,80,8,S,13,1020.8,25.5,80,8,SE,13,1018.9

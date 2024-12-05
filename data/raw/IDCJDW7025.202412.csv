@@ -1,5 +1,5 @@
 "Daily Weather Observations for Launceston, Tasmania for December 2024"
-"Prepared at 06:20 UTC on Wednesday  4 December 2024   IDCJDW7025.202412"
+"Prepared at 06:20 UTC on Thursday  5 December 2024   IDCJDW7025.202412"
 "Copyright 2003 Commonwealth Bureau of Meteorology"
 "Most observations from Ti Tree Bend, but pressure and cloud from the airport."
 "Conditions at Launceston Airport may be markedly different to those in the city on some days. Some cloud observations are from automated equipment; these are somewhat different to those made by a human observer and may not appear every day."
@@ -10,4 +10,5 @@
 ,2024-12-1,16.7,22.9,21.0,,,NNW,59,16:46,18.3,89,6,NW,15,,21.6,68,8,NNW,28,
 ,2024-12-2,15.1,21.7,3.2,,,NNW,48,01:50,16.7,84,8,NNW,22,,21.3,72,,NW,22,
 ,2024-12-3,14.3,21.6,7.8,,,NNW,39,16:50,15.7,95,8,ENE,6,,18.7,95,7,NW,26,
-,2024-12-4,8.6,,4.4,,,,,,14.9,68,,N,6,,21.9,54,,NW,24,
+,2024-12-4,8.6,23.0,4.4,,,NW,43,15:26,14.9,68,,N,6,,21.9,54,,NW,24,
+,2024-12-5,12.6,,0.2,,,,,,17.0,77,,NNW,6,,24.4,40,,NW,20,

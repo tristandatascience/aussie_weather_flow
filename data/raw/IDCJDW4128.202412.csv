@@ -1,5 +1,5 @@
 "Daily Weather Observations for Townsville, Queensland for December 2024"
-"Prepared at 06:26 UTC on Wednesday  4 December 2024   IDCJDW4128.202412"
+"Prepared at 06:26 UTC on Thursday  5 December 2024   IDCJDW4128.202412"
 "Copyright 2003 Commonwealth Bureau of Meteorology"
 "Observations were drawn from Townsville Aero {station 032040}"
 
@@ -7,4 +7,5 @@
 ,2024-12-1,24.5,30.5,1.2,,,ENE,30,15:04,28.8,84,8,E,11,1010.0,28.9,78,1,ENE,24,1006.4
 ,2024-12-2,25.8,31.3,0.8,,,ENE,37,10:55,30.0,76,5,ENE,20,1008.7,27.0,88,8,ENE,22,1006.8
 ,2024-12-3,25.0,28.4,18.8,,,NNE,44,09:25,27.3,85,8,NE,22,1009.9,27.9,81,8,SE,9,1007.1
-,2024-12-4,24.5,,8.2,,,,,,28.1,80,8,NE,15,1011.2,25.3,94,8,NE,7,1009.6
+,2024-12-4,24.5,30.1,8.2,,,E,43,20:39,28.1,80,8,NE,15,1011.2,25.3,94,8,NE,7,1009.6
+,2024-12-5,23.8,,37.4,,,,,,27.8,82,7,ESE,19,1013.2,26.0,91,8,E,26,1012.1

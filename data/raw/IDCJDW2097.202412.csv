@@ -1,5 +1,5 @@
 "Daily Weather Observations for Newcastle, New South Wales for December 2024"
-"Prepared at 05:36 UTC on Wednesday  4 December 2024   IDCJDW2097.202412"
+"Prepared at 05:36 UTC on Thursday  5 December 2024   IDCJDW2097.202412"
 "Copyright 2003 Commonwealth Bureau of Meteorology"
 "Most observations from Nobbys Head, but cloud from Newcastle University."
 "Temperature, humidity, wind and rainfall observations are from Newcastle Nobbys Signal Station AWS {station 061055}"
@@ -9,4 +9,5 @@
 ,2024-12-1,19.8,27.1,5.2,,,ENE,33,15:02,23.1,86,,N,13,,23.4,74,,ENE,24,
 ,2024-12-2,19.0,32.2,0.2,,,E,39,14:40,25.2,60,,NNW,20,,23.0,74,,E,30,
 ,2024-12-3,20.8,30.6,0.2,,,NW,59,15:26,24.0,72,,ENE,15,,30.6,49,,NW,30,
-,2024-12-4,20.5,,0,,,,,,20.6,89,,SW,39,,21.2,81,,SSW,22,
+,2024-12-4,20.5,21.7,0,,,SW,50,08:52,20.6,89,,SW,39,,21.2,81,,SSW,22,
+,2024-12-5,19.3,,0.2,,,,,,20.5,93,,SW,19,,22.7,83,,SSE,13,
