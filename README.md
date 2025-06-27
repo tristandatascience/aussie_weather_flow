@@ -182,22 +182,6 @@ Le projet utilise **GitHub Actions** ⚙️ pour l'intégration continue et le d
 Ce projet est sous licence MIT - voir le fichier [LICENSE](./LICENSE) pour plus de détails.
 
 
-*Ce projet a été réalisé dans le cadre du programme MLOps de Juillet 2024.*
-
----
-## Équipe du projet 👥
-
-Ce projet a été développé par l'équipe suivante :
-
-- **Shirley GERVOLINO** [![](https://img.shields.io/badge/GitHub-black?logo=github&style=flat-square)](https://github.com/Shirley687) [![](https://img.shields.io/badge/in-blue?logo=linkedin&style=flat-square)](https://www.linkedin.com/in/shirley-gervolino-33520721/)
-
-- **Tristan LOZAHIC** [![](https://img.shields.io/badge/GitHub-black?logo=github&style=flat-square)](https://github.com/tristandatascience) [![](https://img.shields.io/badge/in-blue?logo=linkedin&style=flat-square)](https://www.linkedin.com/in/tristanlozahic/)
-
-- **Prudence Amani** [![](https://img.shields.io/badge/GitHub-black?logo=github&style=flat-square)](https://github.com/) [![](https://img.shields.io/badge/in-blue?logo=linkedin&style=flat-square)](https://www.linkedin.com/in/)
-
-- **Stéphane LOS** [![](https://img.shields.io/badge/GitHub-black?logo=github&style=flat-square)](https://github.com/hil-slos) [![](https://img.shields.io/badge/in-blue?logo=linkedin&style=flat-square)](https://fr.linkedin.com/in/losstephane/)
----
-
 ---
 
 # Liens utiles 🔗
