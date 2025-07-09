@@ -183,13 +183,4 @@ Ce projet est sous licence MIT - voir le fichier [LICENSE](./LICENSE) pour plus 
 
 
 ---
-
-# Liens utiles 🔗
-
-- [Documentation du projet](Lien_vers_votre_documentation)
-- [Docker Hub](https://hub.docker.com/u/votre_nom_utilisateur)
-- [Issues](Lien_vers_votre_projet_GitHub/issues)
-
----
-
 Les badges sont générés via [Shields.io](https://shields.io/) 
