@@ -1,0 +1,12 @@
+"Daily Weather Observations for Witchcliffe (Margaret River District), Western Australia for September 2025"
+"Prepared at 08:20 UTC on Friday  5 September 2025   IDCJDW6081.202509"
+"Copyright 2003 Commonwealth Bureau of Meteorology"
+"Observations are from Witchliffe West (109521) which opened in June 2022. Witchcliffe is about 9 km south-south-east of Margaret River."
+"Observations were drawn from Witchcliffe West {station 109521}"
+
+,"Date","Minimum temperature (°C)","Maximum temperature (°C)","Rainfall (mm)","Evaporation (mm)","Sunshine (hours)","Direction of maximum wind gust ","Speed of maximum wind gust (km/h)","Time of maximum wind gust","9am Temperature (°C)","9am relative humidity (%)","9am cloud amount (oktas)","9am wind direction","9am wind speed (km/h)","9am MSL pressure (hPa)","3pm Temperature (°C)","3pm relative humidity (%)","3pm cloud amount (oktas)","3pm wind direction","3pm wind speed (km/h)","3pm MSL pressure (hPa)"
+,2025-09-1,5.7,17.7,0,,,W,46,17:32,16.2,69,,WNW,22,1021.7,16.4,76,,WNW,22,1019.8
+,2025-09-2,10.3,16.2,0,,,WSW,26,11:47,14.0,73,,S,9,1023.8,15.5,64,,WSW,13,1022.6
+,2025-09-3,5.1,15.9,0,,,ESE,22,10:34,8.1,100,,ENE,11,1019.8,15.2,66,,S,9,1016.8
+,2025-09-4,5.8,17.6,0,,,N,39,15:40,13.7,83,,NNE,9,1015.3,16.5,62,,NW,20,1012.3
+,2025-09-5,11.4,,39.8,,,,,,12.2,100,,ESE,6,999.3,12.2,100,,NW,13,995.7

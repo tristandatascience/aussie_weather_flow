@@ -1,0 +1,14 @@
+"Daily Weather Observations for Launceston, Tasmania for September 2025"
+"Prepared at 06:20 UTC on Friday  5 September 2025   IDCJDW7025.202509"
+"Copyright 2003 Commonwealth Bureau of Meteorology"
+"Most observations from Ti Tree Bend, but pressure and cloud from the airport."
+"Conditions at Launceston Airport may be markedly different to those in the city on some days. Some cloud observations are from automated equipment; these are somewhat different to those made by a human observer and may not appear every day."
+"Temperature, humidity, wind, pressure and rainfall observations are from Launceston (Ti Tree Bend) {station 091237}"
+"Cloud observations are from Launceston Airport {station 091311}"
+
+,"Date","Minimum temperature (°C)","Maximum temperature (°C)","Rainfall (mm)","Evaporation (mm)","Sunshine (hours)","Direction of maximum wind gust ","Speed of maximum wind gust (km/h)","Time of maximum wind gust","9am Temperature (°C)","9am relative humidity (%)","9am cloud amount (oktas)","9am wind direction","9am wind speed (km/h)","9am MSL pressure (hPa)","3pm Temperature (°C)","3pm relative humidity (%)","3pm cloud amount (oktas)","3pm wind direction","3pm wind speed (km/h)","3pm MSL pressure (hPa)"
+,2025-09-1,5.1,17.4,0,,,WSW,37,14:48,11.1,67,,NNW,11,,16.1,33,,WSW,22,
+,2025-09-2,0.2,14.4,0,,,NW,70,14:02,5.4,93,6, ,Calm,,11.8,83,7,NNW,19,
+,2025-09-3,5.4,12.3,4.6,,,NW,46,12:42,10.7,83,8,NW,15,,11.1,75,8,NNW,22,
+,2025-09-4,6.5,12.3,0.8,,,WNW,56,15:35,7.5,89,8,N,17,,11.1,51,7,W,22,
+,2025-09-5,-0.4,,0,,,,,,6.9,71,,E,7,,13.6,36,,E,7,

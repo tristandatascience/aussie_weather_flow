@@ -14,9 +14,8 @@ from airflow.exceptions import AirflowException
 import pickle
 
 # Define paths
-MODEL_PATH = './models/best_model.joblib'  # Changed model name to reflect RandomForest
 TEMP_PATH = './temp/'
-os.makedirs(os.path.dirname(MODEL_PATH), exist_ok=True)
+# Note: Les exports de modèles sont maintenant gérés par MLflow, pas par des fichiers locaux
 
 #def load_df():
 #    """Loads the DataFrame from a pickle file."""
@@ -46,13 +45,8 @@ def load_df():
 
 
 
-def save_model(trained_model, model_path=MODEL_PATH):  # Added model_path argument
-    """Saves the trained model to a file."""
-    try:
-        joblib.dump(trained_model, model_path)  # Use model_path argument
-        print(f'Model saved successfully to {model_path}')
-    except (OSError, TypeError) as e:
-        raise AirflowException(f"Error saving model: {e}")
+# La fonction save_model a été supprimée car MLflow gère maintenant tous les exports de modèles
+# Les modèles sont enregistrés via MLflow dans train_model() avec mlflow.sklearn.log_model()
 
 
 def training_model(df):
@@ -92,7 +86,10 @@ def training_model(df):
 def predict_with_model(model, data):
     try:
         features = data.drop(columns='RainTomorrow') if 'RainTomorrow' in data.columns else data
-        features = features.drop(columns=['ingestion_date'])
+        
+        # Supprimer la colonne ingestion_date si elle existe, sinon continuer normalement
+        if 'ingestion_date' in features.columns:
+            features = features.drop(columns=['ingestion_date'])
         
         if features.empty:
             raise ValueError("Input data is empty")
@@ -106,7 +103,8 @@ def predict_with_model(model, data):
         raise RuntimeError(f"Prediction error: {str(e)}")
 
 def train_and_save_model():
-    """Trains and saves the model."""
+    """Trains the model - note: saving is now handled by MLflow"""
     df = load_df()
     best_rf = training_model(df)
-    save_model(best_rf)
+    # Le modèle est maintenant enregistré via MLflow dans train_model()
+    return best_rf

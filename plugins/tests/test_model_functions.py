@@ -3,7 +3,7 @@
 import pytest
 import pandas as pd
 from unittest.mock import patch, MagicMock
-from weather_utils.model_functions import predict_with_model, training_model, train_and_save_model,  save_model, MODEL_PATH, TEMP_PATH
+from weather_utils.model_functions import predict_with_model, training_model, train_and_save_model, TEMP_PATH
 import os
 from sklearn.ensemble import RandomForestClassifier
 import numpy as np
@@ -63,13 +63,8 @@ def test_training_model(mock_data):
     assert len(model.feature_importances_) > 0, "Les feature_importances_ sont vides"
     
 
-def test_save_model():
-  """Test pour la fonction save_model."""
-  mock_model = MagicMock()
-  with patch('weather_utils.model_functions.joblib.dump') as mock_joblib_dump:
-      save_model(mock_model)
-
-      mock_joblib_dump.assert_called_once_with(mock_model, MODEL_PATH)
+# Le test test_save_model() a été supprimé car la fonction save_model() n'existe plus
+# Les modèles sont maintenant gérés par MLflow, pas par des fichiers locaux
 
 
 def test_predict_with_model(mock_data):

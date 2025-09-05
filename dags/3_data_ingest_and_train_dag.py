@@ -1,32 +1,16 @@
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 from datetime import datetime, timedelta
-import mlflow
-import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.metrics import mean_squared_error
 from airflow.utils.dates import days_ago
-from datetime import datetime, timedelta
 
 # Import functions from meteo_functions
-from weather_utils.model_functions import train_and_save_model
+from weather_utils.model_functions import train_and_save_model, load_df
 from weather_utils.csv_to_postgres import load_csv_to_postgres
 from weather_utils.convert_to_one_csv import convert
 from weather_utils.sql_to_df import load_sql_to_df
-from weather_utils.model_functions import load_df
-from weather_utils.mlflow_functions import prepare_data, train_model, get_best_model, export_best_model
-from weather_utils.model_functions import train_and_save_model
-from weather_utils.csv_to_postgres import load_csv_to_postgres
-from weather_utils.sql_to_df import load_sql_to_df
+from weather_utils.mlflow_functions import prepare_data, train_model, get_best_model
 from weather_utils.acquire_data import acquire
-from weather_utils.convert_to_one_csv import convert
 from weather_utils.prepare_data import cleaning
-import joblib
-from sklearn.metrics import mean_absolute_error, r2_score
-import os
-import datetime
-import numpy as np
 
 
 # Define the DAG
@@ -82,11 +66,6 @@ with combined_dag:
         python_callable=train_model,
     )
 
-    export_best_model_task = PythonOperator(
-        task_id="export_best_model",
-        python_callable=export_best_model,
-    )
-
     # Define the order of tasks
     (
         scrap_data_task >>
@@ -94,6 +73,5 @@ with combined_dag:
         prepare_data_task >>
         load_csv_to_postgres_task >>
         load_sql_to_df_task >>
-        train_model_task >>
-        export_best_model_task
+        train_model_task
     )

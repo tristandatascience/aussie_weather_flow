@@ -1,0 +1,14 @@
+"Daily Weather Observations for Dartmoor, Victoria for September 2025"
+"Prepared at 05:36 UTC on Friday  5 September 2025   IDCJDW3101.202509"
+"Copyright 2003 Commonwealth Bureau of Meteorology"
+"Most observations from Dartmoor, but evaporation and sunshine from Mt Gambier."
+"Mt Gambier is about 50 km to the west of Dartmoor, and conditions may differ markedly between the two on any given day; the results for evaporation and sunshine, and the climate averages listed below, should be used with caution."
+"Temperature, humidity, wind, pressure and rainfall observations are from Dartmoor {station 090194}"
+"Evaporation and sunshine observations are from Mount Gambier Aero {station 026021}"
+
+,"Date","Minimum temperature (°C)","Maximum temperature (°C)","Rainfall (mm)","Evaporation (mm)","Sunshine (hours)","Direction of maximum wind gust ","Speed of maximum wind gust (km/h)","Time of maximum wind gust","9am Temperature (°C)","9am relative humidity (%)","9am cloud amount (oktas)","9am wind direction","9am wind speed (km/h)","9am MSL pressure (hPa)","3pm Temperature (°C)","3pm relative humidity (%)","3pm cloud amount (oktas)","3pm wind direction","3pm wind speed (km/h)","3pm MSL pressure (hPa)"
+,2025-09-1,7.0,14.9,1.8,,,W,26,11:29,9.5,93,,NNW,9,1025.7,12.5,82,,WSW,7,1023.6
+,2025-09-2,5.1,15.8,1.0,,,NNW,59,11:04,9.8,88,,N,20,1020.2,14.8,63,,NW,20,1015.3
+,2025-09-3,8.1,15.0,7.6,,,WSW,54,20:01,11.6,76,,NNW,19,1015.1,14.1,66,,NW,22,1013.4
+,2025-09-4,7.4,12.8,10.8,,,SW,43,12:31,8.9,92,,WSW,6,1018.1,11.2,56,,WSW,15,1021.0
+,2025-09-5,-1.1,,0.4,,,,,,4.5,98,,NE,2,1029.4,14.0,52,,ENE,15,1026.4

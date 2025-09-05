@@ -283,7 +283,9 @@ services:
       - ./users:/app/users
       - ./plugins/weather_utils:/app/weather_utils
       - ./temp:/app/temp
-    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload --log-level debug
+    env_file:
+      - api.env
+    command: uvicorn main:app --host 0.0.0.0 --port 8000
     image: tristandatascience/mlops-meteo:fastapi-0.4
   prometheus:
     image: prom/prometheus:v2.37.0

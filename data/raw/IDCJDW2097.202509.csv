@@ -1,0 +1,13 @@
+"Daily Weather Observations for Newcastle, New South Wales for September 2025"
+"Prepared at 05:36 UTC on Friday  5 September 2025   IDCJDW2097.202509"
+"Copyright 2003 Commonwealth Bureau of Meteorology"
+"Most observations from Nobbys Head, but cloud from Williamtown RAAF (Station No. 061078)."
+"Temperature, humidity, wind and rainfall observations are from Newcastle Nobbys Signal Station AWS {station 061055}"
+"Pressure and cloud observations are from Williamtown RAAF {station 061078}"
+
+,"Date","Minimum temperature (°C)","Maximum temperature (°C)","Rainfall (mm)","Evaporation (mm)","Sunshine (hours)","Direction of maximum wind gust ","Speed of maximum wind gust (km/h)","Time of maximum wind gust","9am Temperature (°C)","9am relative humidity (%)","9am cloud amount (oktas)","9am wind direction","9am wind speed (km/h)","9am MSL pressure (hPa)","3pm Temperature (°C)","3pm relative humidity (%)","3pm cloud amount (oktas)","3pm wind direction","3pm wind speed (km/h)","3pm MSL pressure (hPa)"
+,2025-09-1,8.3,18.4,0,,,SE,24,16:18,12.4,66,,NNW,7,1024.3,16.6,56,8,SSE,15,1020.2
+,2025-09-2,9.3,20.3,0,,,E,28,16:53,13.4,76,,NW,13,1024.4,18.1,61,5,E,15,1020.3
+,2025-09-3,10.3,21.1,0,,,WNW,43,09:16,14.4,53,,NW,22,1022.8,20.3,37,,ENE,9,1019.2
+,2025-09-4,10.8,22.9,0,,,WNW,48,13:49,14.2,56,,NW,17,1021.5,22.3,26,,NW,28,1017.1
+,2025-09-5,13.5,,0,,,,,,16.2,57,,SW,22,1026.4,17.1,65,3,SSE,31,1026.7

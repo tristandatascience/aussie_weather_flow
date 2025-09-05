@@ -1,0 +1,11 @@
+"Daily Weather Observations for Salmon Gums, Western Australia for September 2025"
+"Prepared at 08:20 UTC on Friday  5 September 2025   IDCJDW6119.202509"
+"Copyright 2003 Commonwealth Bureau of Meteorology"
+"Observations were drawn from Salmon Gums Res.Stn. {station 012071}"
+
+,"Date","Minimum temperature (°C)","Maximum temperature (°C)","Rainfall (mm)","Evaporation (mm)","Sunshine (hours)","Direction of maximum wind gust ","Speed of maximum wind gust (km/h)","Time of maximum wind gust","9am Temperature (°C)","9am relative humidity (%)","9am cloud amount (oktas)","9am wind direction","9am wind speed (km/h)","9am MSL pressure (hPa)","3pm Temperature (°C)","3pm relative humidity (%)","3pm cloud amount (oktas)","3pm wind direction","3pm wind speed (km/h)","3pm MSL pressure (hPa)"
+,2025-09-1,-1.9,22.3,0,,,NNW,39,12:03,14.8,49,,N,19,,21.9,24,,WNW,19,
+,2025-09-2,4.1,21.3,0,,,WNW,30,14:19,14.5,69,,WNW,7,,20.7,34,,WNW,13,
+,2025-09-3,2.2,21.4,0,,,SE,33,18:31,14.8,76,,NE,15,,20.4,42,,ESE,9,
+,2025-09-4,8.9,16.6,1.8,,,E,28,05:56,11.7,94,,ESE,11,,15.3,77,,ENE,4,
+,2025-09-5,6.8,,0,,,,,,14.5,79,,NW,15,,20.3,37,,NNW,17,

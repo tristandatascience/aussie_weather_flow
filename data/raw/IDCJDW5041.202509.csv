@@ -1,0 +1,12 @@
+"Daily Weather Observations for Mount Gambier, South Australia for September 2025"
+"Prepared at 07:00 UTC on Friday  5 September 2025   IDCJDW5041.202509"
+"Copyright 2003 Commonwealth Bureau of Meteorology"
+"Some cloud observations are from automated equipment; these are somewhat different to those made by a human observer and may not appear every day."
+"Observations were drawn from Mount Gambier Aero {station 026021}"
+
+,"Date","Minimum temperature (°C)","Maximum temperature (°C)","Rainfall (mm)","Evaporation (mm)","Sunshine (hours)","Direction of maximum wind gust ","Speed of maximum wind gust (km/h)","Time of maximum wind gust","9am Temperature (°C)","9am relative humidity (%)","9am cloud amount (oktas)","9am wind direction","9am wind speed (km/h)","9am MSL pressure (hPa)","3pm Temperature (°C)","3pm relative humidity (%)","3pm cloud amount (oktas)","3pm wind direction","3pm wind speed (km/h)","3pm MSL pressure (hPa)"
+,2025-09-1,6.5,15.3,1.4,,,W,37,11:57,12.2,90,1,NNW,15,1026.0,14.3,69,8,WSW,17,1023.6
+,2025-09-2,6.1,15.1,0.2,,,W,57,20:33,11.1,86,8,N,20,1019.9,14.2,69,8,NW,31,1015.7
+,2025-09-3,7.1,15.6,4.8,,,NW,54,13:13,12.9,76,1,NW,22,1015.6,13.8,61,4,WNW,39,1014.2
+,2025-09-4,7.3,12.9,7.6,,,SW,46,09:49,11.0,78,8,SW,19,1019.0,11.3,56,1,SW,26,1021.4
+,2025-09-5,-0.2,,0,,,,,,9.0,81,5,ENE,11,1029.7,14.3,53,,E,20,1025.7

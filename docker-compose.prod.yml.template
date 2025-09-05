@@ -284,9 +284,17 @@ services:
       - ./users:/app/users
       - ./plugins/weather_utils:/app/weather_utils
       - ./temp:/app/temp
-    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload --log-level debug
+    env_file:
+      - api.env
+    command: uvicorn main:app --host 0.0.0.0 --port 8000
     depends_on:
       - airflow-webserver
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:8000/docs"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
 
   prometheus:
     image: prom/prometheus:v2.37.0

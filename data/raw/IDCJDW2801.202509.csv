@@ -1,0 +1,13 @@
+"Daily Weather Observations for Canberra, Australian Capital Territory for September 2025"
+"Prepared at 05:36 UTC on Friday  5 September 2025   IDCJDW2801.202509"
+"Copyright 2003 Commonwealth Bureau of Meteorology"
+"Observations from Canberra Airport."
+"Some cloud observations are from automated equipment; these are somewhat different to those made by a human observer and may not appear every day."
+"Observations were drawn from Canberra Airport {station 070351}"
+
+,"Date","Minimum temperature (°C)","Maximum temperature (°C)","Rainfall (mm)","Evaporation (mm)","Sunshine (hours)","Direction of maximum wind gust ","Speed of maximum wind gust (km/h)","Time of maximum wind gust","9am Temperature (°C)","9am relative humidity (%)","9am cloud amount (oktas)","9am wind direction","9am wind speed (km/h)","9am MSL pressure (hPa)","3pm Temperature (°C)","3pm relative humidity (%)","3pm cloud amount (oktas)","3pm wind direction","3pm wind speed (km/h)","3pm MSL pressure (hPa)"
+,2025-09-1,-3.6,15.9,0.2,,,NNW,26,15:56,3.5,99,,NNW,6,1026.2,14.9,41,,N,15,1021.3
+,2025-09-2,1.6,16.2,0,,,NNW,39,11:48,8.2,88,8,SW,6,1024.6,14.7,47,1,NNW,26,1020.8
+,2025-09-3,1.4,16.3,0,,,NW,48,14:59,10.8,56,1,NW,20,1022.2,15.3,46,7,NW,30,1018.0
+,2025-09-4,7.8,17.5,0,,,WNW,63,15:41,13.2,49,7,NW,26,1018.4,15.8,41,1,WNW,37,1017.0
+,2025-09-5,-2.2,,0,,,,,,8.7,60,,SE,15,1028.3,15.3,37,,ENE,13,1026.8

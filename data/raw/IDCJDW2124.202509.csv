@@ -1,0 +1,15 @@
+"Daily Weather Observations for Sydney, New South Wales for September 2025"
+"Prepared at 05:36 UTC on Friday  5 September 2025   IDCJDW2124.202509"
+"Copyright 2003 Commonwealth Bureau of Meteorology"
+"Most observations from Observatory Hill, but some from Fort Denison and Sydney Airport."
+"Sydney Airport is about 10 km to the south of Observatory Hill."
+"Temperature, humidity and rainfall observations are from Sydney (Observatory Hill) {station 066214}"
+"Pressure, cloud, evaporation and sunshine observations are from Sydney Airport AMO {station 066037}"
+"Wind observations are from Fort Denison {station 066022}"
+
+,"Date","Minimum temperature (°C)","Maximum temperature (°C)","Rainfall (mm)","Evaporation (mm)","Sunshine (hours)","Direction of maximum wind gust ","Speed of maximum wind gust (km/h)","Time of maximum wind gust","9am Temperature (°C)","9am relative humidity (%)","9am cloud amount (oktas)","9am wind direction","9am wind speed (km/h)","9am MSL pressure (hPa)","3pm Temperature (°C)","3pm relative humidity (%)","3pm cloud amount (oktas)","3pm wind direction","3pm wind speed (km/h)","3pm MSL pressure (hPa)"
+,2025-09-1,9.3,20.7,0.2,4.6,10.7,W,39,08:16,13.1,56,2,W,20,1024.2,19.1,49,1,SE,17,1021.0
+,2025-09-2,10.9,20.2,32.8,4.0,8.8,NNE,37,21:32,14.9,83,6,WNW,13,1024.5,19.6,52,1,ENE,20,1020.2
+,2025-09-3,10.4,22.5,0,4.0,10.4,NNE,28,17:46,14.6,55,2,WNW,20,1022.2,22.2,29,1,W,9,1018.0
+,2025-09-4,14.1,23.6,0.2,5.0,5.2,NNW,48,14:01,16.7,43,7,NNW,20,1019.9,23.2,25,7,NW,26,1015.5
+,2025-09-5,11.2,,0,7.6,,,,,16.8,67,1,SSW,19,1027.1,18.0,50,6,SSE,20,1027.5

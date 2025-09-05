@@ -19,7 +19,7 @@ def get_stations():
         st.error(f"Error fetching stations: {e}")
         return {}
 
-# Fonction pour effectuer une prédiction
+# Fonction pour effectuer une prédiction avec le modèle de production
 def predict(station_id):
     try:
         response = requests.get(f"{BASE_URL}/predict/{station_id}")
@@ -30,6 +30,19 @@ def predict(station_id):
             return None
     except Exception as e:
         st.error(f"Error during prediction: {e}")
+        return None
+
+# Fonction pour effectuer une prédiction avec un modèle spécifique
+def predict_with_model(station_id, version):
+    try:
+        response = requests.get(f"{BASE_URL}/predict-with-model/{version}?location_id={station_id}")
+        if response.status_code == 200:
+            return response.json()
+        else:
+            st.error("Failed to get prediction with specific model")
+            return None
+    except Exception as e:
+        st.error(f"Error during prediction with specific model: {e}")
         return None
 
 # Fonction pour se connecter (Admin page)
@@ -121,7 +134,9 @@ def main():
                 station_id = stations[city]
                 prediction = predict(station_id)
                 if prediction:
-                    st.write(f"Prediction for {city}: {prediction}")
+                    st.success(f"Prédiction pour {city}:")
+                    st.write(f"- Prédiction: {'Pluie' if prediction['prediction'] == 1 else 'Pas de pluie'}")
+                    st.write(f"- Version du modèle utilisée: Production")
         else:
             st.error("No stations available")
 
@@ -163,13 +178,25 @@ def main():
                 
                 col1, col2 = st.columns(2)
                 with col1:
-                    if st.button("Charger le modèle sélectionné"):
-                        if load_model_version(selected_version):
-                            st.success(f"Modèle version {selected_version} chargé avec succès")
-                
-                with col2:
                     if st.button("Entraîner un nouveau modèle"):
                         train()
+                
+                # Section de prédiction avec le modèle sélectionné
+                st.subheader("Prédiction avec le modèle sélectionné")
+                stations = get_stations()
+                if stations:
+                    city = st.selectbox("Sélectionnez une ville pour la prédiction", options=list(stations.keys()))
+                    
+                    if st.button("Faire la prédiction avec ce modèle"):
+                        station_id = stations[city]
+                        prediction = predict_with_model(station_id, selected_version)
+                        if prediction:
+                            st.success(f"Prédiction pour {city} avec le modèle version {selected_version}:")
+                            st.write(f"- Prédiction: {'Pluie' if prediction['prediction'] == 1 else 'Pas de pluie'}")
+                            st.write(f"- Version du modèle utilisée: {prediction['model_version']}")
+                            st.write(f"- Message: {prediction['message']}")
+                else:
+                    st.error("Aucune station disponible")
 
             
         else:

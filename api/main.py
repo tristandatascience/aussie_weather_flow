@@ -14,7 +14,7 @@ import os
 import asyncio
 import base64
 import uuid
-from weather_utils.model_functions import load_df, predict_with_model, save_model
+from weather_utils.model_functions import load_df, predict_with_model
 from weather_utils.mlflow_functions import get_all_model_versions, load_specific_model_version
 from auth import (
     create_access_token,
@@ -72,9 +72,21 @@ async def login(form_data: OAuth2PasswordRequestForm = Depends()):
 @app.get("/predict/{location_id}")
 async def predict(location_id: int):
     try:
+        # Charger le modèle depuis MLflow (version Production)
+        from weather_utils.mlflow_functions import get_production_model
+        model = get_production_model()
+        
+        if model is None:
+            raise HTTPException(
+                status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+                detail="No production model available in MLflow"
+            )
+        
+        # Charger les données
         df = load_df()
         location_mapping = pd.read_csv('./data/location_mapping.csv')
-        model = joblib.load(MODEL_PATH)
+        
+        # Filtrer les données pour la location spécifique
         location_data = df[df.Location == location_id][:1]
         
         if location_data.empty:
@@ -83,8 +95,54 @@ async def predict(location_id: int):
                 detail=f"Location ID {location_id} not found"
             )
         
+        # Faire la prédiction
         prediction = predict_with_model(model, location_data)
         return {"location_id": location_id, "prediction": prediction}
+    
+    except Exception as e:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=str(e)
+        )
+
+
+@app.get("/predict-with-model/{version}")
+async def predict_with_model_version(location_id: int, version: str):
+    """
+    Fait une prédiction en utilisant un modèle spécifique chargé depuis MLflow
+    """
+    try:
+        # Charger le modèle spécifique depuis MLflow
+        from weather_utils.mlflow_functions import load_specific_model_version
+        model = load_specific_model_version(version)
+        
+        if model is None:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail=f"Modèle version {version} non trouvé"
+            )
+        
+        # Charger les données
+        df = load_df()
+        location_mapping = pd.read_csv('./data/location_mapping.csv')
+        
+        # Filtrer les données pour la location spécifique
+        location_data = df[df.Location == location_id][:1]
+        
+        if location_data.empty:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail=f"Location ID {location_id} not found"
+            )
+        
+        # Faire la prédiction avec le modèle spécifique
+        predictions = predict_with_model(model, location_data)
+        return {
+            "location_id": location_id,
+            "prediction": predictions[0],
+            "model_version": version,
+            "message": "Prédiction effectuée avec le modèle spécifique"
+        }
     
     except Exception as e:
         raise HTTPException(
@@ -223,9 +281,25 @@ def get_model_info(version: str):
 
 @app.post("/models/{version}/load")
 def load_model(version: str):
-    model = load_specific_model_version(version)
-    save_model(model)
-    if model is None:
-        raise HTTPException(status_code=404, detail="Impossible de charger cette version du modèle")
-    # Logique pour utiliser le modèle...
-    return {"message": f"Modèle version {version} chargé avec succès"}
+    """
+    Charge une version spécifique du modèle depuis MLflow
+    """
+    try:
+        # Charger le modèle spécifique depuis MLflow
+        model = load_specific_model_version(version)
+        if model is None:
+            raise HTTPException(status_code=404, detail=f"Impossible de charger la version {version} du modèle")
+        
+        return {
+            "message": f"Modèle version {version} chargé avec succès depuis MLflow",
+            "source": "MLflow",
+            "version": version,
+            "model_name": "RandomForestClassifier",
+            "note": "Le modèle est géré par MLflow, pas de sauvegarde locale nécessaire"
+        }
+        
+    except Exception as e:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=f"Erreur lors du chargement du modèle: {str(e)}"
+        )

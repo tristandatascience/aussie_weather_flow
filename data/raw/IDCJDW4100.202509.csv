@@ -1,0 +1,13 @@
+"Daily Weather Observations for Richmond Airport, Queensland for September 2025"
+"Prepared at 06:26 UTC on Friday  5 September 2025   IDCJDW4100.202509"
+"Copyright 2003 Commonwealth Bureau of Meteorology"
+"Most observations from Richmod Airport, but cloud and evaporation data from Richmond Post Office."
+"Temperature, humidity, wind, pressure and rainfall observations are from Richmond Airport {station 030161}"
+"Cloud and evaporation observations are from Richmond Post Office {station 030045}"
+
+,"Date","Minimum temperature (°C)","Maximum temperature (°C)","Rainfall (mm)","Evaporation (mm)","Sunshine (hours)","Direction of maximum wind gust ","Speed of maximum wind gust (km/h)","Time of maximum wind gust","9am Temperature (°C)","9am relative humidity (%)","9am cloud amount (oktas)","9am wind direction","9am wind speed (km/h)","9am MSL pressure (hPa)","3pm Temperature (°C)","3pm relative humidity (%)","3pm cloud amount (oktas)","3pm wind direction","3pm wind speed (km/h)","3pm MSL pressure (hPa)"
+,2025-09-1,5.2,27.7,0,,,S,33,13:46,17.0,24,,ESE,11,1019.9,26.9,11,,S,15,1014.8
+,2025-09-2,4.8,30.8,0,,,WNW,30,13:34,17.5,27,,SE,13,1018.5,30.7,12,,S,13,1014.1
+,2025-09-3,12.3,32.7,0,,,E,33,23:46,22.4,49,,E,15,1018.0,32.0,22,,ESE,15,1013.2
+,2025-09-4,15.6,33.4,0,,,E,33,00:01,23.8,49,,NE,15,1016.6,32.3,25,,S,11,1012.2
+,2025-09-5,18.5,,0,,,,,,26.3,46,,NE,17,1017.2,33.4,25,,NNW,11,1013.0

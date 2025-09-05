@@ -124,21 +124,25 @@ services:
       retries: 5
     restart: always
 
-  # This container creates the "data" in the S3 server, in which mlflow will later store the artifacts.
   mlflow-init:
     image: minio/mc
     depends_on:
-      - s3-artifact-storage
+      s3-artifact-storage:
+        condition: service_healthy
     environment:
       <<: *env-mlflow-s3
     entrypoint: >
       /bin/sh -c "
-      /usr/bin/mc config host add myminio http://s3-artifact-storage:9000 $$MINIO_ROOT_USER $$MINIO_ROOT_PASSWORD;
-      /usr/bin/mc mb myminio/data;
-      /usr/bin/mc policy download myminio/data;
+      echo 'Waiting for MinIO...';
+      sleep 5;
+      /usr/bin/mc alias set myminio http://s3-artifact-storage:9000 $$MINIO_ROOT_USER $$MINIO_ROOT_PASSWORD;
+      /usr/bin/mc mb myminio/data --ignore-existing;
+      /usr/bin/mc anonymous set download myminio/data;
+      echo 'Bucket created and configured successfully';
       exit 0;
       "
 
+      
   # This container runs the webserver for mlflow.
   mlflow-webserver:
     build: ./dockerfiles/mlflow
@@ -154,6 +158,12 @@ services:
       - postgres-mlflow
       - s3-artifact-storage
       - mlflow-init
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:5000"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
 
 
   # The redis - broker that forwards messages from scheduler to worker.
@@ -332,6 +342,8 @@ services:
     build: ./dockerfiles/api
     ports:
       - "8000:8000"
+    env_file:
+      - api.env
     volumes:
       - ./models:/app/models
       - ./data:/app/data
@@ -341,14 +353,24 @@ services:
       - ./temp:/app/temp
     environment:
       MLFLOW_TRACKING_URI: "http://mlflow-webserver:5000"
+      #SECRET_KEY: ${SECRET_KEY}
+      #USERS_PATH: ${USERS_PATH}
+      #MODEL_PATH: ${MODEL_PATH}
+      #TEMP_PATH: ${TEMP_PATH}
     command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload --log-level debug
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "-s", "http://localhost:8000/docs"]
+      interval: 30s
+      timeout: 10s
+      retries: 10
+      start_period: 60s
 
 
   prometheus:
     image: prom/prometheus:v2.37.0
     volumes:
-      - ./prometheus:/etc/prometheus:rslave
-      - prometheus-data:/prometheus:rslave
+      - ./prometheus:/etc/prometheus:ro,rslave
+      - prometheus-data:/prometheus
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
       - '--storage.tsdb.path=/prometheus'
@@ -406,8 +428,8 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - grafana-data:/var/lib/grafana:rslave
-      - ./grafana/provisioning:/etc/grafana/provisioning:rslave
+      - grafana-data:/var/lib/grafana
+      - ./grafana/provisioning:/etc/grafana/provisioning:ro,rslave
     environment:
       - GF_SECURITY_ADMIN_USER=admin
       - GF_SECURITY_ADMIN_PASSWORD=admin
@@ -415,6 +437,12 @@ services:
     restart: unless-stopped
     depends_on:
       - prometheus
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:3000/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
 
       
   frontend:
@@ -426,6 +454,12 @@ services:
     command: ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0"]
     depends_on:
       - fastapi
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:8501"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 30s
 
 
 
@@ -446,7 +480,3 @@ volumes:
 configs:
   prometheus_config:
     file: ./prometheus/prometheus.yml
-
-
-
-

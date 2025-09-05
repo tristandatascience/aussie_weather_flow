@@ -1,0 +1,14 @@
+"Daily Weather Observations for Pearce RAAF Base, Western Australia for September 2025"
+"Prepared at 08:20 UTC on Friday  5 September 2025   IDCJDW6108.202509"
+"Copyright 2003 Commonwealth Bureau of Meteorology"
+"Most observations from Pearce RAAF Base, but some from Perth Airport."
+"The mean sea level pressure at Perth Airport is provided for convenience. On most occasions it will be within 1 hPa of that at Pearce.Some cloud observations are from automated equipment; these are somewhat different to those made by a human observer and may not appear every day."
+"Temperature, humidity, wind, pressure, cloud and rainfall observations are from Pearce RAAF {station 009053}"
+"Sunshine observations are from Perth Airport {station 009021}"
+
+,"Date","Minimum temperature (°C)","Maximum temperature (°C)","Rainfall (mm)","Evaporation (mm)","Sunshine (hours)","Direction of maximum wind gust ","Speed of maximum wind gust (km/h)","Time of maximum wind gust","9am Temperature (°C)","9am relative humidity (%)","9am cloud amount (oktas)","9am wind direction","9am wind speed (km/h)","9am MSL pressure (hPa)","3pm Temperature (°C)","3pm relative humidity (%)","3pm cloud amount (oktas)","3pm wind direction","3pm wind speed (km/h)","3pm MSL pressure (hPa)"
+,2025-09-1,4.3,20.7,0,,10.5,SW,31,12:25,12.3,79,,S,6,1022.9,19.6,43,,WSW,22,1020.6
+,2025-09-2,6.6,21.2,0,,8.2,S,24,14:18,12.6,85,8,SSE,6,1023.8,20.3,49,1,SSW,15,1019.9
+,2025-09-3,6.8,22.3,0,,10.4,SW,31,15:24,15.2,63,,ESE,11,1017.7,22.0,40,,S,17,1013.2
+,2025-09-4,7.2,19.6,0,,9.7,WSW,30,13:13,13.3,79,,SW,6,1015.3,19.3,45,,WSW,17,1012.7
+,2025-09-5,9.7,,0,,,,,,16.8,70,8,N,31,1003.2,13.1,89,8,WNW,15,999.7

@@ -1,0 +1,12 @@
+"Daily Weather Observations for Coffs Harbour, New South Wales for September 2025"
+"Prepared at 05:36 UTC on Friday  5 September 2025   IDCJDW2030.202509"
+"Copyright 2003 Commonwealth Bureau of Meteorology"
+"Some cloud observations are from automated equipment; these are somewhat different to those made by a human observer and may not appear every day. Prior to February 2015, observations were recorded against Coffs Harbour MO (site number 059040)."
+"Observations were drawn from Coffs Harbour Airport {station 059151}"
+
+,"Date","Minimum temperature (°C)","Maximum temperature (°C)","Rainfall (mm)","Evaporation (mm)","Sunshine (hours)","Direction of maximum wind gust ","Speed of maximum wind gust (km/h)","Time of maximum wind gust","9am Temperature (°C)","9am relative humidity (%)","9am cloud amount (oktas)","9am wind direction","9am wind speed (km/h)","9am MSL pressure (hPa)","3pm Temperature (°C)","3pm relative humidity (%)","3pm cloud amount (oktas)","3pm wind direction","3pm wind speed (km/h)","3pm MSL pressure (hPa)"
+,2025-09-1,10.3,21.1,0,,,ENE,26,13:06,17.5,59,8,WNW,2,1024.4,19.6,59,8,NNE,17,1020.8
+,2025-09-2,9.0,20.9,0,,,S,28,10:13,18.8,63,,SW,15,1023.8,19.6,61,3,E,13,1021.5
+,2025-09-3,9.0,22.5,0,,,E,24,13:16,19.3,58,,N,9,1023.1,21.9,57,,E,17,1019.8
+,2025-09-4,7.9,26.0,0,,,NE,41,14:20,19.7,58,,NW,9,1022.7,22.1,69,,NE,22,1018.0
+,2025-09-5,8.8,,0,,,,,,21.0,39,,WSW,15,1024.8,21.1,58,,SSE,26,1024.8

@@ -1,31 +1,19 @@
-from airflow import DAG
-from airflow.operators.python import PythonOperator
-from datetime import datetime, timedelta
+from datetime import datetime
 import mlflow
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import mean_squared_error
-from airflow.utils.dates import days_ago
-from datetime import datetime, timedelta
+from sklearn.metrics import mean_squared_error, accuracy_score, precision_score, recall_score, f1_score
 import joblib
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 import os
-import datetime
 import numpy as np
 import json
 
 # Import functions from meteo_functions
-from weather_utils.model_functions import train_and_save_model
-from weather_utils.csv_to_postgres import load_csv_to_postgres
-from weather_utils.convert_to_one_csv import convert
-from weather_utils.sql_to_df import load_sql_to_df
 from weather_utils.model_functions import load_df
 
 
-# Define paths
-MODEL_PATH = "/opt/airflow/models/"
-BEST_MODEL_PATH = os.path.join(MODEL_PATH, "best_model.joblib")
+# Les chemins d'export local ont été supprimés car MLflow gère maintenant tout
 
 
 # Function to prepare data
@@ -128,7 +116,7 @@ def train_model():
         # MLflow tracking
         try:
             experiment = mlflow.set_experiment("Training Random Forest")
-            run_name = f"rf_{datetime.datetime.utcnow()}"
+            run_name = f"rf_{datetime.utcnow()}"
 
             with mlflow.start_run(run_name=run_name) as run:
                 # Log parameters and metrics
@@ -279,77 +267,7 @@ def get_best_model():
         traceback.print_exc()
         return False
 
-def export_best_model():
-    """Export best model to a shared volume"""
-    try:
-        print(f"MLflow Tracking URI: {mlflow.get_tracking_uri()}")
-
-        best_model, metrics_dict = get_best_model()
-        if best_model is not None:
-            # Créer le dossier models s'il n'existe pas
-            os.makedirs("/opt/airflow/models", exist_ok=True)
-
-            # Sauvegarder le modèle
-            model_path = "/opt/airflow/models/best_model.joblib"
-            joblib.dump(best_model, model_path)
-
-            # Sauvegarder les métadonnées
-            metadata = {
-                **metrics_dict,  # Include all metrics
-                'export_date': datetime.datetime.now().isoformat(),
-                'model_type': 'RandomForestClassifier',
-            }
-
-            metadata_path = "/opt/airflow/models/best_model_metadata.json"
-            with open(metadata_path, "w") as f:
-                json.dump(metadata, f)
-
-            print(f"Model exported successfully to {model_path}")
-            print(f"Metadata saved to {metadata_path}")
-            return True
-
-    except Exception as e:
-        print(f"Error in export_best_model: {str(e)}")
-        print("Detailed error info:")
-        import traceback
-        traceback.print_exc()
-        return False
-
-
-def export_last_model():
-    """Export best model to a shared volume"""
-    try:
-        print(f"MLflow Tracking URI: {mlflow.get_tracking_uri()}")
-
-        last_model = get_latest_model()
-        if last_model is not None:
-            # Créer le dossier models s'il n'existe pas
-            os.makedirs("/opt/airflow/models", exist_ok=True)
-
-            # Sauvegarder le modèle
-            model_path = "/opt/airflow/models/best_model.joblib"
-            joblib.dump(last_model, model_path)
-
-            # Sauvegarder les métadonnées
-            metadata = {
-                'export_date': datetime.datetime.now().isoformat(),
-                'model_type': 'RandomForestClassifier',
-            }
-
-            metadata_path = "/opt/airflow/models/best_model_metadata.json"
-            with open(metadata_path, "w") as f:
-                json.dump(metadata, f)
-
-            print(f"Model exported successfully to {model_path}")
-            print(f"Metadata saved to {metadata_path}")
-            return True
-
-    except Exception as e:
-        print(f"Error in export_last_model: {str(e)}")
-        print("Detailed error info:")
-        import traceback
-        traceback.print_exc()
-        return False
+# Les fonctions d'export local ont été supprimées car MLflow gère déjà le versioning et les métadonnées
 
 def check_mlflow_state():
     """

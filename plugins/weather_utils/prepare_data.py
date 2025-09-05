@@ -20,12 +20,10 @@ data = "./data/pandas/weatherAUS.csv"
 def cleaning():
     df = pd.read_csv(data, header=0)
     print(df.info())
-    # on parse la variable date en format datetime et on crée 3 variables
     df['Date'] = pd.to_datetime(df['Date'])
     df['Year'] = df['Date'].dt.year
     df['Month'] = df['Date'].dt.month
     df['Day'] = df['Date'].dt.day
-    # on supprime Date
     df.drop('Date', axis=1, inplace = True)
     df['RainToday'].replace({'No': 0, 'Yes': 1}, inplace=True)
     df['RainTomorrow'].replace({'No': 0, 'Yes': 1}, inplace=True)
@@ -48,13 +46,8 @@ def cleaning():
 
     for ville in df['Location'].unique():
         df_ville = pd.DataFrame(df[df['Location'] == ville])
-    
-        ## pour les valeurs nulles restantes, on remplace par la médiane
         df_ville[numerical] = df_ville[numerical].fillna(df_ville[numerical].median())
-
-        ## si la médiane est nulle, on remplace par 0
         df_ville[numerical] = df_ville[numerical].fillna(0)
-        
         df_ville = df_ville.reset_index(drop=True)
         df2 = pd.concat([df2, df_ville])
 
@@ -94,10 +87,8 @@ def cleaning():
 
 
     def get_location_mapping(df):
-        # Obtenir les codes et les valeurs uniques pour Location
         codes, uniques = pd.factorize(df['Location'])
         
-        # Créer le DataFrame de mapping
         location_mapping = pd.DataFrame({
             'Location_Name': uniques,
             'Location_Code': range(len(uniques))
@@ -105,20 +96,16 @@ def cleaning():
         
         return location_mapping
 
-    # Créer d'abord le mapping des locations
     location_mapping = get_location_mapping(df)
 
-    # Puis faire l'encodage normal
     def encode_data(feature_name):
         codes, uniques = pd.factorize(df[feature_name])
         mapping_dict = dict(zip(uniques, range(len(uniques))))
         return codes
 
-    # Application sur toutes les colonnes catégorielles
     for col in categorical:
         df[col] = encode_data(col)
 
-    # Afficher le mapping des locations
     print(location_mapping)
     df.to_csv('./data/w_clean.csv', index=False)
     location_mapping.to_csv('./data/location_mapping.csv', index=False)

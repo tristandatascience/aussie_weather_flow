@@ -8,25 +8,16 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import mean_squared_error
 from airflow.utils.dates import days_ago
 from datetime import datetime, timedelta
+import os
 
 # Import functions from meteo_functions
-from weather_utils.model_functions import train_and_save_model
+from weather_utils.model_functions import train_and_save_model, load_df
 from weather_utils.csv_to_postgres import load_csv_to_postgres
 from weather_utils.convert_to_one_csv import convert
 from weather_utils.sql_to_df import load_sql_to_df
-from weather_utils.model_functions import load_df
-from weather_utils.mlflow_functions import  prepare_data, train_model , get_best_model ,export_best_model
-from weather_utils.model_functions import train_and_save_model
-from weather_utils.csv_to_postgres import load_csv_to_postgres
-from weather_utils.sql_to_df import load_sql_to_df
+from weather_utils.mlflow_functions import prepare_data, train_model, get_best_model
 from weather_utils.acquire_data import acquire
-from weather_utils.convert_to_one_csv import convert
 from weather_utils.prepare_data import cleaning
-import joblib
-from sklearn.metrics import mean_absolute_error, r2_score
-import os
-import datetime
-import numpy as np
 
 # Define paths
 MODEL_PATH = "/opt/airflow/models/"

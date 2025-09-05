@@ -1,0 +1,12 @@
+"Daily Weather Observations for Wagga Wagga, New South Wales for September 2025"
+"Prepared at 05:36 UTC on Friday  5 September 2025   IDCJDW2139.202509"
+"Copyright 2003 Commonwealth Bureau of Meteorology"
+"Some cloud observations are from automated equipment; these are somewhat different to those made by a human observer and may not appear every day."
+"Observations were drawn from Wagga Wagga AMO {station 072150}"
+
+,"Date","Minimum temperature (°C)","Maximum temperature (°C)","Rainfall (mm)","Evaporation (mm)","Sunshine (hours)","Direction of maximum wind gust ","Speed of maximum wind gust (km/h)","Time of maximum wind gust","9am Temperature (°C)","9am relative humidity (%)","9am cloud amount (oktas)","9am wind direction","9am wind speed (km/h)","9am MSL pressure (hPa)","3pm Temperature (°C)","3pm relative humidity (%)","3pm cloud amount (oktas)","3pm wind direction","3pm wind speed (km/h)","3pm MSL pressure (hPa)"
+,2025-09-1,0.9,15.4,0,,,SW,33,15:17,5.8,98,8, ,Calm,1026.8,13.6,61,7,W,19,1023.0
+,2025-09-2,-0.8,14.9,0,,,W,28,13:33,6.8,88,7,NNE,2,1025.5,13.4,58,4,WSW,15,1022.2
+,2025-09-3,0.9,20.4,0,,,WNW,44,15:07,9.7,71,8,NE,6,1022.1,20.2,40,5,WNW,22,1017.3
+,2025-09-4,4.7,17.1,0,,,WSW,31,13:40,10.8,64,3,NW,9,1020.0,15.5,53,8,WSW,19,1018.7
+,2025-09-5,0.1,,0,,,,,,9.3,80,,SE,9,1027.6,15.8,40,,SE,6,1026.0

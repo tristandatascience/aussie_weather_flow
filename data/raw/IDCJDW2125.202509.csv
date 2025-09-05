@@ -1,0 +1,11 @@
+"Daily Weather Observations for Sydney Airport, New South Wales for September 2025"
+"Prepared at 05:36 UTC on Friday  5 September 2025   IDCJDW2125.202509"
+"Copyright 2003 Commonwealth Bureau of Meteorology"
+"Observations were drawn from Sydney Airport AMO {station 066037}"
+
+,"Date","Minimum temperature (°C)","Maximum temperature (°C)","Rainfall (mm)","Evaporation (mm)","Sunshine (hours)","Direction of maximum wind gust ","Speed of maximum wind gust (km/h)","Time of maximum wind gust","9am Temperature (°C)","9am relative humidity (%)","9am cloud amount (oktas)","9am wind direction","9am wind speed (km/h)","9am MSL pressure (hPa)","3pm Temperature (°C)","3pm relative humidity (%)","3pm cloud amount (oktas)","3pm wind direction","3pm wind speed (km/h)","3pm MSL pressure (hPa)"
+,2025-09-1,9.0,18.1,0,4.6,10.7,W,33,07:24,14.2,55,2,W,17,1024.2,17.1,60,1,S,22,1021.0
+,2025-09-2,12.1,20.5,0.8,4.0,8.8,NNE,39,16:54,16.1,74,6,W,9,1024.5,19.1,47,1,ENE,28,1020.2
+,2025-09-3,10.1,23.1,0,4.0,10.4,WNW,33,09:41,15.7,42,2,WNW,19,1022.2,22.3,27,1,WNW,13,1018.0
+,2025-09-4,14.2,24.9,0,5.0,5.2,NW,50,14:08,17.7,37,7,NNW,20,1019.9,24.1,19,7,NW,31,1015.5
+,2025-09-5,13.0,,0,7.6,,,,,16.3,73,1,SSW,24,1027.1,16.9,61,6,SSE,24,1027.5

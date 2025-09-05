@@ -1,0 +1,11 @@
+"Daily Weather Observations for Mount Ginini for September 2025"
+"Prepared at 05:36 UTC on Friday  5 September 2025   IDCJDW2804.202509"
+"Copyright 2003 Commonwealth Bureau of Meteorology"
+"Observations were drawn from Mount Ginini AWS {station 070349}"
+
+,"Date","Minimum temperature (°C)","Maximum temperature (°C)","Rainfall (mm)","Evaporation (mm)","Sunshine (hours)","Direction of maximum wind gust ","Speed of maximum wind gust (km/h)","Time of maximum wind gust","9am Temperature (°C)","9am relative humidity (%)","9am cloud amount (oktas)","9am wind direction","9am wind speed (km/h)","9am MSL pressure (hPa)","3pm Temperature (°C)","3pm relative humidity (%)","3pm cloud amount (oktas)","3pm wind direction","3pm wind speed (km/h)","3pm MSL pressure (hPa)"
+,2025-09-1,,5.4,,,,,,,-0.5,83,,,,,5.4,61,,,,
+,2025-09-2,-0.8,,0,,,,,,0.8,99,,,,,3.8,68,,,,
+,2025-09-3,,,,,,,,,-0.3,94,,,,,2.5,90,,,,
+,2025-09-4,,4.0,,,,,,,1.7,89,,,,,2.4,80,,,,
+,2025-09-5,-3.7,,0,,,,,,1.5,50,,,,,4.5,61,,,,

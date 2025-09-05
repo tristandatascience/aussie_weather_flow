@@ -1,0 +1,40 @@
+"Daily Weather Observations for Launceston, Tasmania for March 2025"
+"Prepared at 13:03 UTC on Tuesday 19 August 2025   IDCJDW7025.202503"
+"Copyright 2003 Commonwealth Bureau of Meteorology"
+"Most observations from Ti Tree Bend, but pressure and cloud from the airport."
+"Conditions at Launceston Airport may be markedly different to those in the city on some days. Some cloud observations are from automated equipment; these are somewhat different to those made by a human observer and may not appear every day."
+"Temperature, humidity, wind, pressure and rainfall observations are from Launceston (Ti Tree Bend) {station 091237}"
+"Cloud observations are from Launceston Airport {station 091311}"
+
+,"Date","Minimum temperature (°C)","Maximum temperature (°C)","Rainfall (mm)","Evaporation (mm)","Sunshine (hours)","Direction of maximum wind gust ","Speed of maximum wind gust (km/h)","Time of maximum wind gust","9am Temperature (°C)","9am relative humidity (%)","9am cloud amount (oktas)","9am wind direction","9am wind speed (km/h)","9am MSL pressure (hPa)","3pm Temperature (°C)","3pm relative humidity (%)","3pm cloud amount (oktas)","3pm wind direction","3pm wind speed (km/h)","3pm MSL pressure (hPa)"
+,2025-03-1,11.3,22.3,0,,,,,,15.5,77,,NNW,17,,21.2,56,8,NNW,24,
+,2025-03-2,12.4,24.6,0,,,,,,16.4,59,8,SE,6,,22.8,24,,S,13,
+,2025-03-3,12.0,25.3,0,,,,,,15.3,73,8,S,4,,24.1,44,,NNW,15,
+,2025-03-4,14.8,26.2,0,,,NNE,41,15:55,17.1,77,8,ESE,4,,24.4,46,8,NNW,17,
+,2025-03-5,12.3,29.2,0,,,SSE,41,22:58,19.4,69,1,ENE,6,,27.1,46,,NW,11,
+,2025-03-6,15.7,24.8,0,,,SSE,50,08:56,16.5,63,4,SSE,28,,23.2,43,8,SE,22,
+,2025-03-7,11.5,27.4,0,,,,,,15.7,69,,E,7,,26.2,36,7,NNW,13,
+,2025-03-8,12.9,27.8,0,,,,,,18.5,76,,ESE,4,,27.1,43,2,N,13,
+,2025-03-9,16.9,29.7,0,,,N,28,11:26,20.4,72,8, ,Calm,,27.4,50,6,NW,9,
+,2025-03-10,15.6,33.5,0,,,SSE,48,22:54,18.8,84,7, ,Calm,,32.6,36,,NNW,9,
+,2025-03-11,14.9,23.1,2.0,,,,,,15.7,59,7,SSE,22,,21.1,45,,ESE,7,
+,2025-03-12,13.7,19.2,0,,,WSW,35,13:33,,,8,ESE,2,,18.9,88,8,SSW,9,
+,2025-03-13,,,13.8,,,,,,17.0,96,8, ,Calm,,,,2,N,7,
+,2025-03-14,,24.8,0,,,,,,17.4,82,8,N,11,,22.8,58,,NNW,13,
+,2025-03-15,14.0,22.7,0,,,NW,33,14:33,17.1,96,8,NW,7,,21.9,66,8,NW,19,
+,2025-03-16,17.1,22.9,3.6,,,WSW,63,14:50,20.1,90,8,N,20,,20.4,35,8,SW,30,
+,2025-03-17,,19.6,0,,,,,,10.7,60,,N,2,,18.7,39,7,W,7,
+,2025-03-18,6.5,22.5,0,,,NW,33,15:29,10.6,86,,NNE,2,,21.8,53,,NW,20,
+,2025-03-19,10.4,25.3,0,,,NW,26,14:15,16.9,65,8,N,13,,24.7,46,,NW,19,
+,2025-03-20,10.6,26.1,0,,,NW,52,12:27,14.4,87,,NW,2,,23.4,58,7,NNW,20,
+,2025-03-21,14.3,21.5,0,,,SSE,48,23:11,14.8,44,8,SE,24,,19.5,39,7,W,2,
+,2025-03-22,8.0,23.6,0,,,,,,11.9,96,7,NW,7,,22.3,51,1,NNW,19,
+,2025-03-23,8.7,22.5,0,,,NW,28,13:42,12.0,86,2,E,2,,21.6,58,4,NNW,19,
+,2025-03-24,9.9,25.4,0,,,ENE,20,13:20,12.3,89,4,ENE,7,,24.1,36,,SE,6,
+,2025-03-25,9.0,24.4,0,,,,,,13.0,87,, ,Calm,,23.5,45,,NW,20,
+,2025-03-26,11.2,26.0,0,,,NW,33,16:48,14.2,80,8,E,7,,24.7,37,,W,4,
+,2025-03-27,11.0,24.7,0,,,SSE,30,23:14,16.2,55,8,ESE,7,,24.1,45,,NNW,11,
+,2025-03-28,11.9,25.0,0,,,NNW,33,15:42,15.0,88,, ,Calm,,24.6,41,,NNW,19,
+,2025-03-29,15.0,26.9,0,,,SE,61,17:07,17.2,90,3,E,6,,25.9,35,5,SE,26,
+,2025-03-30,9.8,19.1,0,,,SSE,50,12:09,13.9,52,8,SSE,24,,18.2,49,8,SSE,30,
+,2025-03-31,11.2,19.3,0,,,SE,46,10:08,13.3,67,6,SE,20,,17.8,45,7,SE,26,
