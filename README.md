@@ -112,6 +112,4 @@ Projet sous licence MIT (voir fichier LICENSE).
 
 ---
 
-_Badges générés via shields.io_
-
-Projet réalisé par Tristan DataScience.
+Projet réalisé par Tristan Lozahic.
