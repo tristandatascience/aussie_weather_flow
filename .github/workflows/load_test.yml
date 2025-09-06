@@ -7,8 +7,7 @@ on:
     branches: [main]
 
 env:
-  VERSION: '0.4'
-  DOCKERHUB_REPOSITORY: 'mlops-meteo'
+  DOCKERHUB_REPOSITORY: 'aussie_weather_flow'
 
 jobs:
   test:
@@ -45,6 +44,59 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+      - name: Get next version
+        id: version
+        run: |
+          # Fonction pour obtenir la dernière version d'une image
+          get_latest_version() {
+            local image_suffix=$1
+            local repo="${{ secrets.DOCKERHUB_USERNAME }}/${{ env.DOCKERHUB_REPOSITORY }}"
+            
+            # Récupérer les tags via l'API Docker Hub
+            local response=$(curl -s "https://registry.hub.docker.com/v2/repositories/${repo}/tags/?page_size=100")
+            
+            # Extraire les versions pour cette image spécifique
+            local versions=$(echo "$response" | jq -r --arg suffix "$image_suffix" '.results[] | select(.name | contains($suffix)) | .name' | grep -E "${image_suffix}-[0-9]+\.[0-9]+" | sed "s/${image_suffix}-//" | sort -V)
+            
+            if [ -z "$versions" ]; then
+              echo "0.0"
+            else
+              echo "$versions" | tail -1
+            fi
+          }
+          
+          # Obtenir la version la plus élevée parmi toutes les images
+          declare -a IMAGE_SUFFIXES=("airflow-base" "fastapi" "mlflow-webserver" "frontend")
+          HIGHEST_VERSION="0.0"
+          
+          for suffix in "${IMAGE_SUFFIXES[@]}"; do
+            version=$(get_latest_version "$suffix")
+            echo "Latest version for $suffix: $version"
+            
+            # Comparer les versions (simple comparaison numérique)
+            if [ "$(printf '%s\n' "$HIGHEST_VERSION" "$version" | sort -V | tail -n1)" = "$version" ]; then
+              HIGHEST_VERSION="$version"
+            fi
+          done
+          
+          echo "Highest existing version: $HIGHEST_VERSION"
+          
+          # Incrémenter la version
+          if [ "$HIGHEST_VERSION" = "0.0" ]; then
+            NEW_VERSION="0.1"
+          else
+            # Extraire major et minor
+            MAJOR=$(echo "$HIGHEST_VERSION" | cut -d. -f1)
+            MINOR=$(echo "$HIGHEST_VERSION" | cut -d. -f2)
+            
+            # Incrémenter la version mineure
+            NEW_MINOR=$((MINOR + 1))
+            NEW_VERSION="${MAJOR}.${NEW_MINOR}"
+          fi
+          
+          echo "New version: $NEW_VERSION"
+          echo "version=$NEW_VERSION" >> $GITHUB_OUTPUT
+
       - name: Build Images
         run: |
           # Définir les images et leurs chemins
@@ -67,6 +119,9 @@ jobs:
 
       - name: Tag and Push Images
         run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          echo "Using version: $VERSION"
+          
           for IMAGE in mlops-meteo-airflow-base mlops-meteo-fastapi mlops-meteo-mlflow-webserver mlops-meteo-frontend; do
             # Récupérer l'ID de l'image
             IMAGE_ID=$(docker images "$IMAGE" --format "{{.ID}}" | head -n 1)
@@ -74,7 +129,7 @@ jobs:
             if [ -n "$IMAGE_ID" ]; then
               # Extraire le nom sans le préfixe
               IMAGE_NAME="${IMAGE##mlops-meteo-}"
-              NEW_IMAGE="${{ secrets.DOCKERHUB_USERNAME }}/${{ env.DOCKERHUB_REPOSITORY }}:${IMAGE_NAME}-${{ env.VERSION }}"
+              NEW_IMAGE="${{ secrets.DOCKERHUB_USERNAME }}/${{ env.DOCKERHUB_REPOSITORY }}:${IMAGE_NAME}-${VERSION}"
               
               # Tag et push
               docker tag "$IMAGE_ID" "$NEW_IMAGE"
@@ -83,3 +138,11 @@ jobs:
               echo "Pushed $NEW_IMAGE"
             fi
           done
+
+      - name: Create Git Tag
+        run: |
+          VERSION="${{ steps.version.outputs.version }}"
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git tag -a "v${VERSION}" -m "Release version ${VERSION}"
+          git push origin "v${VERSION}"
