@@ -1,115 +1,103 @@
 # AussieWeatherFlow
 
-**Pipeline automatisé de prévision météo (pluie à J+1) en Australie, avec déploiement et monitoring MLOps.**
+**Pipeline automatisé de prévision météo (pluie à J+1) en Australie avec déploiement MLOps complet**
+
+## 🛠️ Stack Technique
+
+![Python](https://img.shields.io/badge/Python-3.8+-blue?logo=python&logoColor=white)
+![Airflow](https://img.shields.io/badge/Apache%20Airflow-017CEE?logo=apache-airflow&logoColor=white)
+![MLflow](https://img.shields.io/badge/MLflow-0194E2?logo=mlflow&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?logo=fastapi&logoColor=white)
+![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?logo=streamlit&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?logo=postgresql&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white)
+![Prometheus](https://img.shields.io/badge/Prometheus-E6522C?logo=prometheus&logoColor=white)
+![Grafana](https://img.shields.io/badge/Grafana-F46800?logo=grafana&logoColor=white)
 
 ---
 
-## Table des matières
+## 🎯 Vue d'ensemble
 
-- [Description](#description)
-- [Architecture du projet](#architecture-du-projet)
-- [Flux Airflow (DAGs)](#flux-airflow-dags)
-- [Technologies utilisées](#technologies-utilisées)
-- [Installation & Utilisation](#installation--utilisation)
-- [Accès aux services](#accès-aux-services)
-- [CI/CD](#cicd)
-- [Monitoring](#monitoring)
-- [Licence](#licence)
+Pipeline ML end-to-end automatisant la prédiction de pluie en Australie :
+- **Collecte automatisée** des données météo
+- **Entraînement** et sélection du meilleur modèle (Random Forest)
+- **Déploiement continu** avec API REST et interface utilisateur
+- **Monitoring** complet des performances
 
----
+## 🏗️ Architecture
 
-## Description
+![Architecture AussieWeatherFlow](./doc/images/FluxAussieWeatherFlow.svg)
 
-Ce projet prédit la probabilité de pluie le lendemain pour une ville australienne, en automatisant tout le cycle de Machine Learning :
-- **Collecte** et **ETL** des données météo.
-- Entraînement et sélection automatique du meilleur modèle (Random Forest).
-- Déploiement continu (API, dashboards, monitoring).
-- **Portabilité** et reproductibilité garanties via Docker.
+**Flux de données :** Scraping → ETL/Airflow → PostgreSQL → MLflow → API FastAPI → Dashboard Streamlit → Monitoring
 
----
+## 🔄 Pipelines Airflow
 
-## Architecture du projet
+### DAGs et orchestration
 
-![Schéma d'architecture AussieWeatherFlow](./doc/images/architecture_aussieweatherflow.png)
+| DAG | Fréquence | Description |
+|-----|-----------|-------------|
+| **Collecte quotidienne** | Quotidien | Scraping, nettoyage, insertion BDD |
+| **Entraînement** | Hebdomadaire | Training, validation, déploiement auto |
+| **Pipeline unifié** | Manuel | Orchestration complète via Streamlit |
+| **Tests** | À la demande | Validation pipelines et modèles |
 
-*(Ce schéma met en avant la chaîne complète : Scraping ➔ ETL/Airflow ➔ BDD PostgreSQL ➔ MLflow (Entraînement/Suivi modèles) ➔ Service d’inférence via API FastAPI ➔ Dashboard Streamlit ➔ Monitoring Prometheus/Grafana. À générer vous-même via draw.io/diagrams.net ou outils similaires.)*
+### Fonctionnalités détaillées
 
----
+**🔍 DAG Collecte :**
+- **Task 1** : Scraping données météo depuis sources publiques
+- **Task 2** : Nettoyage et validation des données (valeurs aberrantes, données manquantes)
+- **Task 3** : Feature engineering (calculs dérivés, encodage)
+- **Task 4** : Insertion en base PostgreSQL avec contrôles d'intégrité
 
-## Flux Airflow (DAGs)
+**🤖 DAG Entraînement :**
+- **Task 1** : Extraction des données depuis PostgreSQL avec fenêtre temporelle
+- **Task 2** : Préparation des features (normalisation, split train/test)
+- **Task 3** : Entraînement Random Forest avec hyperparamètres optimisés
+- **Task 4** : **Sélection automatique** : comparaison F1-score avec modèle en production
+- **Task 5** : Déploiement automatique si performance supérieure (MLflow Model Registry)
 
-- **DAG Collecte quotidienne** : Scraping, nettoyage, insertion en BDD.
-- **DAG Entraînement hebdomadaire** : Chargement depuis la base, entraînement Random Forest, comparaison au modèle précédent (F1-score), déploiement du meilleur modèle.
-- **DAG unifié (manuel)** : Lancements combinés pour update “one-click” via Streamlit.
-- **DAGs tests** : Validation du fonctionnement des pipelines et du modèle.
+**⚡ Exécution à la demande :**
+- **Airflow UI** : Trigger manuel de n'importe quel DAG
+- **Interface Streamlit** : 
+  - Lancement pipeline complet en un clic
+  - **Sélection de modèles** : choix parmi tous les modèles MLflow
+  - **Comparaison interactive** : métriques côte-à-côte, courbes ROC
+  - **Rollback** : retour à un modèle précédent si nécessaire
 
----
+**🎯 Principe de sélection du meilleur modèle :**
+1. **Métriques primaires** : F1-score, Precision, Recall sur jeu de test
+2. **Seuil de performance** : amélioration minimale de 1% pour déploiement
 
-## Technologies utilisées
+## 🚀 Démarrage rapide
 
-- **Python 3.8+**
-- **Airflow** (orchestration, ETL, scheduling)
-- **MLflow** (suivi, gestion des modèles)
-- **FastAPI** (API d'inférence REST)
-- **Streamlit** (interface utilisateur/admin)
-- **PostgreSQL** (stockage des data préparées)
-- **Prometheus & Grafana** (monitoring, dashboards)
-- **Docker & Docker Compose** (containerisation)
-- **GitHub Actions** (CI/CD, build, tests, déploiement continu)
-
----
-
-## Installation & Utilisation
-
-**Pré-requis**
-- Docker / Docker Compose
-- GNU Make
-
-**Installation (mode production)**
-```
+```bash
+# Production
 make -f Makefile.prod init-airflow
 make -f Makefile.prod start
-```
-**Installation (mode développement)**
-```
+
+# Développement  
 make -f Makefile.dev init-airflow
 make -f Makefile.dev start
 ```
 
----
+## 🌐 Services disponibles
 
-## Accès aux services
+| Service | URL | Description |
+|---------|-----|-------------|
+| **Airflow** | [localhost:8080](http://localhost:8080) | Orchestration des pipelines |
+| **MLflow** | [localhost:5000](http://localhost:5000) | Gestion des modèles ML |
+| **API** | [localhost:8000/docs](http://localhost:8000/docs) | Documentation API interactive |
+| **Dashboard** | [localhost:8501](http://localhost:8501) | Interface utilisateur |
+| **Monitoring** | [localhost:3000](http://localhost:3000) | Dashboards Grafana |
 
-| Service    | Port               | Usage                                                             |
-|------------|--------------------|-------------------------------------------------------------------|
-| Airflow    | localhost:8080     | Orchestration et supervision des pipelines                        |
-| MLflow     | localhost:5000     | Visualisation, gestion des modèles ML                             |
-| FastAPI    | localhost:8000/docs| Documentation interactive et test de l’API d’inférence            |
-| Streamlit  | localhost:8501     | Interface utilisateur/prédiction et panneau admin                 |
-| Grafana    | localhost:3000     | Dashboards de monitoring système et application                   |
+## 🔧 CI/CD & Monitoring
 
----
-
-## CI/CD
-
-Le projet intègre un pipeline **GitHub Actions** qui :
-- Exécute tous les tests unitaires à chaque push/PR,
-- Construit puis pousse les images Docker sur Docker Hub si les tests sont validés.
+- **GitHub Actions** : Tests automatisés + build Docker
+- **Prometheus/Grafana** : Monitoring système et performances ML via Node Exporter
+- **Docker** : Déploiement containerisé reproductible
 
 ---
 
-## Monitoring
+## 📄 Licence
 
-- **Prometheus** collecte toutes les métriques sur les services et la plateforme.
-- **Grafana** permet de visualiser et d’alerter sur l’état du système et des performances modèles/services.
-- Accès principal à Grafana via [http://localhost:3000](http://localhost:3000)
-
----
-
-## Licence
-
-Projet sous licence MIT (voir fichier LICENSE).
-
----
-
-Projet réalisé par Tristan Lozahic.
+MIT License - Projet réalisé par **Tristan Lozahic**
