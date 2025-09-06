@@ -2,15 +2,15 @@
 
 # Définir les variables
 DOCKERHUB_USERNAME='tristandatascience'
-DOCKERHUB_REPOSITORY='mlops-meteo'
-VERSION='0.4'
+DOCKERHUB_REPOSITORY='aussie_weather_flow'
+VERSION='0.2'
 
 # Installation de yq
 if ! command -v yq &> /dev/null; then
     echo "Installation de yq..."
     # Pour Linux
     if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-        wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O /usr/bin/yq && chmod +x /usr/bin/yq
+        sudo wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O /usr/bin/yq && sudo chmod +x /usr/bin/yq
     # Pour MacOS
     elif [[ "$OSTYPE" == "darwin"* ]]; then
         brew install yq
@@ -20,8 +20,14 @@ if ! command -v yq &> /dev/null; then
     fi
 fi
 
-# Copier le template vers docker-compose.yml
-cp docker-compose.dev.yml.template docker-compose.prod.yml
+# Vérifier si le template existe, sinon utiliser le fichier dev existant
+if [ -f "docker-compose.dev.yml.template" ]; then
+    cp docker-compose.dev.yml.template docker-compose.prod.yml
+    echo "Utilisation de docker-compose.dev.yml.template"
+else
+    cp docker-compose.dev.yml docker-compose.prod.yml
+    echo "Utilisation de docker-compose.dev.yml (template non trouvé)"
+fi
 
 # Remplacer le build par l'image pour x-airflow-common
 yq eval -i '

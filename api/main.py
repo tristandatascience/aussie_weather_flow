@@ -97,7 +97,18 @@ async def predict(location_id: int):
         
         # Faire la prédiction
         prediction = predict_with_model(model, location_data)
-        return {"location_id": location_id, "prediction": prediction}
+        
+        # Récupérer les informations du modèle de production
+        from weather_utils.mlflow_functions import get_all_model_versions
+        models = get_all_model_versions()
+        production_model = next((m for m in models if m.get('status') == 'Production'), None)
+        
+        return {
+            "location_id": location_id,
+            "prediction": prediction,
+            "model_version": production_model.get('version') if production_model else None,
+            "model_info": production_model
+        }
     
     except Exception as e:
         raise HTTPException(
@@ -106,7 +117,30 @@ async def predict(location_id: int):
         )
 
 
-@app.get("/predict-with-model/{version}")
+@app.get("/models/production")
+async def get_production_model_info():
+    try:
+        from weather_utils.mlflow_functions import get_all_model_versions
+        models = get_all_model_versions()
+        
+        production_model = next((m for m in models if m.get('status') == 'Production'), None)
+        
+        if production_model is None:
+            raise HTTPException(
+                status_code=status.HTTP_404_NOT_FOUND,
+                detail="No production model found"
+            )
+        
+        return production_model
+    
+    except Exception as e:
+        raise HTTPException(
+            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            detail=str(e)
+        )
+
+
+@app.get("/predict-with-model/{version}/{location_id}")
 async def predict_with_model_version(location_id: int, version: str):
     """
     Fait une prédiction en utilisant un modèle spécifique chargé depuis MLflow

@@ -3,7 +3,7 @@
 # Définir les variables nécessaires
 VERSION='0.2'
 DOCKERHUB_USERNAME='tristandatascience'  # À remplacer par votre nom d'utilisateur Docker Hub
-DOCKERHUB_REPOSITORY='mlops-meteo'          # À remplacer par le nom de votre dépôt sur Docker Hub
+DOCKERHUB_REPOSITORY='aussie_weather_flow'          # À remplacer par le nom de votre dépôt sur Docker Hub
 
 # Se connecter à Docker Hub
 docker login

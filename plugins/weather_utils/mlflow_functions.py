@@ -327,11 +327,16 @@ def get_all_model_versions():
         
         models_info = []
         for rm in registered_models:
-            versions = client.get_latest_versions(rm.name)
-            for version in versions:
+            # Récupérer TOUTES les versions du modèle, pas seulement les dernières
+            all_versions = client.search_model_versions(f"name='{rm.name}'")
+            
+            for version in all_versions:
                 # Récupérer les métriques pour cette version
-                run = client.get_run(version.run_id)
-                metrics = run.data.metrics
+                try:
+                    run = client.get_run(version.run_id)
+                    metrics = run.data.metrics
+                except:
+                    metrics = {}
                 
                 # Formater la date de création
                 creation_timestamp = datetime.fromtimestamp(version.creation_timestamp / 1000.0)
@@ -340,8 +345,9 @@ def get_all_model_versions():
                 model_info = {
                     "name": rm.name,
                     "version": version.version,
-                    "status": version.status,
+                    "status": version.current_stage,
                     "creation_date": formatted_date,
+                    "run_id": version.run_id,
                     "metrics": {
                         "accuracy": metrics.get("accuracy", None),
                         "precision": metrics.get("precision", None),
@@ -353,6 +359,9 @@ def get_all_model_versions():
                     }
                 }
                 models_info.append(model_info)
+        
+        # Trier par version (numérique)
+        models_info.sort(key=lambda x: int(x["version"]))
         
         return models_info
     except Exception as e:
