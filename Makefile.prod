@@ -1,8 +1,21 @@
+# Variables Docker
+DOCKER_REGISTRY ?= tristandatascience
+DOCKER_REPOSITORY ?= aussie_weather_flow
+IMAGE_TAG ?= 0.2
+
+# Export des variables pour docker-compose
+export DOCKER_REGISTRY
+export DOCKER_REPOSITORY
+export IMAGE_TAG
+
 init-airflow:
 	mkdir -p ./logs ./data ./data/raw ./data/digest ./data/pandas 
 	chmod -R 755  ./data ./data/raw ./data/digest ./data/pandas ./prometheus ./grafana ./grafana/provisioning/datasources ./grafana/provisioning/dashboards
 	@echo AIRFLOW_UID=$(shell id -u) > .env
-	docker compose  -f docker-compose.prod.yml up airflow-init
+	@echo DOCKER_REGISTRY=$(DOCKER_REGISTRY) >> .env
+	@echo DOCKER_REPOSITORY=$(DOCKER_REPOSITORY) >> .env
+	@echo IMAGE_TAG=$(IMAGE_TAG) >> .env
+	docker compose -f docker-compose.prod.yml up airflow-init
 
 start:
 	docker compose -f docker-compose.prod.yml up
@@ -23,3 +36,7 @@ del-containers-and-images:
 
 free-space:
 	df -h
+
+set-tag:
+	@echo "Usage: make set-tag IMAGE_TAG=0.3"
+	@echo "Current tag: $(IMAGE_TAG)"
