@@ -1,0 +1,160 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900">
+  <!-- Background -->
+  <rect width="1400" height="900" fill="#f8f9fa"/>
+  
+  <!-- Title -->
+  <text x="700" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#2c3e50">
+    AussieWeatherFlow - Architecture MLOps
+  </text>
+  
+  <!-- Layer 1: Data Sources & Storage -->
+  <g id="layer1">
+    <!-- Data Sources -->
+    <rect x="50" y="100" width="180" height="120" rx="10" fill="#e3f2fd" stroke="#1976d2" stroke-width="2"/>
+    <text x="140" y="125" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#1976d2">SOURCES DONNÉES</text>
+    <text x="140" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">Web Scraping</text>
+    <text x="140" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">APIs Météo</text>
+    <text x="140" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">Données Australie</text>
+    
+    <!-- PostgreSQL Database -->
+    <rect x="50" y="280" width="180" height="100" rx="10" fill="#fff3e0" stroke="#f57c00" stroke-width="2"/>
+    <text x="140" y="305" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#f57c00">PostgreSQL</text>
+    <text x="140" y="325" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">Base de données</text>
+    <text x="140" y="345" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">Données nettoyées</text>
+  </g>
+  
+  <!-- Layer 2: Orchestration -->
+  <g id="layer2">
+    <!-- Airflow Orchestration -->
+    <rect x="350" y="150" width="200" height="180" rx="10" fill="#e8f5e8" stroke="#4caf50" stroke-width="2"/>
+    <text x="450" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#4caf50">AIRFLOW</text>
+    <text x="450" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">Orchestration</text>
+    
+    <!-- DAGs -->
+    <rect x="370" y="210" width="160" height="25" rx="5" fill="#c8e6c9" stroke="#4caf50"/>
+    <text x="450" y="227" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#333">DAG Collecte (Quotidien)</text>
+    
+    <rect x="370" y="245" width="160" height="25" rx="5" fill="#c8e6c9" stroke="#4caf50"/>
+    <text x="450" y="262" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#333">DAG Entraînement (Hebdo)</text>
+    
+    <rect x="370" y="280" width="160" height="25" rx="5" fill="#c8e6c9" stroke="#4caf50"/>
+    <text x="450" y="297" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#333">DAG Tests (Manuel)</text>
+  </g>
+  
+  <!-- Layer 3: ML Management -->
+  <g id="layer3">
+    <!-- MLflow -->
+    <rect x="350" y="400" width="200" height="120" rx="10" fill="#fff8e1" stroke="#ffc107" stroke-width="2"/>
+    <text x="450" y="425" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffc107">MLflow</text>
+    <text x="450" y="445" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">Gestion des modèles</text>
+    <text x="450" y="465" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">Random Forest</text>
+    <text x="450" y="485" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">Sélection auto (F1-score)</text>
+    <text x="450" y="505" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">Model Registry</text>
+  </g>
+  
+  <!-- Layer 4: API & Services -->
+  <g id="layer4">
+    <!-- FastAPI -->
+    <rect x="650" y="250" width="180" height="100" rx="10" fill="#e1f5fe" stroke="#0288d1" stroke-width="2"/>
+    <text x="740" y="275" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#0288d1">FastAPI</text>
+    <text x="740" y="295" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">API REST</text>
+    <text x="740" y="315" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">Prédictions météo</text>
+    <text x="740" y="335" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">Documentation auto</text>
+  </g>
+  
+  <!-- Layer 5: User Interface & Monitoring -->
+  <g id="layer5">
+    <!-- Streamlit Dashboard -->
+    <rect x="950" y="150" width="180" height="140" rx="10" fill="#fce4ec" stroke="#e91e63" stroke-width="2"/>
+    <text x="1040" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#e91e63">Streamlit</text>
+    <text x="1040" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">Interface utilisateur</text>
+    <text x="1040" y="215" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#333">• Prédictions</text>
+    <text x="1040" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#333">• Sélection modèles</text>
+    <text x="1040" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#333">• Comparaisons</text>
+    <text x="1040" y="275" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#333">• Pipeline manuel</text>
+    
+    <!-- Monitoring -->
+    <rect x="950" y="350" width="180" height="120" rx="10" fill="#f3e5f5" stroke="#9c27b0" stroke-width="2"/>
+    <text x="1040" y="375" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#9c27b0">MONITORING</text>
+    <text x="1040" y="395" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">Prometheus</text>
+    <text x="1040" y="415" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">Grafana</text>
+    <text x="1040" y="435" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">Node Exporter</text>
+    <text x="1040" y="455" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">Alertes</text>
+    
+    <!-- Access Control -->
+    <rect x="950" y="520" width="180" height="100" rx="10" fill="#e8eaf6" stroke="#3f51b5" stroke-width="2"/>
+    <text x="1040" y="545" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#3f51b5">ACCÈS - RÔLES</text>
+    <text x="1040" y="565" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">Token</text>
+    <text x="1040" y="585" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">User simple</text>
+    <text x="1040" y="605" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#689f38">Administrateur</text>
+  </g>
+  
+  <!-- Bottom Layer: Development -->
+  <g id="dev-layer">
+    <!-- Development Environment -->
+    <rect x="50" y="650" width="180" height="120" rx="10" fill="#f1f8e9" stroke="#689f38" stroke-width="2"/>
+    <text x="140" y="675" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#689f38">ENVIRONNEMENT DEV</text>
+    <text x="140" y="695" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">GitHub</text>
+    <text x="140" y="715" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">VSCode</text>
+    <text x="140" y="735" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">Python - SQL</text>
+    <text x="140" y="755" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">Docker</text>
+    
+    <!-- CI/CD -->
+    <rect x="350" y="650" width="200" height="120" rx="10" fill="#fff3e0" stroke="#ff9800" stroke-width="2"/>
+    <text x="450" y="675" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ff9800">CI/CD</text>
+    <text x="450" y="695" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">GitHub Actions</text>
+    <text x="450" y="715" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">Tests automatisés</text>
+    <text x="450" y="735" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">Build Docker</text>
+    <text x="450" y="755" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#333">Déploiement auto</text>
+  </g>
+  
+  <!-- Arrows with better routing -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2196f3"/>
+    </marker>
+  </defs>
+  
+  <!-- Main horizontal flow -->
+  <!-- Data Sources to Airflow -->
+  <path d="M 230 160 L 280 160 L 280 200 L 350 200" stroke="#2196f3" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Database to Airflow -->
+  <path d="M 230 320 L 280 320 L 280 280 L 350 280" stroke="#2196f3" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Airflow to MLflow -->
+  <path d="M 450 330 L 450 400" stroke="#2196f3" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- MLflow to FastAPI -->
+  <path d="M 550 460 L 600 460 L 600 300 L 650 300" stroke="#2196f3" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- FastAPI to Streamlit -->
+  <path d="M 830 300 L 880 300 L 880 220 L 950 220" stroke="#2196f3" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Vertical flows -->
+  <!-- Data Sources to Database -->
+  <path d="M 140 220 L 140 280" stroke="#ff9800" stroke-width="3" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Streamlit to Monitoring -->
+  <path d="M 1040 290 L 1040 350" stroke="#9c27b0" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Streamlit to Access -->
+  <path d="M 1040 470 L 1040 520" stroke="#3f51b5" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- Development flows -->
+  <!-- Dev to CI/CD -->
+  <path d="M 230 710 L 350 710" stroke="#689f38" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  
+  <!-- CI/CD feedback to Airflow -->
+  <path d="M 450 650 L 450 580 L 300 580 L 300 240 L 350 240" stroke="#ff9800" stroke-width="2" fill="none" marker-end="url(#arrowhead)" stroke-dasharray="5,5"/>
+  
+  <!-- Flow labels -->
+  <text x="305" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#2196f3">Scraping</text>
+  <text x="305" y="310" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#2196f3">ETL</text>
+  <text x="470" y="375" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#2196f3">Training</text>
+  <text x="600" y="380" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#2196f3">Deploy</text>
+  <text x="890" y="260" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#2196f3">API REST</text>
+  <text x="160" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ff9800">Stockage</text>
+  <text x="290" y="695" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#689f38">Build</text>
+  <text x="1060" y="325" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#9c27b0">Metrics</text>
+</svg>
