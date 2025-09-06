@@ -61,7 +61,7 @@ Pipeline ML end-to-end automatisant la prédiction de pluie en Australie :
 - **Interface Streamlit** : 
   - Lancement pipeline complet en un clic
   - **Sélection de modèles** : choix parmi tous les modèles MLflow
-  - **Comparaison interactive** : métriques côte-à-côte, courbes ROC
+  - **Comparaison interactive** : métriques côte-à-côte
   - **Rollback** : retour à un modèle précédent si nécessaire
 
 **🎯 Principe de sélection du meilleur modèle :**
